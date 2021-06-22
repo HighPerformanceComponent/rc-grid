@@ -1,5 +1,5 @@
-.yarn
-.pnp.js
-.yarnrc.yml
 node_modules
+
 .husky
+
+yarn.lock
