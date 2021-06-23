@@ -1,11 +1,10 @@
 {
-    "name": "table",
+    "name": "react-dom-grid",
     "version": "1.0.0",
     "license": "MIT",
     "scripts": {
         "start": "start-storybook -p 8000",
         "build-storybook": "build-storybook",
-        "eslint": "eslint --ext .js,.jsx,.ts,.tsx",
         "prepare": "husky install"
     },
     "dependencies": {
@@ -20,7 +19,9 @@
         "@storybook/addon-links": "^6.2.9",
         "@storybook/react": "^6.2.9",
         "@testing-library/react": "^11.2.7",
+        "@types/lodash": "^4.14.170",
         "@types/react": "^17.0.11",
+        "@types/styled-components": "^5.1.10",
         "@typescript-eslint/eslint-plugin": "^4.28.0",
         "@typescript-eslint/parser": "^4.28.0",
         "babel-loader": "^8.2.2",
@@ -42,7 +43,7 @@
         "webpack": "^5.39.1"
     },
     "lint-staged": {
-        "**/*.{js,jsx,ts,tsx}": "eslint:fix",
+        "**/*.{js,jsx,ts,tsx}": "eslint --ext .js,.jsx,.ts,.tsx",
         "**/*.{js,jsx,tsx,ts,less,md,json}": [
             "prettier --write"
         ]
