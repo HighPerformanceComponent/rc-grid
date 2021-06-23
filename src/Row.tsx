@@ -9,6 +9,16 @@ const GridRow = styled.div`
 
 const GridCell = styled.div`
     position: absolute;
+    height: 100%;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+`
+
+const CellBody = styled.div`
+    padding: 0px 8px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 `
 
 interface RowProps<R>
@@ -52,7 +62,7 @@ function Row<R>({
                         width: columnWidth,
                     }}
                 >
-                    {txt}
+                    <CellBody>{txt}</CellBody>
                 </GridCell>
             )
             left += columnWidth

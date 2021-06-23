@@ -8,6 +8,7 @@ import Context, { reducer } from './Context'
 const Grid = styled.div`
     position: relative;
     overflow: auto;
+    border: 1px solid #ddd;
 `
 
 type SharedDivProps = Pick<
@@ -90,6 +91,7 @@ function DataGrid<R>({
                     style={{
                         height: row.height,
                         top,
+                        lineHeight: `${row.height}px`,
                     }}
                 />
             )

@@ -19,7 +19,7 @@ for (let i = 0; i < 1000; i += 1) {
         data[`${y}`] = `${i} - ${y}`
     }
     rows.push({
-        height: 50,
+        height: 35,
         key: `${i}`,
         data,
     })
