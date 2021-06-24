@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import type { Row, Column } from './types'
 import DataGridRow from './Row'
+import HeaderRow from './HeaderRow'
 import Context, { reducer } from './Context'
 
 const Grid = styled.div`
@@ -25,6 +26,8 @@ export interface DataGridProps<R> extends SharedDivProps {
     height?: number
     /** 表格的宽度信息 */
     width?: number
+    /** 表格 header 的默认高度 */
+    headerRowHeight?: number
     /** 预估表格的行的平均值 */
     estimatedRowHeight?: number
     /** 预估表格的列的平均值 */
@@ -42,6 +45,7 @@ function DataGrid<R>({
     columns,
     estimatedRowHeight = 50,
     estimatedColumnWidth = 120,
+    headerRowHeight = 35,
     cacheRemoveCount = 5,
 }: DataGridProps<R>) {
     const [state, dispatch] = useReducer(reducer, {
@@ -75,6 +79,23 @@ function DataGrid<R>({
     const renderRow = () => {
         const domRows: Array<ReactNode> = []
         let top = startRowTop.current
+        domRows.push(
+            <HeaderRow
+                key="header"
+                columns={columns}
+                estimatedColumnWidth={estimatedColumnWidth}
+                width={width}
+                cacheRemoveCount={cacheRemoveCount}
+                style={{
+                    height: headerRowHeight,
+                    top,
+                    lineHeight: `${headerRowHeight}px`,
+                }}
+            />
+        )
+
+        top += headerRowHeight
+
         rows.some((row) => {
             if (top < scrollTop - estimatedRowHeight * cacheRemoveCount) {
                 top += row.height
@@ -115,7 +136,7 @@ function DataGrid<R>({
         if (currentTarget) {
             if (
                 Math.abs(currentTarget.scrollTop - lastScrollTop.current) >
-                estimatedRowHeight * cacheRemoveCount
+                estimatedRowHeight * (cacheRemoveCount / 2)
             ) {
                 setScrollTop(currentTarget.scrollTop)
                 lastScrollTop.current = currentTarget.scrollTop
@@ -123,7 +144,7 @@ function DataGrid<R>({
 
             if (
                 Math.abs(currentTarget.scrollLeft - lastScrollLeft.current) >
-                estimatedColumnWidth * cacheRemoveCount
+                estimatedColumnWidth * (cacheRemoveCount / 2)
             ) {
                 dispatch({
                     type: 'setScrollLeft',

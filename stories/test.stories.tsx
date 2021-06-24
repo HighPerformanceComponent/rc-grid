@@ -9,7 +9,7 @@ const columns: Array<Column<unknown>> = []
 for (let i = 0; i < 1000; i += 1) {
     columns.push({
         name: `${i}`,
-        title: `${i}`,
+        title: `字段 - ${i}`,
     })
 }
 

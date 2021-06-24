@@ -1,13 +1,15 @@
-import React, { ReactNode, useContext } from 'react'
+import React, { useContext, ReactNode } from 'react'
 import styled from 'styled-components'
-import { Column, Row as RowType } from './types'
+import { Column } from './types'
 import Context from './Context'
 
-const GridRow = styled.div`
-    position: absolute;
+const GridHeaderRow = styled.div`
+    position: sticky;
+    z-index: 1;
+    background-color: hsl(0deg 0% 97.5%);
 `
 
-const GridCell = styled.div`
+const GridHeaderCell = styled.div`
     position: absolute;
     height: 100%;
     border-right: 1px solid #ddd;
@@ -24,24 +26,21 @@ const CellBody = styled.div`
     overflow: hidden;
 `
 
-interface RowProps<R>
+interface HeaderRowProps<R>
     extends Pick<React.HTMLAttributes<HTMLDivElement>, 'style'> {
-    row: RowType<R>
     width: number
     columns: readonly Column<R>[]
     estimatedColumnWidth: number
     cacheRemoveCount: number
 }
 
-function Row<R>({
-    row,
+function HeaderRow<R>({
     width,
     style = {},
     columns = [],
     estimatedColumnWidth,
     cacheRemoveCount,
-}: RowProps<R>) {
-    const { data } = row
+}: HeaderRowProps<R>) {
     const { state } = useContext(Context)
     const renderCell = () => {
         const result: Array<ReactNode> = []
@@ -56,17 +55,16 @@ function Row<R>({
                 left += columnWidth
                 return false
             }
-            const txt = (data as any)[column.name] as string
             result.push(
-                <GridCell
-                    key={`${row.key}-${column.name}`}
+                <GridHeaderCell
+                    key={`header-${column.name}`}
                     style={{
                         left,
                         width: columnWidth,
                     }}
                 >
-                    <CellBody>{txt}</CellBody>
-                </GridCell>
+                    <CellBody>{column.title}</CellBody>
+                </GridHeaderCell>
             )
             left += columnWidth
             if (
@@ -82,7 +80,7 @@ function Row<R>({
         return result
     }
 
-    return <GridRow style={style}>{renderCell()}</GridRow>
+    return <GridHeaderRow style={style}>{renderCell()}</GridHeaderRow>
 }
 
-export default Row
+export default HeaderRow
