@@ -50,22 +50,27 @@ function Row<R>({
         const result: Array<ReactNode> = []
 
         let left = 0
+        const isMergeCell: Array<number> = []
         columns.some((column, index) => {
-            let columnWidth = column.width || 120
+            if (isMergeCell.includes(index)) {
+                return false
+            }
+
             let isCellSpan = false
             const cell = cells.find((ele) => ele.name === column.name)
 
             const colSpan = cell?.colSpan || 0
-
+            let columnWidth = column.width || 120
             if (colSpan > 0) {
                 for (let i = 0; i < colSpan; i += 1) {
-                    columnWidth += columns[index + i + 1].width || 120
+                    const columnIndex = index + i + 1
+                    isMergeCell.push(columnIndex)
+                    columnWidth += columns[columnIndex].width || 120
                     isCellSpan = true
                 }
             }
 
             const rowSpan = cell?.rowSpan || 0
-
             let rowHeight = height || 35
             if (rowSpan > 0) {
                 for (let i = 0; i < rowSpan; i += 1) {
@@ -88,10 +93,12 @@ function Row<R>({
                 <GridCell
                     key={`${key}-${column.name}`}
                     style={{
+                        ...(cell.style || {}),
                         left,
                         zIndex: isCellSpan ? 1 : undefined,
                         width: columnWidth,
                         height: rowHeight,
+                        lineHeight: `${rowHeight}px`,
                     }}
                 >
                     <CellBody>{txt}</CellBody>

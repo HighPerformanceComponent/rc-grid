@@ -22,12 +22,16 @@ for (let i = 0; i < 1000; i += 1) {
     const cells: Array<Cell> = []
 
     for (let y = 0; y < 1000; y += 1) {
-        if (i === 1 && y === 1) {
+        if (i === 3 && y === 0) {
             cells.push({
                 name: `${y}`,
                 value: `${i} - ${y}`,
-                colSpan: 0,
-                rowSpan: 2,
+                colSpan: 3,
+                rowSpan: 3,
+                style: {
+                    backgroundColor: '#ffb300',
+                    textAlign: 'center',
+                },
             })
         } else {
             cells.push({
@@ -50,4 +54,4 @@ export default {
     title: 'Demos/rows',
 } as Meta
 
-export const Primary: React.VFC<{}> = () => <RowDataGrid />
+export const CustomCell: React.VFC<{}> = () => <RowDataGrid />

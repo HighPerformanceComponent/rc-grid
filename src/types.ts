@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { CSSProperties, ReactNode } from 'react'
 
 export interface Row {
     key: string
@@ -8,11 +8,25 @@ export interface Row {
     cells: Array<Cell>
 }
 
+export interface CellStyle
+    extends Omit<
+        CSSProperties,
+        'left' | 'zIndex' | 'width' | 'height' | 'position' | 'display'
+    > {}
+
 export interface Cell {
+    /** 对应 Column 的 name 属性 */
     name: string
+    /** 实际显示的值信息 */
     value: string
+    /** 任何 JSON 数据 */
+    object?: any
+    /** 合并列的数量 */
     colSpan?: number
+    /** 合并行的数量 */
     rowSpan?: number
+    /** css 样式 */
+    style?: CellStyle
 }
 
 export interface Column<TRow> {
