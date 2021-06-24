@@ -19,7 +19,7 @@ type SharedDivProps = Pick<
 
 export interface DataGridProps<R> extends SharedDivProps {
     /** 表格的行数据信息 */
-    rows: readonly Row<R>[]
+    rows: readonly Row[]
     /** 列的信息 */
     columns: readonly Column<R>[]
     /** 表格的高度信息 */
@@ -96,7 +96,7 @@ function DataGrid<R>({
 
         top += headerRowHeight
 
-        rows.some((row) => {
+        rows.some((row, index) => {
             if (top < scrollTop - estimatedRowHeight * cacheRemoveCount) {
                 top += row.height
                 return false
@@ -104,7 +104,8 @@ function DataGrid<R>({
             domRows.push(
                 <DataGridRow
                     key={row.key}
-                    row={row}
+                    rows={rows}
+                    rowIndex={index}
                     columns={columns}
                     estimatedColumnWidth={estimatedColumnWidth}
                     width={width}

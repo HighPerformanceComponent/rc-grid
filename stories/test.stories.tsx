@@ -1,12 +1,17 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 
-import DataGrid, { Row, Column } from '../src'
+import DataGrid, { Row, Column, Cell } from '../src'
 
-const rows: Array<Row<unknown>> = []
+const rows: Array<Row> = []
 const columns: Array<Column<unknown>> = []
 
-for (let i = 0; i < 1000; i += 1) {
+columns.push({
+    name: `0`,
+    title: `字段 - 0`,
+})
+
+for (let i = 1; i < 1000; i += 1) {
     columns.push({
         name: `${i}`,
         title: `字段 - ${i}`,
@@ -14,14 +19,27 @@ for (let i = 0; i < 1000; i += 1) {
 }
 
 for (let i = 0; i < 1000; i += 1) {
-    const data: any = {}
+    const cells: Array<Cell> = []
+
     for (let y = 0; y < 1000; y += 1) {
-        data[`${y}`] = `${i} - ${y}`
+        if (i === 1 && y === 1) {
+            cells.push({
+                name: `${y}`,
+                value: `${i} - ${y}`,
+                colSpan: 0,
+                rowSpan: 2,
+            })
+        } else {
+            cells.push({
+                name: `${y}`,
+                value: `${i} - ${y}`,
+            })
+        }
     }
     rows.push({
         height: 35,
         key: `${i}`,
-        data,
+        cells,
     })
 }
 

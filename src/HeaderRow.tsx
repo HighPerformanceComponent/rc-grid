@@ -5,7 +5,7 @@ import Context from './Context'
 
 const GridHeaderRow = styled.div`
     position: sticky;
-    z-index: 1;
+    z-index: 10;
     background-color: hsl(0deg 0% 97.5%);
 `
 

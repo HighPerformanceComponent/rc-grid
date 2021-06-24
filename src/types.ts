@@ -1,9 +1,18 @@
 import { ReactNode } from 'react'
 
-export interface Row<R> {
-    data: R
+export interface Row {
     key: string
+    /** 表格行的高度 */
     height: number
+    /** 表格的单元格信息 */
+    cells: Array<Cell>
+}
+
+export interface Cell {
+    name: string
+    value: string
+    colSpan?: number
+    rowSpan?: number
 }
 
 export interface Column<TRow> {
