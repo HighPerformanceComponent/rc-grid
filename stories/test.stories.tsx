@@ -18,7 +18,7 @@ for (let i = 1; i < 1000; i += 1) {
     })
 }
 
-for (let i = 0; i < 1000; i += 1) {
+for (let i = 0; i < 5000; i += 1) {
     const cells: Array<Cell> = []
 
     for (let y = 0; y < 1000; y += 1) {
@@ -27,6 +27,16 @@ for (let i = 0; i < 1000; i += 1) {
                 name: `${y}`,
                 value: `${i} - ${y}`,
                 colSpan: 3,
+                rowSpan: 3,
+                style: {
+                    backgroundColor: '#ffb300',
+                    textAlign: 'center',
+                },
+            })
+        } else if (i === 8 && y === 0) {
+            cells.push({
+                name: `${y}`,
+                value: `${i} - ${y}`,
                 rowSpan: 3,
                 style: {
                     backgroundColor: '#ffb300',

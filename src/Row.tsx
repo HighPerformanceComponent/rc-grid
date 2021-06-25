@@ -45,7 +45,7 @@ function Row<R>({
     cacheRemoveCount,
 }: RowProps<R>) {
     const { cells, key, height } = rows[rowIndex]
-    const { state } = useContext(Context)
+    const { state, dispatch } = useContext(Context)
     const renderCell = () => {
         const result: Array<ReactNode> = []
 
@@ -89,6 +89,11 @@ function Row<R>({
 
             const txt = cell?.value || ''
 
+            const boxShadow = 'inset 0 0 0 2px #66afe9'
+
+            const isSelect =
+                state.selectPosition?.x === index &&
+                state.selectPosition?.y === rowIndex
             result.push(
                 <GridCell
                     key={`${key}-${column.name}`}
@@ -99,6 +104,16 @@ function Row<R>({
                         width: columnWidth,
                         height: rowHeight,
                         lineHeight: `${rowHeight}px`,
+                        boxShadow: isSelect ? boxShadow : undefined,
+                    }}
+                    onClick={() => {
+                        dispatch({
+                            type: 'setSelectPosition',
+                            payload: {
+                                x: index,
+                                y: rowIndex,
+                            },
+                        })
                     }}
                 >
                     <CellBody>{txt}</CellBody>
