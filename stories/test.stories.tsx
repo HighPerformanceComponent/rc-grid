@@ -9,6 +9,7 @@ const columns: Array<Column<unknown>> = []
 columns.push({
     name: `0`,
     title: `字段 - 0`,
+    fixed: 'left',
 })
 
 for (let i = 1; i < 1000; i += 1) {
@@ -22,7 +23,7 @@ for (let i = 0; i < 5000; i += 1) {
     const cells: Array<Cell> = []
 
     for (let y = 0; y < 1000; y += 1) {
-        if (i === 3 && y === 0) {
+        if (i === 3 && y === 1) {
             cells.push({
                 name: `${y}`,
                 value: `${i} - ${y}`,
@@ -33,7 +34,7 @@ for (let i = 0; i < 5000; i += 1) {
                     textAlign: 'center',
                 },
             })
-        } else if (i === 8 && y === 0) {
+        } else if (i === 8 && y === 1) {
             cells.push({
                 name: `${y}`,
                 value: `${i} - ${y}`,

@@ -5,9 +5,11 @@ import Context from './Context'
 
 const GridRow = styled.div`
     position: absolute;
+    width: 100%;
 `
 
 const GridCell = styled.div`
+    display: inline-block;
     position: absolute;
     height: 100%;
     border-right: 1px solid #ddd;
@@ -16,6 +18,7 @@ const GridCell = styled.div`
     background-color: #fff;
     /** 优化 webkit 中的渲染效率 */
     content-visibility: auto;
+    outline: none;
 `
 
 const CellBody = styled.div`
@@ -52,6 +55,17 @@ function Row<R>({
         let left = 0
         const isMergeCell: Array<number> = []
         columns.some((column, index) => {
+            let columnWidth = column.width || 120
+            if (
+                left <
+                    state.scrollLeft -
+                        estimatedColumnWidth * cacheRemoveCount &&
+                column.fixed === undefined
+            ) {
+                left += columnWidth
+                return false
+            }
+
             if (isMergeCell.includes(index)) {
                 return false
             }
@@ -60,7 +74,7 @@ function Row<R>({
             const cell = cells.find((ele) => ele.name === column.name)
 
             const colSpan = cell?.colSpan || 0
-            let columnWidth = column.width || 120
+
             if (colSpan > 0) {
                 for (let i = 0; i < colSpan; i += 1) {
                     const columnIndex = index + i + 1
@@ -79,14 +93,6 @@ function Row<R>({
                 }
             }
 
-            if (
-                left <
-                state.scrollLeft - estimatedColumnWidth * cacheRemoveCount
-            ) {
-                left += columnWidth
-                return false
-            }
-
             const txt = cell?.value || ''
 
             const boxShadow = 'inset 0 0 0 2px #66afe9'
@@ -94,13 +100,23 @@ function Row<R>({
             const isSelect =
                 state.selectPosition?.x === index &&
                 state.selectPosition?.y === rowIndex
+
+            let zIndex
+
+            if (isCellSpan) {
+                zIndex = 1
+            }
+            if (column.fixed) {
+                zIndex = 2
+            }
             result.push(
                 <GridCell
                     key={`${key}-${column.name}`}
                     style={{
-                        ...(cell.style || {}),
+                        ...(cell?.style || {}),
                         left,
-                        zIndex: isCellSpan ? 1 : undefined,
+                        position: column.fixed ? 'sticky' : undefined,
+                        zIndex,
                         width: columnWidth,
                         height: rowHeight,
                         lineHeight: `${rowHeight}px`,

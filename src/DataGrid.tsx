@@ -10,6 +10,7 @@ const Grid = styled.div`
     position: relative;
     overflow: auto;
     border: 1px solid #ddd;
+    outline: none;
 `
 
 type SharedDivProps = Pick<
@@ -113,6 +114,7 @@ function DataGrid<R>({
                     style={{
                         height: row.height,
                         top,
+                        width: scrollWidth,
                         lineHeight: `${row.height}px`,
                     }}
                 />
@@ -131,28 +133,36 @@ function DataGrid<R>({
 
     const lastScrollTop = useRef<number>(0)
     const lastScrollLeft = useRef<number>(0)
+
+    const ticking = useRef<boolean>(false)
     const onScroll = ({
         currentTarget,
     }: React.UIEvent<HTMLDivElement, UIEvent>) => {
-        if (currentTarget) {
-            if (
-                Math.abs(currentTarget.scrollTop - lastScrollTop.current) >
-                estimatedRowHeight * (cacheRemoveCount / 2)
-            ) {
-                setScrollTop(currentTarget.scrollTop)
-                lastScrollTop.current = currentTarget.scrollTop
-            }
+        if (!ticking.current && currentTarget) {
+            requestAnimationFrame(() => {
+                if (
+                    Math.abs(currentTarget.scrollTop - lastScrollTop.current) >
+                    estimatedRowHeight * (cacheRemoveCount / 2)
+                ) {
+                    setScrollTop(currentTarget.scrollTop)
+                    lastScrollTop.current = currentTarget.scrollTop
+                }
+                if (
+                    Math.abs(
+                        currentTarget.scrollLeft - lastScrollLeft.current
+                    ) >
+                    estimatedColumnWidth * (cacheRemoveCount / 2)
+                ) {
+                    dispatch({
+                        type: 'setScrollLeft',
+                        payload: currentTarget.scrollLeft,
+                    })
+                    lastScrollLeft.current = currentTarget.scrollLeft
+                }
+                ticking.current = false
+            })
 
-            if (
-                Math.abs(currentTarget.scrollLeft - lastScrollLeft.current) >
-                estimatedColumnWidth * (cacheRemoveCount / 2)
-            ) {
-                dispatch({
-                    type: 'setScrollLeft',
-                    payload: currentTarget.scrollLeft,
-                })
-                lastScrollLeft.current = currentTarget.scrollLeft
-            }
+            ticking.current = true
         }
     }
 
@@ -165,6 +175,7 @@ function DataGrid<R>({
         >
             <Grid
                 ref={gridRef}
+                tabIndex={0}
                 className={className}
                 style={{
                     height,

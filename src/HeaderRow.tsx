@@ -6,15 +6,17 @@ import Context from './Context'
 const GridHeaderRow = styled.div`
     position: sticky;
     z-index: 10;
-    background-color: hsl(0deg 0% 97.5%);
+    width: 100%;
 `
 
 const GridHeaderCell = styled.div`
+    display: inline-block;
     position: absolute;
     height: 100%;
     border-right: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
     box-sizing: border-box;
+    background-color: hsl(0deg 0% 97.5%);
     /** 优化 webkit 中的渲染效率 */
     content-visibility: auto;
 `
@@ -50,17 +52,22 @@ function HeaderRow<R>({
             const columnWidth = column.width || 120
             if (
                 left <
-                state.scrollLeft - estimatedColumnWidth * cacheRemoveCount
+                    state.scrollLeft -
+                        estimatedColumnWidth * cacheRemoveCount &&
+                column.fixed === undefined
             ) {
                 left += columnWidth
                 return false
             }
+
             result.push(
                 <GridHeaderCell
                     key={`header-${column.name}`}
                     style={{
                         left,
                         width: columnWidth,
+                        position: column.fixed ? 'sticky' : undefined,
+                        zIndex: column.fixed ? 11 : undefined,
                     }}
                 >
                     <CellBody>{column.title}</CellBody>
