@@ -47,7 +47,7 @@ function DataGrid<R>({
     estimatedRowHeight = 50,
     estimatedColumnWidth = 120,
     headerRowHeight = 35,
-    cacheRemoveCount = 5,
+    cacheRemoveCount = 3,
 }: DataGridProps<R>) {
     const [state, dispatch] = useReducer(reducer, {
         scrollLeft: 0,
@@ -87,9 +87,10 @@ function DataGrid<R>({
                 estimatedColumnWidth={estimatedColumnWidth}
                 width={width}
                 cacheRemoveCount={cacheRemoveCount}
-                style={{
+                styled={{
                     height: headerRowHeight,
                     top,
+                    width: scrollWidth,
                     lineHeight: `${headerRowHeight}px`,
                 }}
             />
@@ -111,7 +112,7 @@ function DataGrid<R>({
                     estimatedColumnWidth={estimatedColumnWidth}
                     width={width}
                     cacheRemoveCount={cacheRemoveCount}
-                    style={{
+                    styled={{
                         height: row.height,
                         top,
                         width: scrollWidth,
@@ -135,11 +136,16 @@ function DataGrid<R>({
     const lastScrollLeft = useRef<number>(0)
 
     const ticking = useRef<boolean>(false)
+
+    let requestAnimationFrameId: number
     const onScroll = ({
         currentTarget,
     }: React.UIEvent<HTMLDivElement, UIEvent>) => {
+        if (requestAnimationFrameId) {
+            cancelAnimationFrame(requestAnimationFrameId)
+        }
         if (!ticking.current && currentTarget) {
-            requestAnimationFrame(() => {
+            requestAnimationFrameId = requestAnimationFrame(() => {
                 if (
                     Math.abs(currentTarget.scrollTop - lastScrollTop.current) >
                     estimatedRowHeight * (cacheRemoveCount / 2)
@@ -187,7 +193,6 @@ function DataGrid<R>({
                 <div
                     style={{
                         height: scrollHeight,
-                        width: scrollWidth,
                     }}
                 >
                     {renderRow()}

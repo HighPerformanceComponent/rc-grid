@@ -23,24 +23,22 @@ for (let i = 0; i < 5000; i += 1) {
     const cells: Array<Cell> = []
 
     for (let y = 0; y < 1000; y += 1) {
-        if (i === 3 && y === 1) {
+        if (i === 3 && y === 2) {
             cells.push({
                 name: `${y}`,
                 value: `${i} - ${y}`,
                 colSpan: 3,
                 rowSpan: 3,
                 style: {
-                    backgroundColor: '#ffb300',
                     textAlign: 'center',
                 },
             })
-        } else if (i === 8 && y === 1) {
+        } else if (i === 8 && y === 2) {
             cells.push({
                 name: `${y}`,
                 value: `${i} - ${y}`,
                 rowSpan: 3,
                 style: {
-                    backgroundColor: '#ffb300',
                     textAlign: 'center',
                 },
             })
