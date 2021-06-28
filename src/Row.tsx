@@ -1,4 +1,4 @@
-import React, { CSSProperties, ReactNode, useContext } from 'react'
+import React, { CSSProperties, ReactNode, useContext, useMemo } from 'react'
 import styled from 'styled-components'
 import { Column, Row as RowType } from './types'
 import Context from './Context'
@@ -79,9 +79,8 @@ function Row<R>({
     const { cells, key, height } = rows[rowIndex]
     const { state, dispatch } = useContext(Context)
     const fixedColumns = columns.filter((ele) => ele.fixed === 'left')
-    const renderCell = () => {
+    const renderCell = useMemo(() => {
         const result: Array<ReactNode> = []
-
         let left = 0
         const isMergeCell: Array<number> = []
         columns.some((column, index) => {
@@ -181,11 +180,17 @@ function Row<R>({
             return false
         })
         return result
-    }
+    }, [
+        columns,
+        estimatedColumnWidth,
+        cacheRemoveCount,
+        state.scrollLeft,
+        state.selectPosition,
+    ])
 
     return (
         <GridRow styled={tempStyled} style={style}>
-            {renderCell()}
+            {renderCell}
         </GridRow>
     )
 }

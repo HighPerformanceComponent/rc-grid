@@ -77,7 +77,7 @@ function DataGrid<R>({
     const [scrollTop, setScrollTop] = useState<number>(0)
 
     // 渲染表格的行信息
-    const renderRow = () => {
+    const renderRow = useMemo(() => {
         const domRows: Array<ReactNode> = []
         let top = startRowTop.current
         domRows.push(
@@ -130,7 +130,16 @@ function DataGrid<R>({
             return false
         })
         return domRows
-    }
+    }, [
+        scrollTop,
+        columns,
+        estimatedColumnWidth,
+        width,
+        cacheRemoveCount,
+        headerRowHeight,
+        rows,
+        estimatedRowHeight,
+    ])
 
     const lastScrollTop = useRef<number>(0)
     const lastScrollLeft = useRef<number>(0)
@@ -138,6 +147,8 @@ function DataGrid<R>({
     const ticking = useRef<boolean>(false)
 
     let requestAnimationFrameId: number
+
+    const calcCacheRemove = estimatedColumnWidth * (cacheRemoveCount / 2)
     const onScroll = ({
         currentTarget,
     }: React.UIEvent<HTMLDivElement, UIEvent>) => {
@@ -148,16 +159,16 @@ function DataGrid<R>({
             requestAnimationFrameId = requestAnimationFrame(() => {
                 if (
                     Math.abs(currentTarget.scrollTop - lastScrollTop.current) >
-                    estimatedRowHeight * (cacheRemoveCount / 2)
+                    calcCacheRemove
                 ) {
                     setScrollTop(currentTarget.scrollTop)
                     lastScrollTop.current = currentTarget.scrollTop
                 }
+
                 if (
                     Math.abs(
                         currentTarget.scrollLeft - lastScrollLeft.current
-                    ) >
-                    estimatedColumnWidth * (cacheRemoveCount / 2)
+                    ) > calcCacheRemove
                 ) {
                     dispatch({
                         type: 'setScrollLeft',
@@ -195,7 +206,7 @@ function DataGrid<R>({
                         height: scrollHeight,
                     }}
                 >
-                    {renderRow()}
+                    {renderRow}
                 </div>
             </Grid>
         </Context.Provider>
