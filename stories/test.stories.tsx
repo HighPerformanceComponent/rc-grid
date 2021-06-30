@@ -18,7 +18,6 @@ columns.push({
     title: `字段 - 0`,
     fixed: 'left',
 })
-
 columns.push({
     name: `1`,
     title: `字段 - 1`,

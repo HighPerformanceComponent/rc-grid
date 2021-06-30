@@ -193,8 +193,7 @@ function Row<R>({
                     }
                     isLastRightFixed={
                         rightFixedColumns.length > 0 &&
-                        rightFixedColumns[rightFixedColumns.length - 1].name ===
-                            column.name
+                        rightFixedColumns[0].name === column.name
                     }
                     onClick={() => {
                         dispatch({
