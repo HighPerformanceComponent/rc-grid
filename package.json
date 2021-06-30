@@ -4,7 +4,7 @@
     "license": "MIT",
     "scripts": {
         "start": "start-storybook -p 8000",
-        "build-storybook": "build-storybook",
+        "build:storybook": "build-storybook",
         "prepare": "husky install"
     },
     "dependencies": {
