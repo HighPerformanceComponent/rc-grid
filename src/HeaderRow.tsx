@@ -14,7 +14,8 @@ const GridHeaderRow = styled.div.attrs<GridHeaderRowProps>((props) => ({
 `
 
 interface GridHeaderCellProps extends React.HTMLAttributes<HTMLDivElement> {
-    isLastFixed: boolean
+    isLastFeftFixed: boolean
+    isLastRightFixed: boolean
     styled: CSSProperties
 }
 
@@ -27,8 +28,15 @@ const GridHeaderCell = styled.div.attrs<GridHeaderCellProps>((props) => ({
     border-bottom: 1px solid #ddd;
     box-sizing: border-box;
     background-color: hsl(0deg 0% 97.5%);
-    box-shadow: ${({ isLastFixed }) =>
-        isLastFixed ? '2px 0 5px -2px rgb(136 136 136 / 30%)' : undefined};
+    box-shadow: ${({ isLastFeftFixed, isLastRightFixed }) => {
+        if (isLastFeftFixed) {
+            return '2px 0 5px -2px rgb(136 136 136 / 30%)'
+        }
+        if (isLastRightFixed) {
+            return '-2px 0 5px -2px rgb(136 136 136 / 30%)'
+        }
+        return undefined
+    }};
     /** 优化 webkit 中的渲染效率 */
     content-visibility: auto;
 `
@@ -43,11 +51,13 @@ const CellBody = styled.div`
 interface HeaderRowProps<R>
     extends Pick<React.HTMLAttributes<HTMLDivElement>, 'style'> {
     width: number
+    scrollWidth: number
     columns: readonly Column<R>[]
     estimatedColumnWidth: number
     cacheRemoveCount: number
     styled: CSSProperties
     scrollLeft: number
+    defaultColumnWidth: number
 }
 
 function HeaderRow<R>({
@@ -58,6 +68,8 @@ function HeaderRow<R>({
     estimatedColumnWidth,
     cacheRemoveCount,
     scrollLeft,
+    scrollWidth,
+    defaultColumnWidth,
 }: HeaderRowProps<R>) {
     const fixedColumns = useMemo(
         () => columns.filter((ele) => ele.fixed),
@@ -65,11 +77,16 @@ function HeaderRow<R>({
     )
 
     const leftFixedColumns = fixedColumns.filter((ele) => ele.fixed === 'left')
+    const rightFixedColumns = fixedColumns.filter(
+        (ele) => ele.fixed === 'right'
+    )
+
     const renderCell = () => {
         const result: Array<ReactNode> = []
         let left = 0
         columns.some((column) => {
-            const columnWidth = column.width || 120
+            const columnWidth = column.width || defaultColumnWidth
+
             if (
                 left < scrollLeft - estimatedColumnWidth * cacheRemoveCount &&
                 column.fixed === undefined
@@ -78,31 +95,51 @@ function HeaderRow<R>({
                 return false
             }
 
+            if (
+                left + columnWidth >
+                    width +
+                        scrollLeft +
+                        estimatedColumnWidth * cacheRemoveCount &&
+                column.fixed === undefined
+            ) {
+                left += columnWidth
+                return false
+            }
+
+            const cellStyled: CSSProperties = {
+                left,
+                width: columnWidth,
+                position: column.fixed ? 'sticky' : undefined,
+                zIndex: column.fixed ? 11 : undefined,
+            }
+
+            if (column.fixed === 'right') {
+                cellStyled.left = undefined
+                cellStyled.float = 'right'
+                cellStyled.right =
+                    scrollWidth - left - (column.width || defaultColumnWidth)
+            }
+
             result.push(
                 <GridHeaderCell
-                    isLastFixed={
+                    isLastFeftFixed={
                         leftFixedColumns.length > 0 &&
                         leftFixedColumns[leftFixedColumns.length - 1].name ===
                             column.name
                     }
+                    isLastRightFixed={
+                        rightFixedColumns.length > 0 &&
+                        rightFixedColumns[rightFixedColumns.length - 1].name ===
+                            column.name
+                    }
                     key={`header-${column.name}`}
-                    styled={{
-                        left,
-                        width: columnWidth,
-                        position: column.fixed ? 'sticky' : undefined,
-                        zIndex: column.fixed ? 11 : undefined,
-                    }}
+                    styled={cellStyled}
                 >
                     <CellBody>{column.title}</CellBody>
                 </GridHeaderCell>
             )
             left += columnWidth
-            if (
-                left >
-                width + scrollLeft + estimatedColumnWidth * cacheRemoveCount
-            ) {
-                return true
-            }
+
             return false
         })
         return result

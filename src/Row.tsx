@@ -14,7 +14,8 @@ const GridRow = styled.div.attrs<GridRowProps>((props) => ({
 `
 
 interface GridCellProps extends React.HTMLAttributes<HTMLDivElement> {
-    isLastFixed: boolean
+    isLastFeftFixed: boolean
+    isLastRightFixed: boolean
     styled: CSSProperties
 }
 
@@ -28,8 +29,15 @@ const GridCell = styled.div.attrs<GridCellProps>((props) => ({
     box-sizing: border-box;
     background-color: #fff;
     outline: none;
-    box-shadow: ${({ isLastFixed }) =>
-        isLastFixed ? '2px 0 5px -2px rgb(136 136 136 / 30%)' : undefined};
+    box-shadow: ${({ isLastFeftFixed, isLastRightFixed }) => {
+        if (isLastFeftFixed) {
+            return '2px 0 5px -2px rgb(136 136 136 / 30%)'
+        }
+        if (isLastRightFixed) {
+            return '-4px 0 5px -2px rgb(136 136 136 / 30%)'
+        }
+        return undefined
+    }};
     /** 优化 webkit 中的渲染效率 */
     content-visibility: auto;
 `
@@ -57,7 +65,9 @@ interface RowProps<R>
     estimatedColumnWidth: number
     cacheRemoveCount: number
     scrollLeft: number
+    scrollWidth: number
     styled: CSSProperties
+    defaultColumnWidth: number
 }
 
 function Row<R>({
@@ -69,6 +79,8 @@ function Row<R>({
     estimatedColumnWidth,
     cacheRemoveCount,
     scrollLeft,
+    scrollWidth,
+    defaultColumnWidth,
     styled: tempStyled = {},
 }: RowProps<R>) {
     const { cells, key, height } = rows[rowIndex]
@@ -79,6 +91,9 @@ function Row<R>({
     )
 
     const leftFixedColumns = fixedColumns.filter((ele) => ele.fixed === 'left')
+    const rightFixedColumns = fixedColumns.filter(
+        (ele) => ele.fixed === 'right'
+    )
 
     const renderCell = useMemo(() => {
         const result: Array<ReactNode> = []
@@ -88,6 +103,17 @@ function Row<R>({
             let columnWidth = column.width || 120
             if (
                 left < scrollLeft - estimatedColumnWidth * cacheRemoveCount &&
+                column.fixed === undefined
+            ) {
+                left += columnWidth
+                return false
+            }
+
+            if (
+                left + columnWidth >
+                    width +
+                        scrollLeft +
+                        estimatedColumnWidth * cacheRemoveCount &&
                 column.fixed === undefined
             ) {
                 left += columnWidth
@@ -107,7 +133,8 @@ function Row<R>({
                 for (let i = 0; i < colSpan; i += 1) {
                     const columnIndex = index + i + 1
                     isMergeCell.push(columnIndex)
-                    columnWidth += columns[columnIndex].width || 120
+                    columnWidth +=
+                        columns[columnIndex].width || defaultColumnWidth
                     isCellSpan = true
                 }
             }
@@ -135,6 +162,22 @@ function Row<R>({
             if (column.fixed) {
                 zIndex = 2
             }
+
+            const cellStyled: CSSProperties = {
+                left,
+                zIndex,
+                width: columnWidth,
+                height: rowHeight,
+                lineHeight: `${rowHeight}px`,
+            }
+
+            if (column.fixed === 'right') {
+                cellStyled.left = undefined
+                cellStyled.float = 'right'
+                cellStyled.right =
+                    scrollWidth - left - (column.width || defaultColumnWidth)
+            }
+
             result.push(
                 <GridCell
                     key={`${key}-${column.name}`}
@@ -142,16 +185,15 @@ function Row<R>({
                         ...(cell?.style || {}),
                         position: column.fixed ? 'sticky' : undefined,
                     }}
-                    styled={{
-                        left,
-                        zIndex,
-                        width: columnWidth,
-                        height: rowHeight,
-                        lineHeight: `${rowHeight}px`,
-                    }}
-                    isLastFixed={
+                    styled={cellStyled}
+                    isLastFeftFixed={
                         leftFixedColumns.length > 0 &&
                         leftFixedColumns[leftFixedColumns.length - 1].name ===
+                            column.name
+                    }
+                    isLastRightFixed={
+                        rightFixedColumns.length > 0 &&
+                        rightFixedColumns[rightFixedColumns.length - 1].name ===
                             column.name
                     }
                     onClick={() => {
@@ -170,12 +212,7 @@ function Row<R>({
                 </GridCell>
             )
             left += columnWidth
-            if (
-                left >
-                width + scrollLeft + estimatedColumnWidth * cacheRemoveCount
-            ) {
-                return true
-            }
+
             return false
         })
         return result

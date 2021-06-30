@@ -35,6 +35,8 @@ export interface DataGridProps<R> extends SharedDivProps {
     estimatedColumnWidth?: number
     /** 缓存要移除的条目数量 (PS: 值越大，滚动起来越真实不会白屏幕，但是会导致性能变差) */
     cacheRemoveCount?: number
+    /** 默认列的宽度信息 */
+    defaultColumnWidth?: number
 }
 
 function DataGrid<R>({
@@ -47,11 +49,27 @@ function DataGrid<R>({
     estimatedRowHeight = 50,
     estimatedColumnWidth = 120,
     headerRowHeight = 35,
-    cacheRemoveCount = 5,
+    cacheRemoveCount = 4,
+    defaultColumnWidth = 120,
 }: DataGridProps<R>) {
     const [state, dispatch] = useReducer(reducer, {})
 
     const gridRef = useRef<HTMLDivElement>(null)
+
+    /** 数据进行排序, 方便固定列进行排序 */
+    const sortColumns = useMemo(() => {
+        const newColumns = [...columns]
+        newColumns.sort((before, after) => {
+            if (before.fixed === 'left' && after.fixed !== 'left') {
+                return -1
+            }
+            if (after.fixed === 'right' && before.fixed !== 'right') {
+                return 1
+            }
+            return 0
+        })
+        return newColumns
+    }, [columns])
 
     // 滚动的高度
     const scrollHeight = useMemo(() => {
@@ -66,7 +84,7 @@ function DataGrid<R>({
     const scrollWidth = useMemo(() => {
         let result = 0
         columns.forEach((column) => {
-            result += column.width || 120
+            result += column.width || defaultColumnWidth
         })
         return result
     }, [columns])
@@ -75,6 +93,11 @@ function DataGrid<R>({
     const [scrollTop, setScrollTop] = useState<number>(0)
     const [scrollLeft, setscrollLeft] = useState<number>(0)
 
+    // 计算刷新数据的时机, 在滚动到缓存的 3/4 的时候开始加载数据
+    const calcCacheRemove =
+        estimatedColumnWidth * cacheRemoveCount -
+        (estimatedColumnWidth * cacheRemoveCount) / 4
+
     // 渲染表格的行信息
     const renderRow = useMemo(() => {
         const domRows: Array<ReactNode> = []
@@ -82,11 +105,13 @@ function DataGrid<R>({
         domRows.push(
             <HeaderRow
                 key="header"
-                columns={columns}
+                columns={sortColumns}
                 estimatedColumnWidth={estimatedColumnWidth}
                 width={width}
                 cacheRemoveCount={cacheRemoveCount}
                 scrollLeft={scrollLeft}
+                scrollWidth={scrollWidth}
+                defaultColumnWidth={defaultColumnWidth}
                 styled={{
                     height: headerRowHeight,
                     top,
@@ -99,7 +124,7 @@ function DataGrid<R>({
         top += headerRowHeight
 
         rows.some((row, index) => {
-            if (top < scrollTop - estimatedRowHeight * cacheRemoveCount) {
+            if (top < scrollTop - calcCacheRemove) {
                 top += row.height
                 return false
             }
@@ -108,10 +133,12 @@ function DataGrid<R>({
                     key={row.key}
                     rows={rows}
                     rowIndex={index}
-                    columns={columns}
+                    columns={sortColumns}
                     estimatedColumnWidth={estimatedColumnWidth}
                     width={width}
+                    scrollWidth={scrollWidth}
                     scrollLeft={scrollLeft}
+                    defaultColumnWidth={defaultColumnWidth}
                     cacheRemoveCount={cacheRemoveCount}
                     styled={{
                         height: row.height,
@@ -122,10 +149,7 @@ function DataGrid<R>({
                 />
             )
             top += row.height
-            if (
-                top >
-                height + scrollTop + estimatedRowHeight * cacheRemoveCount
-            ) {
+            if (top > height + scrollTop + calcCacheRemove) {
                 return true
             }
             return false
@@ -146,14 +170,14 @@ function DataGrid<R>({
     const lastScrollTop = useRef<number>(0)
     const lastScrollLeft = useRef<number>(0)
 
-    const calcCacheRemove = estimatedColumnWidth * (cacheRemoveCount / 2)
-    const onScroll = async ({
+    const onScroll = ({
         currentTarget,
     }: React.UIEvent<HTMLDivElement, UIEvent>) => {
         const { scrollTop: currentScrollTop, scrollLeft: currentScrollLeft } =
             currentTarget
         if (currentTarget) {
             if (
+                // 纵向： currentScrollTop - lastScrollTop.current 距离上次滚动的距离
                 Math.abs(currentScrollTop - lastScrollTop.current) >
                 calcCacheRemove
             ) {
@@ -162,6 +186,7 @@ function DataGrid<R>({
             }
 
             if (
+                // 横向: currentScrollLeft - lastScrollLeft.current 距离上次滚动的距离
                 Math.abs(currentScrollLeft - lastScrollLeft.current) >
                 calcCacheRemove
             ) {
@@ -187,9 +212,7 @@ function DataGrid<R>({
                     width,
                     ...style,
                 }}
-                onScroll={(e) => {
-                    onScroll(e)
-                }}
+                onScroll={onScroll}
             >
                 <div
                     style={{
