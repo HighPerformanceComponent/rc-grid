@@ -47,11 +47,9 @@ function DataGrid<R>({
     estimatedRowHeight = 50,
     estimatedColumnWidth = 120,
     headerRowHeight = 35,
-    cacheRemoveCount = 3,
+    cacheRemoveCount = 5,
 }: DataGridProps<R>) {
-    const [state, dispatch] = useReducer(reducer, {
-        scrollLeft: 0,
-    })
+    const [state, dispatch] = useReducer(reducer, {})
 
     const gridRef = useRef<HTMLDivElement>(null)
 
@@ -75,6 +73,7 @@ function DataGrid<R>({
 
     const startRowTop = useRef<number>(0)
     const [scrollTop, setScrollTop] = useState<number>(0)
+    const [scrollLeft, setscrollLeft] = useState<number>(0)
 
     // 渲染表格的行信息
     const renderRow = useMemo(() => {
@@ -87,6 +86,7 @@ function DataGrid<R>({
                 estimatedColumnWidth={estimatedColumnWidth}
                 width={width}
                 cacheRemoveCount={cacheRemoveCount}
+                scrollLeft={scrollLeft}
                 styled={{
                     height: headerRowHeight,
                     top,
@@ -111,6 +111,7 @@ function DataGrid<R>({
                     columns={columns}
                     estimatedColumnWidth={estimatedColumnWidth}
                     width={width}
+                    scrollLeft={scrollLeft}
                     cacheRemoveCount={cacheRemoveCount}
                     styled={{
                         height: row.height,
@@ -132,6 +133,7 @@ function DataGrid<R>({
         return domRows
     }, [
         scrollTop,
+        scrollLeft,
         columns,
         estimatedColumnWidth,
         width,
@@ -144,42 +146,28 @@ function DataGrid<R>({
     const lastScrollTop = useRef<number>(0)
     const lastScrollLeft = useRef<number>(0)
 
-    const ticking = useRef<boolean>(false)
-
-    let requestAnimationFrameId: number
-
     const calcCacheRemove = estimatedColumnWidth * (cacheRemoveCount / 2)
-    const onScroll = ({
+    const onScroll = async ({
         currentTarget,
     }: React.UIEvent<HTMLDivElement, UIEvent>) => {
-        if (requestAnimationFrameId) {
-            cancelAnimationFrame(requestAnimationFrameId)
-        }
-        if (!ticking.current && currentTarget) {
-            requestAnimationFrameId = requestAnimationFrame(() => {
-                if (
-                    Math.abs(currentTarget.scrollTop - lastScrollTop.current) >
-                    calcCacheRemove
-                ) {
-                    setScrollTop(currentTarget.scrollTop)
-                    lastScrollTop.current = currentTarget.scrollTop
-                }
+        const { scrollTop: currentScrollTop, scrollLeft: currentScrollLeft } =
+            currentTarget
+        if (currentTarget) {
+            if (
+                Math.abs(currentScrollTop - lastScrollTop.current) >
+                calcCacheRemove
+            ) {
+                setScrollTop(currentScrollTop)
+                lastScrollTop.current = currentTarget.scrollTop
+            }
 
-                if (
-                    Math.abs(
-                        currentTarget.scrollLeft - lastScrollLeft.current
-                    ) > calcCacheRemove
-                ) {
-                    dispatch({
-                        type: 'setScrollLeft',
-                        payload: currentTarget.scrollLeft,
-                    })
-                    lastScrollLeft.current = currentTarget.scrollLeft
-                }
-                ticking.current = false
-            })
-
-            ticking.current = true
+            if (
+                Math.abs(currentScrollLeft - lastScrollLeft.current) >
+                calcCacheRemove
+            ) {
+                setscrollLeft(currentScrollLeft)
+                lastScrollLeft.current = currentScrollLeft
+            }
         }
     }
 
@@ -199,7 +187,9 @@ function DataGrid<R>({
                     width,
                     ...style,
                 }}
-                onScroll={onScroll}
+                onScroll={(e) => {
+                    onScroll(e)
+                }}
             >
                 <div
                     style={{

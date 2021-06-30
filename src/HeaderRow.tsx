@@ -1,19 +1,16 @@
-import React, { useContext, ReactNode, CSSProperties } from 'react'
+import React, { ReactNode, CSSProperties, useMemo } from 'react'
 import styled from 'styled-components'
 import { Column } from './types'
-import Context from './Context'
 
 interface GridHeaderRowProps extends React.HTMLAttributes<HTMLDivElement> {
     styled: CSSProperties
 }
 
-const GridHeaderRow = styled.div<GridHeaderRowProps>`
+const GridHeaderRow = styled.div.attrs<GridHeaderRowProps>((props) => ({
+    style: props.styled,
+}))<GridHeaderRowProps>`
     position: sticky;
     z-index: 10;
-    height: ${(props) => `${props.styled.height}px`};
-    top: ${(props) => `${props.styled.top}px`};
-    width: ${(props) => `${props.styled.width}px`};
-    line-height: ${(props) => props.styled.lineHeight};
 `
 
 interface GridHeaderCellProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -21,7 +18,9 @@ interface GridHeaderCellProps extends React.HTMLAttributes<HTMLDivElement> {
     styled: CSSProperties
 }
 
-const GridHeaderCell = styled.div<GridHeaderCellProps>`
+const GridHeaderCell = styled.div.attrs<GridHeaderCellProps>((props) => ({
+    style: props.styled,
+}))<GridHeaderCellProps>`
     display: inline-block;
     position: absolute;
     border-right: 1px solid #ddd;
@@ -30,12 +29,6 @@ const GridHeaderCell = styled.div<GridHeaderCellProps>`
     background-color: hsl(0deg 0% 97.5%);
     box-shadow: ${({ isLastFixed }) =>
         isLastFixed ? '2px 0 5px -2px rgb(136 136 136 / 30%)' : undefined};
-    left: ${(props) => `${props.styled.left}px`};
-    position: ${(props) => props.styled.position};
-    z-index: ${(props) => props.styled.zIndex};
-    width: ${(props) => `${props.styled.width}px`};
-    height: ${(props) => `${props.styled.height}px`};
-    line-height: ${(props) => props.styled.lineHeight};
     /** 优化 webkit 中的渲染效率 */
     content-visibility: auto;
 `
@@ -54,6 +47,7 @@ interface HeaderRowProps<R>
     estimatedColumnWidth: number
     cacheRemoveCount: number
     styled: CSSProperties
+    scrollLeft: number
 }
 
 function HeaderRow<R>({
@@ -63,20 +57,21 @@ function HeaderRow<R>({
     styled: tempStyled = {},
     estimatedColumnWidth,
     cacheRemoveCount,
+    scrollLeft,
 }: HeaderRowProps<R>) {
-    const { state } = useContext(Context)
-    const fixedColumns = columns.filter((ele) => ele.fixed === 'left')
+    const fixedColumns = useMemo(
+        () => columns.filter((ele) => ele.fixed),
+        [columns]
+    )
 
+    const leftFixedColumns = fixedColumns.filter((ele) => ele.fixed === 'left')
     const renderCell = () => {
         const result: Array<ReactNode> = []
-
         let left = 0
         columns.some((column) => {
             const columnWidth = column.width || 120
             if (
-                left <
-                    state.scrollLeft -
-                        estimatedColumnWidth * cacheRemoveCount &&
+                left < scrollLeft - estimatedColumnWidth * cacheRemoveCount &&
                 column.fixed === undefined
             ) {
                 left += columnWidth
@@ -86,8 +81,8 @@ function HeaderRow<R>({
             result.push(
                 <GridHeaderCell
                     isLastFixed={
-                        fixedColumns.length > 0 &&
-                        fixedColumns[fixedColumns.length - 1].name ===
+                        leftFixedColumns.length > 0 &&
+                        leftFixedColumns[leftFixedColumns.length - 1].name ===
                             column.name
                     }
                     key={`header-${column.name}`}
@@ -104,9 +99,7 @@ function HeaderRow<R>({
             left += columnWidth
             if (
                 left >
-                width +
-                    state.scrollLeft +
-                    estimatedColumnWidth * cacheRemoveCount
+                width + scrollLeft + estimatedColumnWidth * cacheRemoveCount
             ) {
                 return true
             }

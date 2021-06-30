@@ -27,20 +27,13 @@ for (let i = 0; i < 5000; i += 1) {
             cells.push({
                 name: `${y}`,
                 value: `${i} - ${y}`,
-                colSpan: 3,
-                rowSpan: 3,
-                style: {
-                    textAlign: 'center',
-                },
+                style: {},
             })
         } else if (i === 8 && y === 2) {
             cells.push({
                 name: `${y}`,
                 value: `${i} - ${y}`,
-                rowSpan: 3,
-                style: {
-                    textAlign: 'center',
-                },
+                style: {},
             })
         } else {
             cells.push({
