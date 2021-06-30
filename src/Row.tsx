@@ -34,7 +34,7 @@ const GridCell = styled.div.attrs<GridCellProps>((props) => ({
             return '2px 0 5px -2px rgb(136 136 136 / 30%)'
         }
         if (isLastRightFixed) {
-            return '-4px 0 5px -2px rgb(136 136 136 / 30%)'
+            return '-3px 0 5px -2px rgb(136 136 136 / 30%)'
         }
         return undefined
     }};

@@ -33,7 +33,7 @@ const GridHeaderCell = styled.div.attrs<GridHeaderCellProps>((props) => ({
             return '2px 0 5px -2px rgb(136 136 136 / 30%)'
         }
         if (isLastRightFixed) {
-            return '-2px 0 5px -2px rgb(136 136 136 / 30%)'
+            return '-3px 0 5px -2px rgb(136 136 136 / 30%)'
         }
         return undefined
     }};
