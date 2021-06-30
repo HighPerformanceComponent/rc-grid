@@ -10,6 +10,8 @@ lerna-debug.log*
 # Dependency directories
 node_modules
 
+storybook-static
+
 # husky
 .husky
 
