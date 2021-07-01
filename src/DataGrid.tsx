@@ -49,7 +49,7 @@ function DataGrid<R>({
     estimatedRowHeight = 50,
     estimatedColumnWidth = 120,
     headerRowHeight = 35,
-    cacheRemoveCount = 4,
+    cacheRemoveCount = 10,
     defaultColumnWidth = 120,
 }: DataGridProps<R>) {
     const [state, dispatch] = useReducer(reducer, {})

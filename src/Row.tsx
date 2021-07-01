@@ -16,6 +16,7 @@ const GridRow = styled.div.attrs<GridRowProps>((props) => ({
 interface GridCellProps extends React.HTMLAttributes<HTMLDivElement> {
     isLastFeftFixed: boolean
     isLastRightFixed: boolean
+    isSelect: boolean
     styled: CSSProperties
 }
 
@@ -29,7 +30,11 @@ const GridCell = styled.div.attrs<GridCellProps>((props) => ({
     box-sizing: border-box;
     background-color: #fff;
     outline: none;
-    box-shadow: ${({ isLastFeftFixed, isLastRightFixed }) => {
+    box-shadow: ${({ isLastFeftFixed, isLastRightFixed, isSelect }) => {
+        if (isSelect) {
+            return 'inset 0 0 0 2px #66afe9'
+        }
+
         if (isLastFeftFixed) {
             return '2px 0 5px -2px rgb(136 136 136 / 30%)'
         }
@@ -40,20 +45,11 @@ const GridCell = styled.div.attrs<GridCellProps>((props) => ({
     }};
     /** 优化 webkit 中的渲染效率 */
     content-visibility: auto;
-`
-
-interface CellBodyProps extends React.HTMLAttributes<HTMLDivElement> {
-    isSelect: boolean
-}
-
-const CellBody = styled.div<CellBodyProps>`
     padding: 0px 8px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
     height: 100%;
-    box-shadow: ${({ isSelect }) =>
-        isSelect ? 'inset 0 0 0 2px #66afe9' : undefined};
 `
 
 interface RowProps<R>
@@ -195,6 +191,7 @@ function Row<R>({
                         rightFixedColumns.length > 0 &&
                         rightFixedColumns[0].name === column.name
                     }
+                    isSelect={isSelect}
                     onClick={() => {
                         dispatch({
                             type: 'setSelectPosition',
@@ -205,9 +202,7 @@ function Row<R>({
                         })
                     }}
                 >
-                    <CellBody key={`${key}-${column.name}`} isSelect={isSelect}>
-                        {txt}
-                    </CellBody>
+                    {txt}
                 </GridCell>
             )
             left += columnWidth

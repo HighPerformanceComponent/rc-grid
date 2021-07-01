@@ -39,13 +39,9 @@ const GridHeaderCell = styled.div.attrs<GridHeaderCellProps>((props) => ({
     }};
     /** 优化 webkit 中的渲染效率 */
     content-visibility: auto;
-`
-
-const CellBody = styled.div`
     padding: 0px 8px;
     white-space: nowrap;
     text-overflow: ellipsis;
-    overflow: hidden;
 `
 
 interface HeaderRowProps<R>
@@ -134,7 +130,7 @@ function HeaderRow<R>({
                     key={`header-${column.name}`}
                     styled={cellStyled}
                 >
-                    <CellBody>{column.title}</CellBody>
+                    {column.title}
                 </GridHeaderCell>
             )
             left += columnWidth
