@@ -33,4 +33,3 @@ jobs:
       # Runs a single command using the runners shell
         run: yarn 
         run: yarn lint:script  
-
