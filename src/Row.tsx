@@ -96,7 +96,7 @@ function Row<R>({
         let left = 0
         const isMergeCell: Array<number> = []
         columns.some((column, index) => {
-            let columnWidth = column.width || 120
+            let columnWidth = column.width || defaultColumnWidth
             if (
                 left < scrollLeft - estimatedColumnWidth * cacheRemoveCount &&
                 column.fixed === undefined
