@@ -1,6 +1,6 @@
 import React, { ReactNode, CSSProperties, useMemo } from 'react'
 import styled from 'styled-components'
-import { Column } from './types'
+import { Column, HeaderCellRenderParam } from './types'
 
 interface GridHeaderRowProps extends React.HTMLAttributes<HTMLDivElement> {
     styled: CSSProperties
@@ -22,11 +22,13 @@ interface GridHeaderCellProps extends React.HTMLAttributes<HTMLDivElement> {
 const GridHeaderCell = styled.div.attrs<GridHeaderCellProps>((props) => ({
     style: props.styled,
 }))<GridHeaderCellProps>`
-    display: inline-block;
+    display: inline-flex;
     position: absolute;
     border-right: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
     box-sizing: border-box;
+    height: 100%;
+    align-items: center;
     background-color: hsl(0deg 0% 97.5%);
     box-shadow: ${({ isLastFeftFixed, isLastRightFixed }) => {
         if (isLastFeftFixed) {
@@ -54,6 +56,8 @@ interface HeaderRowProps<R>
     styled: CSSProperties
     scrollLeft: number
     defaultColumnWidth: number
+    /** 渲染表格头部的单元格 */
+    onHeaderCellRender?: (param: HeaderCellRenderParam<R>) => ReactNode
 }
 
 function HeaderRow<R>({
@@ -66,6 +70,7 @@ function HeaderRow<R>({
     scrollLeft,
     scrollWidth,
     defaultColumnWidth,
+    onHeaderCellRender,
 }: HeaderRowProps<R>) {
     const fixedColumns = useMemo(
         () => columns.filter((ele) => ele.fixed),
@@ -80,7 +85,7 @@ function HeaderRow<R>({
     const renderCell = () => {
         const result: Array<ReactNode> = []
         let left = 0
-        columns.some((column) => {
+        columns.some((column, index) => {
             const columnWidth = column.width || defaultColumnWidth
 
             if (
@@ -116,23 +121,28 @@ function HeaderRow<R>({
                     scrollWidth - left - (column.width || defaultColumnWidth)
             }
 
-            result.push(
-                <GridHeaderCell
-                    isLastFeftFixed={
-                        leftFixedColumns.length > 0 &&
-                        leftFixedColumns[leftFixedColumns.length - 1].name ===
-                            column.name
-                    }
-                    isLastRightFixed={
-                        rightFixedColumns.length > 0 &&
-                        rightFixedColumns[0].name === column.name
-                    }
-                    key={`header-${column.name}`}
-                    styled={cellStyled}
-                >
-                    {column.title}
-                </GridHeaderCell>
-            )
+            const headerCell = onHeaderCellRender({
+                index,
+                column,
+                headerCell: (
+                    <GridHeaderCell
+                        isLastFeftFixed={
+                            leftFixedColumns.length > 0 &&
+                            leftFixedColumns[leftFixedColumns.length - 1]
+                                .name === column.name
+                        }
+                        isLastRightFixed={
+                            rightFixedColumns.length > 0 &&
+                            rightFixedColumns[0].name === column.name
+                        }
+                        key={`header-${column.name}`}
+                        styled={cellStyled}
+                    >
+                        {column.title}
+                    </GridHeaderCell>
+                ),
+            })
+            result.push(headerCell)
             left += columnWidth
 
             return false
@@ -145,6 +155,10 @@ function HeaderRow<R>({
             {renderCell()}
         </GridHeaderRow>
     )
+}
+
+HeaderRow.defaultProps = {
+    onHeaderCellRender: (param: HeaderCellRenderParam<any>) => param.headerCell,
 }
 
 export default HeaderRow

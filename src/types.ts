@@ -41,3 +41,9 @@ export interface Column<TRow> {
     /** 固定列 */
     fixed?: 'left' | 'right'
 }
+
+export interface HeaderCellRenderParam<R> {
+    column: Column<R>
+    index: number
+    headerCell: JSX.Element
+}

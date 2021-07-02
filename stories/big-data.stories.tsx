@@ -59,7 +59,7 @@ const RowDataGrid = () => <DataGrid<unknown> rows={rows} columns={columns} />
 
 export default {
     component: RowDataGrid,
-    title: 'Demos/rows',
+    title: 'Demos',
 } as Meta
 
-export const CustomCell: React.VFC<{}> = () => <RowDataGrid />
+export const BigData: React.VFC<{}> = () => <RowDataGrid />
