@@ -1,7 +1,14 @@
-import React, { ReactNode, useMemo, useReducer, useRef, useState } from 'react'
+import React, {
+    CSSProperties,
+    ReactNode,
+    useMemo,
+    useReducer,
+    useRef,
+    useState,
+} from 'react'
 import styled from 'styled-components'
 
-import type { Row, Column } from './types'
+import type { Row, Column, HeaderCellRenderParam } from './types'
 import DataGridRow from './Row'
 import HeaderRow from './HeaderRow'
 import Context, { reducer } from './Context'
@@ -37,6 +44,10 @@ export interface DataGridProps<R> extends SharedDivProps {
     cacheRemoveCount?: number
     /** 默认列的宽度信息 */
     defaultColumnWidth?: number
+    /** 渲染表格头部的单元格 */
+    onHeaderCellRender?: (param: HeaderCellRenderParam<R>) => ReactNode
+    /** 渲染表格的头部的行信息 */
+    onHeaderRowRender?: (node: JSX.Element) => ReactNode
 }
 
 function DataGrid<R>({
@@ -49,8 +60,10 @@ function DataGrid<R>({
     estimatedRowHeight = 50,
     estimatedColumnWidth = 120,
     headerRowHeight = 35,
-    cacheRemoveCount = 10,
+    cacheRemoveCount = 6,
     defaultColumnWidth = 120,
+    onHeaderCellRender,
+    onHeaderRowRender = (node: JSX.Element) => node,
 }: DataGridProps<R>) {
     const [state, dispatch] = useReducer(reducer, {})
 
@@ -93,16 +106,18 @@ function DataGrid<R>({
     const [scrollTop, setScrollTop] = useState<number>(0)
     const [scrollLeft, setscrollLeft] = useState<number>(0)
 
-    // 计算刷新数据的时机, 在滚动到缓存的 3/4 的时候开始加载数据
-    const calcCacheRemove =
-        estimatedColumnWidth * cacheRemoveCount -
-        (estimatedColumnWidth * cacheRemoveCount) / 4
+    const calcCacheRemove = estimatedColumnWidth * cacheRemoveCount
 
     // 渲染表格的行信息
     const renderRow = useMemo(() => {
         const domRows: Array<ReactNode> = []
         let top = startRowTop.current
-        domRows.push(
+        const headerStyled: CSSProperties = {
+            height: headerRowHeight,
+            top,
+            width: scrollWidth,
+        }
+        const headerRow: JSX.Element = (
             <HeaderRow
                 key="header"
                 columns={sortColumns}
@@ -112,14 +127,12 @@ function DataGrid<R>({
                 scrollLeft={scrollLeft}
                 scrollWidth={scrollWidth}
                 defaultColumnWidth={defaultColumnWidth}
-                styled={{
-                    height: headerRowHeight,
-                    top,
-                    width: scrollWidth,
-                    lineHeight: `${headerRowHeight}px`,
-                }}
+                onHeaderCellRender={onHeaderCellRender}
+                styled={headerStyled}
             />
         )
+
+        domRows.push(onHeaderRowRender(headerRow))
 
         top += headerRowHeight
 
@@ -179,7 +192,7 @@ function DataGrid<R>({
             if (
                 // 纵向： currentScrollTop - lastScrollTop.current 距离上次滚动的距离
                 Math.abs(currentScrollTop - lastScrollTop.current) >
-                calcCacheRemove
+                calcCacheRemove - (estimatedColumnWidth * cacheRemoveCount) / 10
             ) {
                 setScrollTop(currentScrollTop)
                 lastScrollTop.current = currentTarget.scrollTop
@@ -188,7 +201,7 @@ function DataGrid<R>({
             if (
                 // 横向: currentScrollLeft - lastScrollLeft.current 距离上次滚动的距离
                 Math.abs(currentScrollLeft - lastScrollLeft.current) >
-                calcCacheRemove
+                calcCacheRemove - (estimatedColumnWidth * cacheRemoveCount) / 10
             ) {
                 setscrollLeft(currentScrollLeft)
                 lastScrollLeft.current = currentScrollLeft
