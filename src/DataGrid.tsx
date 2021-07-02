@@ -48,6 +48,8 @@ export interface DataGridProps<R> extends SharedDivProps {
     onHeaderCellRender?: (param: HeaderCellRenderParam<R>) => ReactNode
     /** 渲染表格的头部的行信息 */
     onHeaderRowRender?: (node: JSX.Element) => ReactNode
+    /** 数据空的时候渲染对应的数据信息 */
+    onEmptyRowsRenderer?: () => ReactNode
 }
 
 function DataGrid<R>({
@@ -63,6 +65,7 @@ function DataGrid<R>({
     cacheRemoveCount = 6,
     defaultColumnWidth = 120,
     onHeaderCellRender,
+    onEmptyRowsRenderer,
     onHeaderRowRender = (node: JSX.Element) => node,
 }: DataGridProps<R>) {
     const [state, dispatch] = useReducer(reducer, {})
@@ -234,6 +237,9 @@ function DataGrid<R>({
                 >
                     {renderRow}
                 </div>
+                {rows.length === 0 && onEmptyRowsRenderer
+                    ? onEmptyRowsRenderer()
+                    : undefined}
             </Grid>
         </Context.Provider>
     )
