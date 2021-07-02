@@ -72,11 +72,11 @@ function DataGrid<R>({
     /** 数据进行排序, 方便固定列进行排序 */
     const sortColumns = useMemo(() => {
         const newColumns = [...columns]
-        newColumns.sort((before, after) => {
-            if (before.fixed === 'left' && after.fixed !== 'left') {
+        newColumns.sort((before) => {
+            if (before.fixed === 'left') {
                 return -1
             }
-            if (after.fixed === 'right' && before.fixed !== 'right') {
+            if (before.fixed === 'right') {
                 return 1
             }
             return 0
