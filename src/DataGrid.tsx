@@ -237,9 +237,18 @@ function DataGrid<R>({
                 >
                     {renderRow}
                 </div>
-                {rows.length === 0 && onEmptyRowsRenderer
-                    ? onEmptyRowsRenderer()
-                    : undefined}
+                {rows.length === 0 && onEmptyRowsRenderer ? (
+                    <div
+                        style={{
+                            height: '100%',
+                            width,
+                            position: 'sticky',
+                            left: 0,
+                        }}
+                    >
+                        {onEmptyRowsRenderer()}
+                    </div>
+                ) : undefined}
             </Grid>
         </Context.Provider>
     )
