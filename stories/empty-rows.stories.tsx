@@ -25,6 +25,7 @@ columns.push({
     fixed: 'right',
 })
 
+
 const RowDataGrid = () => (
     <DataGrid<unknown>
         rows={rows}
