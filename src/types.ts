@@ -33,7 +33,7 @@ export interface Column<TRow> {
     /** 列数据在数据项中对应的路径 */
     name: string
     /** 列头显示文字 */
-    title: string | ((row: TRow) => ReactNode)
+    title: ReactNode
     /** 列宽度 */
     width?: number
     /** 对其方式 */
