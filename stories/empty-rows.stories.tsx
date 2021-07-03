@@ -40,7 +40,6 @@ const RowDataGrid = () => (
                     justifyContent: 'center',
                 }}
             >
-                <br /> <br />
                 无任何数据
             </div>
         )}
