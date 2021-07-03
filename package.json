@@ -45,7 +45,7 @@
     },
     "lint-staged": {
         "**/*.{js,jsx,ts,tsx}": "eslint --ext .js,.jsx,.ts,.tsx",
-        "**/*.{js,jsx,tsx,ts,less,md,json}": [
+        "**/*.{js,jsx,tsx,ts,less,json}": [
             "prettier --write"
         ]
     }
