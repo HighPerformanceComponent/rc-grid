@@ -32,15 +32,15 @@ const RowDataGrid = () => (
         onEmptyRowsRenderer={() => (
             <div
                 style={{
-                    width: '100%',
                     height: '100%',
-                    position: 'absolute',
-                    top: 0,
+                    width: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                 }}
             >
-                {' '}
                 <br /> <br />
-                无任何数据{' '}
+                无任何数据
             </div>
         )}
     />
