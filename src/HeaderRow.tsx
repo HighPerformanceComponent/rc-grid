@@ -1,6 +1,8 @@
 import React, { ReactNode, CSSProperties, useMemo } from 'react'
 import styled from 'styled-components'
+
 import { Column, HeaderCellRenderParam } from './types'
+import HeaderCell from './HeaderCell'
 
 interface GridHeaderRowProps extends React.HTMLAttributes<HTMLDivElement> {
     styled: CSSProperties
@@ -11,39 +13,6 @@ const GridHeaderRow = styled.div.attrs<GridHeaderRowProps>((props) => ({
 }))<GridHeaderRowProps>`
     position: sticky;
     z-index: 10;
-`
-
-interface GridHeaderCellProps extends React.HTMLAttributes<HTMLDivElement> {
-    isLastFeftFixed: boolean
-    isLastRightFixed: boolean
-    styled: CSSProperties
-}
-
-const GridHeaderCell = styled.div.attrs<GridHeaderCellProps>((props) => ({
-    style: props.styled,
-}))<GridHeaderCellProps>`
-    display: inline-flex;
-    position: absolute;
-    border-right: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    box-sizing: border-box;
-    height: 100%;
-    align-items: center;
-    background-color: hsl(0deg 0% 97.5%);
-    box-shadow: ${({ isLastFeftFixed, isLastRightFixed }) => {
-        if (isLastFeftFixed) {
-            return '2px 0 5px -2px rgb(136 136 136 / 30%)'
-        }
-        if (isLastRightFixed) {
-            return '-3px 0 5px -2px rgb(136 136 136 / 30%)'
-        }
-        return undefined
-    }};
-    /** 优化 webkit 中的渲染效率 */
-    content-visibility: auto;
-    padding: 0px 8px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
 `
 
 interface HeaderRowProps<R>
@@ -125,7 +94,7 @@ function HeaderRow<R>({
                 index,
                 column,
                 headerCell: (
-                    <GridHeaderCell
+                    <HeaderCell
                         isLastFeftFixed={
                             leftFixedColumns.length > 0 &&
                             leftFixedColumns[leftFixedColumns.length - 1]
@@ -139,12 +108,11 @@ function HeaderRow<R>({
                         styled={cellStyled}
                     >
                         {column.title}
-                    </GridHeaderCell>
+                    </HeaderCell>
                 ),
             })
             result.push(headerCell)
             left += columnWidth
-
             return false
         })
         return result
