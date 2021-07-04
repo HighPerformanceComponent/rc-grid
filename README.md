@@ -10,15 +10,13 @@
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | last 2 versions | last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions
 
-表格构建主要依赖 `position: sticky;` 的 css 属性， 来实现固定表头和固定列的功能实现。 由于 IE 本身不支持 `position: sticky;` 属性，所以需要用户自己寻找对应的 polyfill
-
-> 注意，解决浏览器的兼容性，这并不是一件容易的事情。
 
 ## 支持的功能
 
 - [x] 固定左/右列
 - [x] 单元格合并
 - [x] 表格头部合并
+- [x] 表格单元格编辑
 - [ ] 数据分组
 - [ ] 可展开表格
 - [ ] 排序/多列排序
