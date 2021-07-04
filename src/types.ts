@@ -25,6 +25,8 @@ export interface Cell {
     colSpan?: number
     /** 合并行的数量 */
     rowSpan?: number
+    /** 禁用选中 */
+    disableSelect?: boolean
     /** css 样式 */
     style?: CellStyle
 }

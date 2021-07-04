@@ -122,7 +122,7 @@ function Row<R>({
 
             let isCellSpan = false
             const cell = cells.find((ele) => ele.name === column.name)
-
+            
             const colSpan = cell?.colSpan || 0
 
             if (colSpan > 0) {
@@ -193,13 +193,15 @@ function Row<R>({
                     }
                     isSelect={isSelect}
                     onClick={() => {
-                        dispatch({
-                            type: 'setSelectPosition',
-                            payload: {
-                                x: index,
-                                y: rowIndex,
-                            },
-                        })
+                        if (cell.disableSelect !== true) {
+                            dispatch({
+                                type: 'setSelectPosition',
+                                payload: {
+                                    x: index,
+                                    y: rowIndex,
+                                },
+                            })
+                        }
                     }}
                 >
                     {txt}
