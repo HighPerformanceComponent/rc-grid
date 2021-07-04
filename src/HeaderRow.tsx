@@ -25,8 +25,7 @@ interface HeaderRowProps<R>
     styled: CSSProperties
     scrollLeft: number
     defaultColumnWidth: number
-    /** 渲染表格头部的单元格 */
-    onHeaderCellRender?: (param: HeaderCellRenderParam<R>) => ReactNode
+    onHeaderCellRender?: (param: HeaderCellRenderParam<R>) => ReactNode[]
 }
 
 function HeaderRow<R>({
@@ -95,6 +94,7 @@ function HeaderRow<R>({
                 column,
                 headerCell: (
                     <HeaderCell
+                        key={`header-${column.name}`}
                         isLastFeftFixed={
                             leftFixedColumns.length > 0 &&
                             leftFixedColumns[leftFixedColumns.length - 1]
@@ -104,14 +104,14 @@ function HeaderRow<R>({
                             rightFixedColumns.length > 0 &&
                             rightFixedColumns[0].name === column.name
                         }
-                        key={`header-${column.name}`}
+                       
                         styled={cellStyled}
                     >
                         {column.title}
                     </HeaderCell>
                 ),
             })
-            result.push(headerCell)
+            result.splice(-1, 0, headerCell)
             left += columnWidth
             return false
         })

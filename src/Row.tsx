@@ -1,7 +1,8 @@
 import React, { CSSProperties, ReactNode, useContext, useMemo } from 'react'
 import styled from 'styled-components'
-import { Column, Row as RowType } from './types'
+import { Column, EditorChange, Row as RowType } from './types'
 import Context from './Context'
+import Cell from './Cell'
 
 interface GridRowProps extends React.HTMLAttributes<HTMLDivElement> {
     styled: CSSProperties
@@ -13,48 +14,9 @@ const GridRow = styled.div.attrs<GridRowProps>((props) => ({
     position: absolute;
 `
 
-interface GridCellProps extends React.HTMLAttributes<HTMLDivElement> {
-    isLastFeftFixed: boolean
-    isLastRightFixed: boolean
-    isSelect: boolean
-    styled: CSSProperties
-}
-
-const GridCell = styled.div.attrs<GridCellProps>((props) => ({
-    style: props.styled,
-}))<GridCellProps>`
-    display: inline-block;
-    position: absolute;
-    border-right: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    box-sizing: border-box;
-    background-color: #fff;
-    outline: none;
-    box-shadow: ${({ isLastFeftFixed, isLastRightFixed, isSelect }) => {
-        if (isSelect) {
-            return 'inset 0 0 0 2px #66afe9'
-        }
-
-        if (isLastFeftFixed) {
-            return '2px 0 5px -2px rgb(136 136 136 / 30%)'
-        }
-        if (isLastRightFixed) {
-            return '-3px 0 5px -2px rgb(136 136 136 / 30%)'
-        }
-        return undefined
-    }};
-    /** 优化 webkit 中的渲染效率 */
-    content-visibility: auto;
-    padding: 0px 8px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    height: 100%;
-`
-
 interface RowProps<R>
     extends Pick<React.HTMLAttributes<HTMLDivElement>, 'style'> {
-    rows: readonly RowType[]
+    rows: readonly RowType<R>[]
     rowIndex: number
     width: number
     columns: readonly Column<R>[]
@@ -64,13 +26,13 @@ interface RowProps<R>
     scrollWidth: number
     styled: CSSProperties
     defaultColumnWidth: number
+    onEditorChange?: (change: EditorChange<R>) => void
 }
 
-function Row<R>({
+function Row<T>({
     rows,
     width,
     rowIndex,
-    style = {},
     columns = [],
     estimatedColumnWidth,
     cacheRemoveCount,
@@ -78,7 +40,8 @@ function Row<R>({
     scrollWidth,
     defaultColumnWidth,
     styled: tempStyled = {},
-}: RowProps<R>) {
+    onEditorChange
+}: RowProps<T>) {
     const { cells, key, height } = rows[rowIndex]
     const { state, dispatch } = useContext(Context)
     const fixedColumns = useMemo(
@@ -175,13 +138,14 @@ function Row<R>({
             }
 
             result.push(
-                <GridCell
+                <Cell<T>
                     key={`${key}-${column.name}`}
-                    style={{
-                        ...(cell?.style || {}),
+                    column={column}
+                    style={cell?.style}
+                    styled={{
+                        ...cellStyled,
                         position: column.fixed ? 'sticky' : undefined,
                     }}
-                    styled={cellStyled}
                     isLastFeftFixed={
                         leftFixedColumns.length > 0 &&
                         leftFixedColumns[leftFixedColumns.length - 1].name ===
@@ -203,9 +167,21 @@ function Row<R>({
                             })
                         }
                     }}
-                >
-                    {txt}
-                </GridCell>
+                    row={rows[rowIndex]}
+                    value={txt}
+                    onEditorChange={onEditorChange}
+                    onFocus={() => {
+                        if (cell.disableSelect !== true) {
+                            dispatch({
+                                type: 'setSelectPosition',
+                                payload: {
+                                    x: index,
+                                    y: rowIndex,
+                                },
+                            })
+                        }
+                    }}
+                />
             )
             left += columnWidth
 
@@ -221,7 +197,9 @@ function Row<R>({
     ])
 
     return (
-        <GridRow styled={tempStyled} style={style}>
+        <GridRow
+            styled={tempStyled}
+        >
             {renderCell}
         </GridRow>
     )
