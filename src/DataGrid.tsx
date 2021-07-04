@@ -8,7 +8,7 @@ import React, {
 } from 'react'
 import styled from 'styled-components'
 
-import type { Row, Column, HeaderCellRenderParam } from './types'
+import type { Row, Column, HeaderCellRenderParam, EditorChange } from './types'
 import DataGridRow from './Row'
 import HeaderRow from './HeaderRow'
 import Context, { reducer } from './Context'
@@ -27,7 +27,7 @@ type SharedDivProps = Pick<
 
 export interface DataGridProps<R> extends SharedDivProps {
     /** 表格的行数据信息 */
-    rows: readonly Row[]
+    rows: readonly Row<R>[]
     /** 列的信息 */
     columns: readonly Column<R>[]
     /** 表格的高度信息 */
@@ -44,8 +44,10 @@ export interface DataGridProps<R> extends SharedDivProps {
     cacheRemoveCount?: number
     /** 默认列的宽度信息 */
     defaultColumnWidth?: number
+    /** 用户编辑触发的数据*/
+    onEditorChange?: (change: EditorChange<R>) => void
     /** 渲染表格头部的单元格 */
-    onHeaderCellRender?: (param: HeaderCellRenderParam<R>) => ReactNode
+    onHeaderCellRender?: (param: HeaderCellRenderParam<R>) => ReactNode[]
     /** 渲染表格的头部的行信息 */
     onHeaderRowRender?: (node: JSX.Element) => ReactNode
     /** 数据空的时候渲染对应的数据信息 */
@@ -67,6 +69,7 @@ function DataGrid<R>({
     onHeaderCellRender,
     onEmptyRowsRenderer,
     onHeaderRowRender = (node: JSX.Element) => node,
+    onEditorChange
 }: DataGridProps<R>) {
     const [state, dispatch] = useReducer(reducer, {})
 
@@ -156,6 +159,7 @@ function DataGrid<R>({
                     scrollLeft={scrollLeft}
                     defaultColumnWidth={defaultColumnWidth}
                     cacheRemoveCount={cacheRemoveCount}
+                    onEditorChange={onEditorChange}
                     styled={{
                         height: row.height,
                         top,
@@ -221,7 +225,6 @@ function DataGrid<R>({
         >
             <Grid
                 ref={gridRef}
-                tabIndex={0}
                 className={className}
                 style={{
                     height,

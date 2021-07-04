@@ -1,11 +1,13 @@
 import { CSSProperties, ReactNode } from 'react'
 
-export interface Row {
+export interface Row<T> {
     key: string
     /** 表格行的高度 */
     height: number
     /** 表格的单元格信息 */
     cells: Array<Cell>
+    /** 任何 JSON 数据 */
+    object?: T
 }
 
 export interface CellStyle
@@ -19,8 +21,6 @@ export interface Cell {
     name: string
     /** 实际显示的值信息 */
     value: string
-    /** 任何 JSON 数据 */
-    object?: any
     /** 合并列的数量 */
     colSpan?: number
     /** 合并行的数量 */
@@ -31,17 +31,38 @@ export interface Cell {
     style?: CellStyle
 }
 
+export interface EditorChange<R>  {
+    /** 当前行的数据 */
+    row: R
+    /** 改变的字段信息 */
+    changeValue: R
+}
+
+export type EditorValue = number | string | boolean
+
+export interface EditorProps{
+    style: CSSProperties
+    /** 当前编辑框的值 */
+    value: EditorValue
+    /** 当前改变内容触发的信息 */
+    onChange: (value: EditorValue) => void
+    /** 当内容编辑完成后触发的事件 */
+    onEditCompleted: () => void
+}
+
 export interface Column<TRow> {
     /** 列数据在数据项中对应的路径 */
-    name: string
+    readonly name: string
     /** 列头显示文字 */
-    title: ReactNode
+    readonly title: ReactNode
     /** 列宽度 */
-    width?: number
+    readonly width?: number
     /** 对其方式 */
-    align?: 'left' | 'right' | 'center'
+    readonly align?: 'left' | 'right' | 'center'
     /** 固定列 */
-    fixed?: 'left' | 'right'
+    readonly fixed?: 'left' | 'right'
+    /** 表格的编辑按钮 */
+    readonly editor?: React.ComponentType<EditorProps> | null;
 }
 
 export interface HeaderCellRenderParam<R> {

@@ -4,7 +4,7 @@ import { Meta } from '@storybook/react'
 import styled from 'styled-components'
 import DataGrid, { Row, Column, Cell } from '../src'
 
-const rows: Array<Row> = []
+const rows: Array<Row<any>> = []
 const columns: Array<Column<unknown>> = [
     {
         name: `0`,
@@ -114,52 +114,45 @@ const RowDataGrid = () => (
         onHeaderCellRender={({ headerCell, index }) => {
             const { styled: tempStyled, ...restProps } = headerCell.props
             if (index === 0) {
-                return (
-                    <>
-                        <GridHeaderCell
-                            style={{
-                                width: 120 * 6,
-                                height: 35,
-                                position: 'absolute',
-                                display: 'inline-flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                zIndex: 100,
-                                left: tempStyled.left,
-                                top: (tempStyled.top || 0) - 35,
-                            }}
-                        >
-                            人员资料
-                        </GridHeaderCell>
-                        {headerCell}
-                    </>
-                )
+                return [
+                    <GridHeaderCell
+                        key="merge-header-cell"
+                        style={{
+                            width: 120 * 6,
+                            height: 35,
+                            position: 'absolute',
+                            display: 'inline-flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            zIndex: 100,
+                            left: tempStyled.left,
+                            top: (tempStyled.top || 0) - 35,
+                        }}
+                    >
+                        人员资料
+                    </GridHeaderCell>,
+                    headerCell
+                ]
             }
 
             if (index > 5) {
-                return (
-                    <>
-                        {React.cloneElement(headerCell, {
-                            ...restProps,
-                            styled: {
-                                ...tempStyled,
-                                top: -35,
-                                height: 35 * 2,
-                            },
-                        })}
-                    </>
-                )
-            }
-            return (
-                <>
-                    {React.cloneElement(headerCell, {
+                return [
+                    React.cloneElement(headerCell, {
                         ...restProps,
                         styled: {
                             ...tempStyled,
+                            top: -35,
+                            height: 35 * 2,
                         },
-                    })}
-                </>
-            )
+                    })
+                ]
+            }
+            return [React.cloneElement(headerCell, {
+                ...restProps,
+                styled: {
+                    ...tempStyled,
+                },
+            })]
         }}
     />
 )

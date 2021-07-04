@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react'
 
 import DataGrid, { Row, Column } from '../src'
 
-const rows: Array<Row> = []
+const rows: Array<Row<any>> = []
 const columns: Array<Column<unknown>> = []
 
 columns.push({
