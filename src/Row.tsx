@@ -1,6 +1,6 @@
 import React, { CSSProperties, ReactNode, useContext, useMemo } from 'react'
 import styled from 'styled-components'
-import { Column, EditorChange, Row as RowType } from './types'
+import { Row as RowType, DataGridProps } from './types'
 import Context from './Context'
 import Cell from './Cell'
 
@@ -19,28 +19,26 @@ interface RowProps<R>
     rows: readonly RowType<R>[]
     rowIndex: number
     width: number
-    columns: readonly Column<R>[]
-    estimatedColumnWidth: number
-    cacheRemoveCount: number
     scrollLeft: number
     scrollWidth: number
     styled: CSSProperties
-    defaultColumnWidth: number
-    onEditorChange?: (change: EditorChange<R>) => void
+    gridProps: DataGridProps<R>
 }
 
 function Row<T>({
     rows,
-    width,
     rowIndex,
-    columns = [],
-    estimatedColumnWidth,
-    cacheRemoveCount,
     scrollLeft,
     scrollWidth,
-    defaultColumnWidth,
     styled: tempStyled = {},
-    onEditorChange,
+    gridProps: {
+        onEditorChange,
+        defaultColumnWidth,
+        columns = [],
+        estimatedColumnWidth,
+        cacheRemoveCount,
+        width,
+    },
 }: RowProps<T>) {
     const { cells, key, height } = rows[rowIndex]
     const { state, dispatch } = useContext(Context)
@@ -197,10 +195,6 @@ function Row<T>({
     ])
 
     return <GridRow styled={tempStyled}>{renderCell}</GridRow>
-}
-
-Row.defaultProps = {
-    onEditorChange: () => {},
 }
 
 export default Row
