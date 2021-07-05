@@ -2,6 +2,8 @@
 
 ![type-badge](https://img.shields.io/npm/types/react-data-grid)
 
+![working](./.resources/images/working.gif)
+
 高性能的 React 表格组件, 在不丢失表格的强大功能的情况下，并且保持高性能
 
 ## Browsers support
