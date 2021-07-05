@@ -8,7 +8,7 @@ import React, {
 } from 'react'
 import styled from 'styled-components'
 
-import type { Row, Column, HeaderCellRenderParam, EditorChange } from './types'
+import type { DataGridProps } from './types'
 import DataGridRow from './Row'
 import HeaderRow from './HeaderRow'
 import Context, { reducer } from './Context'
@@ -19,40 +19,6 @@ const Grid = styled.div`
     border: 1px solid #ddd;
     outline: none;
 `
-
-type SharedDivProps = Pick<
-    React.HTMLAttributes<HTMLDivElement>,
-    'className' | 'style'
->
-
-export interface DataGridProps<R> extends SharedDivProps {
-    /** 表格的行数据信息 */
-    rows: readonly Row<R>[]
-    /** 列的信息 */
-    columns: readonly Column<R>[]
-    /** 表格的高度信息 */
-    height?: number
-    /** 表格的宽度信息 */
-    width?: number
-    /** 表格 header 的默认高度 */
-    headerRowHeight?: number
-    /** 预估表格的行的平均值 */
-    estimatedRowHeight?: number
-    /** 预估表格的列的平均值 */
-    estimatedColumnWidth?: number
-    /** 缓存要移除的条目数量 (PS: 值越大，滚动起来越真实不会白屏幕，但是会导致性能变差) */
-    cacheRemoveCount?: number
-    /** 默认列的宽度信息 */
-    defaultColumnWidth?: number
-    /** 用户编辑触发的数据 */
-    onEditorChange?: (change: EditorChange<R>) => void
-    /** 渲染表格头部的单元格 */
-    onHeaderCellRender?: (param: HeaderCellRenderParam<R>) => ReactNode[]
-    /** 渲染表格的头部的行信息 */
-    onHeaderRowRender?: (node: JSX.Element) => ReactNode
-    /** 数据空的时候渲染对应的数据信息 */
-    onEmptyRowsRenderer?: () => ReactNode
-}
 
 function DataGrid<R>({
     className,
@@ -126,15 +92,26 @@ function DataGrid<R>({
         const headerRow: JSX.Element = (
             <HeaderRow
                 key="header"
-                columns={sortColumns}
-                estimatedColumnWidth={estimatedColumnWidth}
-                width={width}
-                cacheRemoveCount={cacheRemoveCount}
                 scrollLeft={scrollLeft}
                 scrollWidth={scrollWidth}
-                defaultColumnWidth={defaultColumnWidth}
-                onHeaderCellRender={onHeaderCellRender}
                 styled={headerStyled}
+                gridProps={{
+                    className,
+                    style,
+                    rows,
+                    height,
+                    width,
+                    columns: sortColumns,
+                    estimatedRowHeight,
+                    estimatedColumnWidth,
+                    headerRowHeight,
+                    cacheRemoveCount,
+                    defaultColumnWidth,
+                    onHeaderCellRender,
+                    onEmptyRowsRenderer,
+                    onHeaderRowRender,
+                    onEditorChange,
+                }}
             />
         )
 
@@ -148,23 +125,35 @@ function DataGrid<R>({
                 return false
             }
             domRows.push(
-                <DataGridRow
+                <DataGridRow<R>
                     key={row.key}
                     rows={rows}
                     rowIndex={index}
-                    columns={sortColumns}
-                    estimatedColumnWidth={estimatedColumnWidth}
                     width={width}
                     scrollWidth={scrollWidth}
                     scrollLeft={scrollLeft}
-                    defaultColumnWidth={defaultColumnWidth}
-                    cacheRemoveCount={cacheRemoveCount}
-                    onEditorChange={onEditorChange}
                     styled={{
                         height: row.height,
                         top,
                         width: scrollWidth,
                         lineHeight: `${row.height}px`,
+                    }}
+                    gridProps={{
+                        className,
+                        style,
+                        rows,
+                        height,
+                        width,
+                        columns: sortColumns,
+                        estimatedRowHeight,
+                        estimatedColumnWidth,
+                        headerRowHeight,
+                        cacheRemoveCount,
+                        defaultColumnWidth,
+                        onHeaderCellRender,
+                        onEmptyRowsRenderer,
+                        onHeaderRowRender,
+                        onEditorChange,
                     }}
                 />
             )

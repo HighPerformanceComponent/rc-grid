@@ -1,7 +1,7 @@
 import React, { ReactNode, CSSProperties, useMemo } from 'react'
 import styled from 'styled-components'
 
-import { Column, HeaderCellRenderParam } from './types'
+import { DataGridProps } from './types'
 import HeaderCell from './HeaderCell'
 
 interface GridHeaderRowProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -15,30 +15,27 @@ const GridHeaderRow = styled.div.attrs<GridHeaderRowProps>((props) => ({
     z-index: 10;
 `
 
-interface HeaderRowProps<R>
+interface HeaderRowProps<T>
     extends Pick<React.HTMLAttributes<HTMLDivElement>, 'style'> {
-    width: number
     scrollWidth: number
-    columns: readonly Column<R>[]
-    estimatedColumnWidth: number
-    cacheRemoveCount: number
     styled: CSSProperties
     scrollLeft: number
-    defaultColumnWidth: number
-    onHeaderCellRender?: (param: HeaderCellRenderParam<R>) => ReactNode[]
+    gridProps: DataGridProps<T>
 }
 
 function HeaderRow<R>({
-    width,
     style = {},
-    columns = [],
     styled: tempStyled = {},
-    estimatedColumnWidth,
-    cacheRemoveCount,
     scrollLeft,
     scrollWidth,
-    defaultColumnWidth,
-    onHeaderCellRender,
+    gridProps: {
+        width,
+        columns = [],
+        defaultColumnWidth,
+        estimatedColumnWidth,
+        cacheRemoveCount,
+        onHeaderCellRender = ({ headerCell }) => [headerCell],
+    },
 }: HeaderRowProps<R>) {
     const fixedColumns = useMemo(
         () => columns.filter((ele) => ele.fixed),
@@ -104,7 +101,6 @@ function HeaderRow<R>({
                             rightFixedColumns.length > 0 &&
                             rightFixedColumns[0].name === column.name
                         }
-                       
                         styled={cellStyled}
                     >
                         {column.title}
@@ -123,10 +119,6 @@ function HeaderRow<R>({
             {renderCell()}
         </GridHeaderRow>
     )
-}
-
-HeaderRow.defaultProps = {
-    onHeaderCellRender: (param: HeaderCellRenderParam<any>) => param.headerCell,
 }
 
 export default HeaderRow
