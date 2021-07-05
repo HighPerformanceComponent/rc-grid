@@ -71,12 +71,11 @@ function Cell<T>({
     const changeData = state?.editorChange?.find(ele => ele.row.key === row.key)
 
 
-    let tempValue = defaultValue;
+    let value = defaultValue;
     const changeValue = changeData?.changeValue[column.name]
     if (changeData && changeValue) {
-        tempValue = changeValue
+        value = changeValue
     }
-    const [value, setChangeValue] = useState<EditorValue>(tempValue)
     const [status, setStatus] = useState<'edit' | 'normal'>('normal')
 
     if (column.editor && status === 'edit') {
@@ -98,15 +97,12 @@ function Cell<T>({
                         width: '100%',
                     }}
                     value={value}
-                    onChange={(newValue) => {
-                        setChangeValue(newValue)
-                    }}
-                    onEditCompleted={() => {
+                    onEditCompleted={(newValue) => {
                         setStatus('normal')
                         const data: EditorChange<T> = {
                             row,
                             changeValue: {
-                                [column.name]: value,
+                                [column.name]: newValue,
                             } as unknown as T,
                         }
 

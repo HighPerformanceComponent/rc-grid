@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Meta } from '@storybook/react'
 
 import styled from 'styled-components'
@@ -6,21 +6,25 @@ import DataGrid, { Row, Column, Cell, EditorProps } from '../src'
 
 const rows: Array<Row<any>> = []
 
-const Input = ({ style, value, onEditCompleted, onChange }: EditorProps) => (
-    <input
-        // eslint-disable-next-line jsx-a11y/no-autofocus
-        autoFocus
-        style={style}
-        value={value as string}
-        onBlur={() => {
-            onEditCompleted()
-        }}
-        onChange={(e) => {
-            const text = e.target.value
-            onChange(text)
-        }}
-    />
-)
+const Input = ({ style, value: tempValue, onEditCompleted }: EditorProps) => {
+    const [value, setValue] = useState(tempValue)
+    return (
+        <input
+            // eslint-disable-next-line jsx-a11y/no-autofocus
+            autoFocus
+            style={style}
+            value={value as string}
+            onBlur={() => {
+                onEditCompleted(value)
+            }}
+            onChange={(e) => {
+                const text = e.target.value
+                setValue(text)
+            }}
+        />
+    )
+}
+
 const columns: Array<Column<unknown>> = [
     {
         name: `0`,

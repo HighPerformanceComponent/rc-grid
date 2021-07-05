@@ -78,10 +78,8 @@ export interface EditorProps {
     style: CSSProperties
     /** 当前编辑框的值 */
     value: EditorValue
-    /** 当前改变内容触发的信息 */
-    onChange: (value: EditorValue) => void
     /** 当内容编辑完成后触发的事件 */
-    onEditCompleted: () => void
+    onEditCompleted: (value: EditorValue) => void
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
