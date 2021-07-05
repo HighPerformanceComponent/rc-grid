@@ -38,20 +38,20 @@ export interface HeaderCellProps {
     isLastFeftFixed: boolean
     isLastRightFixed: boolean
     styled: CSSProperties
-    children: ReactNode;
+    children: ReactNode
 }
 
 function HeaderCell({
     isLastFeftFixed,
     isLastRightFixed,
-    styled,
-    children
+    styled: tempStyled,
+    children,
 }: HeaderCellProps) {
     return (
         <GridHeaderCell
             isLastFeftFixed={isLastFeftFixed}
             isLastRightFixed={isLastRightFixed}
-            styled={styled}
+            styled={tempStyled}
         >
             {children}
         </GridHeaderCell>

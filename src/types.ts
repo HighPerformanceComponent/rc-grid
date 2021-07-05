@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from 'react'
+import { ComponentType, CSSProperties, ReactNode } from 'react'
 
 export interface Row<T> {
     key: string
@@ -31,7 +31,7 @@ export interface Cell {
     style?: CellStyle
 }
 
-export interface EditorChange<R>  {
+export interface EditorChange<R> {
     /** 当前行的数据 */
     row: R
     /** 改变的字段信息 */
@@ -40,7 +40,7 @@ export interface EditorChange<R>  {
 
 export type EditorValue = number | string | boolean
 
-export interface EditorProps{
+export interface EditorProps {
     style: CSSProperties
     /** 当前编辑框的值 */
     value: EditorValue
@@ -50,6 +50,7 @@ export interface EditorProps{
     onEditCompleted: () => void
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export interface Column<TRow> {
     /** 列数据在数据项中对应的路径 */
     readonly name: string
@@ -62,7 +63,7 @@ export interface Column<TRow> {
     /** 固定列 */
     readonly fixed?: 'left' | 'right'
     /** 表格的编辑按钮 */
-    readonly editor?: React.ComponentType<EditorProps> | null;
+    readonly editor?: ComponentType<EditorProps> | null
 }
 
 export interface HeaderCellRenderParam<R> {

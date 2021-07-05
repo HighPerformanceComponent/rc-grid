@@ -40,7 +40,7 @@ function Row<T>({
     scrollWidth,
     defaultColumnWidth,
     styled: tempStyled = {},
-    onEditorChange
+    onEditorChange,
 }: RowProps<T>) {
     const { cells, key, height } = rows[rowIndex]
     const { state, dispatch } = useContext(Context)
@@ -85,7 +85,7 @@ function Row<T>({
 
             let isCellSpan = false
             const cell = cells.find((ele) => ele.name === column.name)
-            
+
             const colSpan = cell?.colSpan || 0
 
             if (colSpan > 0) {
@@ -196,13 +196,11 @@ function Row<T>({
         state.selectPosition,
     ])
 
-    return (
-        <GridRow
-            styled={tempStyled}
-        >
-            {renderCell}
-        </GridRow>
-    )
+    return <GridRow styled={tempStyled}>{renderCell}</GridRow>
+}
+
+Row.defaultProps = {
+    onEditorChange: () => {},
 }
 
 export default Row
