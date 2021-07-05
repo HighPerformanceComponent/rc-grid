@@ -30,11 +30,18 @@ const columns: Array<Column<unknown>> = [
         name: `0`,
         title: `姓名`,
         editor: Input,
+        readonly: true,
     },
     {
         name: `1`,
         title: `年龄`,
         editor: Input,
+        readonly: (row) => {
+            if ((row.key as unknown as number) % 2 === 0) {
+                return true
+            }
+            return false
+        }
     },
     {
         name: `2`,

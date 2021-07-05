@@ -94,6 +94,8 @@ export interface Column<TRow> {
     readonly align?: 'left' | 'right' | 'center'
     /** 固定列 */
     readonly fixed?: 'left' | 'right'
+    /** 当前列是否只读 */
+    readonly readonly?: boolean | ((row: Row<TRow>) => boolean)
     /** 表格的编辑按钮 */
     readonly editor?: ComponentType<EditorProps> | null
 }

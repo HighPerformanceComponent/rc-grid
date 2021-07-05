@@ -78,7 +78,13 @@ function Cell<T>({
     }
     const [status, setStatus] = useState<'edit' | 'normal'>('normal')
 
-    if (column.editor && status === 'edit') {
+    let readonly = false
+    
+    if ((typeof column.readonly === 'function' && column.readonly(row) === true) || column.readonly === true) {
+        readonly = true
+    }
+
+    if (column.editor && status === 'edit' && readonly === false) {
         const Editor = column.editor
         return (
             <GridCell
