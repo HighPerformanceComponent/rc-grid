@@ -37,7 +37,9 @@ function DataGrid<R>({
     onHeaderRowRender = (node: JSX.Element) => node,
     onEditorChange,
 }: DataGridProps<R>) {
-    const [state, dispatch] = useReducer(reducer, {})
+    const [state, dispatch] = useReducer(reducer, {
+        editorChange: []
+    })
 
     const gridRef = useRef<HTMLDivElement>(null)
 
