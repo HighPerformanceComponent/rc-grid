@@ -2,7 +2,6 @@ import React, { CSSProperties, useState } from 'react'
 import styled from 'styled-components'
 import { Column, EditorChange, EditorValue, Row } from './types'
 
-
 interface GridCellProps extends React.HTMLAttributes<HTMLDivElement> {
     isLastFeftFixed: boolean
     isLastRightFixed: boolean
@@ -12,7 +11,7 @@ interface GridCellProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const GridCell = styled.div.attrs<GridCellProps>((props) => ({
     style: props.styled,
-})) <GridCellProps>`
+}))<GridCellProps>`
     display: inline-block;
     position: absolute;
     border-right: 1px solid #ddd;
@@ -57,16 +56,15 @@ function Cell<T>({
     isLastFeftFixed,
     isLastRightFixed,
     isSelect,
-    styled,
+    styled: tempStyled,
     onClick,
     onFocus,
     column,
     style,
     row,
     value: defaultValue,
-    onEditorChange
+    onEditorChange,
 }: CellProps<T>) {
-
     const [value, setValue] = useState<EditorValue>(defaultValue)
     const [status, setStatus] = useState<'edit' | 'normal'>('normal')
 
@@ -75,9 +73,9 @@ function Cell<T>({
         return (
             <GridCell
                 styled={{
-                    ...styled,
+                    ...tempStyled,
                     display: 'inline-flex',
-                    padding: 0
+                    padding: 0,
                 }}
                 isLastFeftFixed={isLastFeftFixed}
                 isLastRightFixed={isLastRightFixed}
@@ -97,8 +95,8 @@ function Cell<T>({
                         onEditorChange?.({
                             row: row.object,
                             changeValue: {
-                                [column.name]: value
-                            } as any
+                                [column.name]: value,
+                            } as any,
                         })
                     }}
                 />
@@ -109,7 +107,7 @@ function Cell<T>({
     return (
         <GridCell
             style={style}
-            styled={styled}
+            styled={tempStyled}
             isLastFeftFixed={isLastFeftFixed}
             isLastRightFixed={isLastRightFixed}
             isSelect={isSelect}

@@ -44,7 +44,7 @@ export interface DataGridProps<R> extends SharedDivProps {
     cacheRemoveCount?: number
     /** 默认列的宽度信息 */
     defaultColumnWidth?: number
-    /** 用户编辑触发的数据*/
+    /** 用户编辑触发的数据 */
     onEditorChange?: (change: EditorChange<R>) => void
     /** 渲染表格头部的单元格 */
     onHeaderCellRender?: (param: HeaderCellRenderParam<R>) => ReactNode[]
@@ -69,7 +69,7 @@ function DataGrid<R>({
     onHeaderCellRender,
     onEmptyRowsRenderer,
     onHeaderRowRender = (node: JSX.Element) => node,
-    onEditorChange
+    onEditorChange,
 }: DataGridProps<R>) {
     const [state, dispatch] = useReducer(reducer, {})
 
