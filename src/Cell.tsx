@@ -134,11 +134,13 @@ function Cell<T>({
             isLastFeftFixed={isLastFeftFixed}
             isLastRightFixed={isLastRightFixed}
             isSelect={isSelect}
-            onClick={onClick}
-            onFocus={onFocus}
-            onDoubleClick={() => {
-                setStatus('edit')
+            onClick={(e) => {
+                if (isSelect) {
+                    setStatus('edit')
+                }
+                onClick?.(e)
             }}
+            onFocus={onFocus}
         >
             {value}
         </GridCell>
