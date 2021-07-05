@@ -1,5 +1,6 @@
-import React, { CSSProperties, useState } from 'react'
+import React, { CSSProperties, useContext, useState } from 'react'
 import styled from 'styled-components'
+import Context from './Context'
 import { Column, EditorChange, EditorValue, Row } from './types'
 
 interface GridCellProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -65,7 +66,17 @@ function Cell<T>({
     value: defaultValue,
     onEditorChange,
 }: CellProps<T>) {
-    const [value, setValue] = useState<EditorValue>(defaultValue)
+    const { state, dispatch } = useContext(Context)
+
+    const changeData = state?.editorChange?.find(ele => ele.row.key === row.key)
+
+
+    let tempValue = defaultValue;
+    const changeValue = changeData?.changeValue[column.name]
+    if (changeData && changeValue) {
+        tempValue = changeValue
+    }
+    const [value, setChangeValue] = useState<EditorValue>(tempValue)
     const [status, setStatus] = useState<'edit' | 'normal'>('normal')
 
     if (column.editor && status === 'edit') {
@@ -88,16 +99,32 @@ function Cell<T>({
                     }}
                     value={value}
                     onChange={(newValue) => {
-                        setValue(newValue)
+                        setChangeValue(newValue)
                     }}
                     onEditCompleted={() => {
                         setStatus('normal')
-                        onEditorChange?.({
-                            row: row.object,
+                        const data: EditorChange<T> = {
+                            row,
                             changeValue: {
                                 [column.name]: value,
-                            } as any,
+                            } as unknown as T,
+                        }
+
+                        if (changeData) {
+                            changeData.changeValue = {
+                                ...changeData.changeValue,
+                                ...data.changeValue
+                            }
+                        } else {
+                            state.editorChange.push(data)
+                        }
+
+                        dispatch({
+                            type: 'setEditorChange',
+                            payload: [...state.editorChange]
                         })
+
+                        onEditorChange?.(data)
                     }}
                 />
             </GridCell>

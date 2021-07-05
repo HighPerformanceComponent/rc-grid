@@ -67,7 +67,7 @@ export interface Cell {
 
 export interface EditorChange<R> {
     /** 当前行的数据 */
-    row: R
+    row: Row<R>
     /** 改变的字段信息 */
     changeValue: R
 }
