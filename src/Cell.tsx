@@ -50,7 +50,7 @@ export interface CellProps<T> extends React.HTMLAttributes<HTMLDivElement> {
     column: Column<T>
     value: EditorValue
     row: Row<T>
-    onEditorChange?: (change: EditorChange<T>) => void
+    onEditorChangeSave?: (change: EditorChange<T>) => void
 }
 
 function Cell<T>({
@@ -64,14 +64,15 @@ function Cell<T>({
     style,
     row,
     value: defaultValue,
-    onEditorChange,
+    onEditorChangeSave,
 }: CellProps<T>) {
     const { state, dispatch } = useContext(Context)
 
-    const changeData = state?.editorChange?.find(ele => ele.row.key === row.key)
+    const changeData = state?.editorChange?.find(
+        (ele) => ele.row.key === row.key
+    )
 
-
-    let value = defaultValue;
+    let value = defaultValue
     const changeValue = changeData?.changeValue[column.name]
     if (changeData && changeValue) {
         value = changeValue
@@ -79,8 +80,12 @@ function Cell<T>({
     const [status, setStatus] = useState<'edit' | 'normal'>('normal')
 
     let readonly = false
-    
-    if ((typeof column.readonly === 'function' && column.readonly(row) === true) || column.readonly === true) {
+
+    if (
+        (typeof column.readonly === 'function' &&
+            column.readonly(row) === true) ||
+        column.readonly === true
+    ) {
         readonly = true
     }
 
@@ -115,7 +120,7 @@ function Cell<T>({
                         if (changeData) {
                             changeData.changeValue = {
                                 ...changeData.changeValue,
-                                ...data.changeValue
+                                ...data.changeValue,
                             }
                         } else {
                             state.editorChange.push(data)
@@ -123,10 +128,10 @@ function Cell<T>({
 
                         dispatch({
                             type: 'setEditorChange',
-                            payload: [...state.editorChange]
+                            payload: [...state.editorChange],
                         })
 
-                        onEditorChange?.(data)
+                        onEditorChangeSave?.(data)
                     }}
                 />
             </GridCell>

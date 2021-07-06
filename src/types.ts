@@ -25,7 +25,7 @@ export interface DataGridProps<R> extends SharedDivProps {
     /** 默认列的宽度信息 */
     defaultColumnWidth?: number
     /** 用户编辑触发的数据 */
-    onEditorChange?: (change: EditorChange<R>) => void
+    onEditorChangeSave?: (change: EditorChange<R>) => void
     /** 渲染表格头部的单元格 */
     onHeaderCellRender?: (param: HeaderCellRenderParam<R>) => ReactNode[]
     /** 渲染表格的头部的行信息 */
