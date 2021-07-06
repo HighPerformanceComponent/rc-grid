@@ -13,6 +13,7 @@ const GridHeaderRow = styled.div.attrs<GridHeaderRowProps>((props) => ({
 }))<GridHeaderRowProps>`
     position: sticky;
     z-index: 10;
+    user-select: none;
 `
 
 interface HeaderRowProps<T>
