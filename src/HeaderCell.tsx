@@ -92,7 +92,6 @@ function HeaderCell<T>({
     const screenX = useRef<number>(0)
 
     const columnWidth = useRef<number>(column.width || defaultColumnWidth)
-
     useEffect(() => {
         const onMouseMove = (event: MouseEvent) => {
             if (screenX.current !== 0) {
@@ -113,16 +112,18 @@ function HeaderCell<T>({
         }
         window.addEventListener('mousemove', onMouseMove)
         const onMouseUp = (event: MouseEvent) => {
-            const offset: number = event.screenX - screenX.current
-            screenX.current = 0
-            columnWidth.current += offset
+            if (screenX.current !== 0) {
+                screenX.current = 0
+                const offset: number = event.screenX - screenX.current
+                columnWidth.current += offset
+            }
         }
         window.addEventListener('mouseup', onMouseUp)
         return () => {
             window.removeEventListener('mousemove', onMouseMove)
             window.removeEventListener('mouseup', onMouseUp)
         }
-    }, [screenX.current, columns])
+    }, [screenX.current, columns, columnWidth])
 
 
     const renderResizableSpan = () => {
