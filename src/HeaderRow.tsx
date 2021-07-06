@@ -30,12 +30,14 @@ function HeaderRow<R>({
     scrollLeft,
     scrollWidth,
     gridProps: {
+        rows,
         width,
         columns = [],
         defaultColumnWidth,
         estimatedColumnWidth,
         cacheRemoveCount,
         onHeaderCellRender = ({ headerCell }) => [headerCell],
+        onHeaderResizable,
         onSort,
     },
 }: HeaderRowProps<R>) {
@@ -105,7 +107,17 @@ function HeaderRow<R>({
                         }
                         styled={cellStyled}
                         column={column}
-                        onSort={onSort}
+                        gridProps={{
+                            rows,
+                            width,
+                            columns,
+                            defaultColumnWidth,
+                            estimatedColumnWidth,
+                            cacheRemoveCount,
+                            onHeaderCellRender,
+                            onHeaderResizable,
+                            onSort,
+                        }}
                     >
                         {column.title}
                     </HeaderCell>

@@ -17,6 +17,7 @@ for (let i = 2; i < 20; i += 1) {
     tempColumns.push({
         name: `${i}`,
         title: `字段 - ${i}`,
+        resizable: true,
         sort: true,
     })
 }
@@ -62,11 +63,12 @@ for (let i = 0; i < 500; i += 1) {
 
 const RowDataGrid = () => {
     const oldData = useRef<Row<any>[]>(produce(rows, () => {}))
+    const [columns, setColumns] = useState<Array<Column<unknown>>>(tempColumns)
     const [datas, setDatas] = useState<Row<any>[]>(produce(rows, () => {}))
     return (
         <DataGrid<unknown>
             rows={datas}
-            columns={tempColumns}
+            columns={columns}
             onSort={(sort) => {
                 if (sort.length === 0) {
                     setDatas(oldData.current)
@@ -96,6 +98,9 @@ const RowDataGrid = () => {
                     setDatas(rowsData)
                 }
             }}
+            onHeaderResizable={(changeColumns) => {
+                setColumns(changeColumns)
+            }}
         />
     )
 }
@@ -105,4 +110,4 @@ export default {
     title: 'Demos',
 } as Meta
 
-export const SortData: React.VFC<{}> = () => <RowDataGrid />
+export const HeaderResizable: React.VFC<{}> = () => <RowDataGrid />

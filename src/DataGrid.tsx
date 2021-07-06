@@ -4,7 +4,7 @@ import React, {
     useMemo,
     useReducer,
     useRef,
-    useState,
+    useState
 } from 'react'
 import styled from 'styled-components'
 
@@ -35,6 +35,7 @@ function DataGrid<R>({
     onHeaderCellRender,
     onEmptyRowsRenderer,
     onHeaderRowRender = (node: JSX.Element) => node,
+    onHeaderResizable,
     onEditorChangeSave,
     onSort,
 }: DataGridProps<R>) {
@@ -113,6 +114,7 @@ function DataGrid<R>({
                     cacheRemoveCount,
                     defaultColumnWidth,
                     onHeaderCellRender,
+                    onHeaderResizable,
                     onEmptyRowsRenderer,
                     onHeaderRowRender,
                     onEditorChangeSave,
@@ -159,6 +161,7 @@ function DataGrid<R>({
                         onHeaderCellRender,
                         onEmptyRowsRenderer,
                         onHeaderRowRender,
+                        onHeaderResizable,
                         onEditorChangeSave,
                         onSort,
                     }}
@@ -224,6 +227,7 @@ function DataGrid<R>({
             }
         }
     }
+
 
     return (
         <Context.Provider
