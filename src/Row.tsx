@@ -32,7 +32,7 @@ function Row<T>({
     scrollWidth,
     styled: tempStyled = {},
     gridProps: {
-        onEditorChange,
+        onEditorChangeSave,
         defaultColumnWidth,
         columns = [],
         estimatedColumnWidth,
@@ -167,7 +167,7 @@ function Row<T>({
                     }}
                     row={rows[rowIndex]}
                     value={txt}
-                    onEditorChange={onEditorChange}
+                    onEditorChangeSave={onEditorChangeSave}
                     onFocus={() => {
                         if (cell.disableSelect !== true) {
                             dispatch({

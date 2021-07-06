@@ -18,7 +18,6 @@ const Grid = styled.div`
     overflow: auto;
     border: 1px solid #ddd;
     outline: none;
-    
 `
 
 function DataGrid<R>({
@@ -36,10 +35,12 @@ function DataGrid<R>({
     onHeaderCellRender,
     onEmptyRowsRenderer,
     onHeaderRowRender = (node: JSX.Element) => node,
-    onEditorChange,
+    onEditorChangeSave,
+    onSort,
 }: DataGridProps<R>) {
     const [state, dispatch] = useReducer(reducer, {
-        editorChange: []
+        editorChange: [],
+        sortColumns: [],
     })
 
     const gridRef = useRef<HTMLDivElement>(null)
@@ -114,7 +115,8 @@ function DataGrid<R>({
                     onHeaderCellRender,
                     onEmptyRowsRenderer,
                     onHeaderRowRender,
-                    onEditorChange,
+                    onEditorChangeSave,
+                    onSort,
                 }}
             />
         )
@@ -157,7 +159,8 @@ function DataGrid<R>({
                         onHeaderCellRender,
                         onEmptyRowsRenderer,
                         onHeaderRowRender,
-                        onEditorChange,
+                        onEditorChangeSave,
+                        onSort,
                     }}
                 />
             )
@@ -183,22 +186,21 @@ function DataGrid<R>({
     const lastScrollTop = useRef<number>(0)
     const lastScrollLeft = useRef<number>(0)
 
-    const timeout = useRef<ReturnType<typeof setTimeout>>();
+    const timeout = useRef<ReturnType<typeof setTimeout>>()
 
     const onScroll = ({
         currentTarget,
     }: React.UIEvent<HTMLDivElement, UIEvent>) => {
-      
         if (timeout.current) {
             clearTimeout(timeout.current)
-        } else if (isScroll === false){
+        } else if (isScroll === false) {
             setIsScroll(true)
         }
 
         timeout.current = setTimeout(() => {
             setIsScroll(false)
             timeout.current = undefined
-        }, 400);
+        }, 400)
 
         const { scrollTop: currentScrollTop, scrollLeft: currentScrollLeft } =
             currentTarget
@@ -221,7 +223,6 @@ function DataGrid<R>({
                 lastScrollLeft.current = currentScrollLeft
             }
         }
-        
     }
 
     return (
@@ -237,14 +238,14 @@ function DataGrid<R>({
                 style={{
                     height,
                     width,
-                    ...style
+                    ...style,
                 }}
                 onScroll={onScroll}
             >
                 <div
                     style={{
                         height: scrollHeight,
-                        pointerEvents: isScroll ? 'none' : undefined
+                        pointerEvents: isScroll ? 'none' : undefined,
                     }}
                 >
                     {renderRow}

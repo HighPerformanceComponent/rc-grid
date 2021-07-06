@@ -41,7 +41,7 @@ const columns: Array<Column<unknown>> = [
                 return true
             }
             return false
-        }
+        },
     },
     {
         name: `2`,
@@ -142,7 +142,7 @@ const RowDataGrid = () => (
                 key: node.key,
             })
         }}
-        onEditorChange={(change) => {
+        onEditorChangeSave={(change) => {
             console.log(change)
         }}
         onHeaderCellRender={({ headerCell, index }) => {

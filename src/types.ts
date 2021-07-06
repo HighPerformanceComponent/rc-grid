@@ -5,6 +5,13 @@ type SharedDivProps = Pick<
     'className' | 'style'
 >
 
+type SortDirection = 'ASC' | 'DESC'
+
+export interface SortColumn {
+    readonly columnKey: string
+    readonly direction: SortDirection
+}
+
 export interface DataGridProps<R> extends SharedDivProps {
     /** 表格的行数据信息 */
     rows: readonly Row<R>[]
@@ -25,13 +32,15 @@ export interface DataGridProps<R> extends SharedDivProps {
     /** 默认列的宽度信息 */
     defaultColumnWidth?: number
     /** 用户编辑触发的数据 */
-    onEditorChange?: (change: EditorChange<R>) => void
+    onEditorChangeSave?: (change: EditorChange<R>) => void
     /** 渲染表格头部的单元格 */
     onHeaderCellRender?: (param: HeaderCellRenderParam<R>) => ReactNode[]
     /** 渲染表格的头部的行信息 */
     onHeaderRowRender?: (node: JSX.Element) => ReactNode
     /** 数据空的时候渲染对应的数据信息 */
     onEmptyRowsRenderer?: () => ReactNode
+    /** 表格执行排序的时候触发的方法 */
+    onSort?: (sortColumn: SortColumn[]) => void
 }
 
 export interface Row<T> {
@@ -96,6 +105,8 @@ export interface Column<TRow> {
     readonly fixed?: 'left' | 'right'
     /** 当前列是否只读 */
     readonly readonly?: boolean | ((row: Row<TRow>) => boolean)
+    /** 是否支持排序 */
+    readonly sort?: boolean
     /** 表格的编辑按钮 */
     readonly editor?: ComponentType<EditorProps> | null
 }
