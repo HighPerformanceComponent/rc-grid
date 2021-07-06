@@ -37,6 +37,8 @@ export interface DataGridProps<R> extends SharedDivProps {
     onHeaderCellRender?: (param: HeaderCellRenderParam<R>) => ReactNode[]
     /** 渲染表格的头部的行信息 */
     onHeaderRowRender?: (node: JSX.Element) => ReactNode
+    /** 表格列头部改变宽度触发的事件 */
+    onHeaderResizable?: (column: Column<R>[]) => void
     /** 数据空的时候渲染对应的数据信息 */
     onEmptyRowsRenderer?: () => ReactNode
     /** 表格执行排序的时候触发的方法 */
@@ -107,6 +109,8 @@ export interface Column<TRow> {
     readonly readonly?: boolean | ((row: Row<TRow>) => boolean)
     /** 是否支持排序 */
     readonly sort?: boolean
+    /** 列是否可以拖拽改变大小 */
+    readonly resizable?: boolean
     /** 表格的编辑按钮 */
     readonly editor?: ComponentType<EditorProps> | null
 }

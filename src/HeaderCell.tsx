@@ -1,8 +1,8 @@
-import React, { CSSProperties, ReactNode, useContext } from 'react'
+import React, { CSSProperties, ReactNode, useContext, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 
 import Context from './Context'
-import type { Column, SortColumn } from './types'
+import type { Column, DataGridProps, SortColumn } from './types'
 import { SortUpIcon, SortDownIcon } from './Icon'
 
 interface GridHeaderCellProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -13,7 +13,7 @@ interface GridHeaderCellProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const GridHeaderCell = styled.div.attrs<GridHeaderCellProps>((props) => ({
     style: props.styled,
-}))<GridHeaderCellProps>`
+})) <GridHeaderCellProps>`
     display: inline-flex;
     position: absolute;
     cursor: pointer;
@@ -39,13 +39,25 @@ const GridHeaderCell = styled.div.attrs<GridHeaderCellProps>((props) => ({
     text-overflow: ellipsis;
 `
 
+/** 用来显示可以拖拽的鼠标指示 */
+const ResizableSpan = styled.span`
+    cursor: col-resize;
+    position: absolute;
+    right: 0px;
+    width: 10px;
+    height: 100%;
+`
+
+const HeaderTitle = styled.span`
+`
+
 export interface HeaderCellProps<T> {
     isLastFeftFixed: boolean
     isLastRightFixed: boolean
     styled: CSSProperties
     column: Column<T>
     children: ReactNode
-    onSort?: (sortColumn: SortColumn[]) => void
+    gridProps: DataGridProps<T>
 }
 
 function HeaderCell<T>({
@@ -54,7 +66,12 @@ function HeaderCell<T>({
     styled: tempStyled,
     children,
     column,
-    onSort,
+    gridProps: {
+        columns,
+        onSort,
+        defaultColumnWidth,
+        onHeaderResizable,
+    }
 }: HeaderCellProps<T>) {
     const { state, dispatch } = useContext(Context)
 
@@ -69,7 +86,56 @@ function HeaderCell<T>({
         if (result?.direction === 'DESC') {
             return <SortDownIcon />
         }
+        return null
+    }
 
+    const screenX = useRef<number>(0)
+
+    const columnWidth = useRef<number>(column.width || defaultColumnWidth)
+
+    useEffect(() => {
+        const onMouseMove = (event: MouseEvent) => {
+            if (screenX.current !== 0) {
+                const offset: number = event.screenX - screenX.current
+                const newColumns: Column<T>[] = []
+                columns.forEach(ele => {
+                    if (ele.name === column.name) {
+                        newColumns.push({
+                            ...column,
+                            width: columnWidth.current + offset
+                        })
+                    }else {
+                        newColumns.push(ele)   
+                    }
+                })
+                onHeaderResizable?.(newColumns)
+            }
+        }
+        window.addEventListener('mousemove', onMouseMove)
+        const onMouseUp = (event: MouseEvent) => {
+            const offset: number = event.screenX - screenX.current
+            screenX.current = 0
+            columnWidth.current += offset
+        }
+        window.addEventListener('mouseup', onMouseUp)
+        return () => {
+            window.removeEventListener('mousemove', onMouseMove)
+            window.removeEventListener('mouseup', onMouseUp)
+        }
+    }, [screenX.current, columns])
+
+
+    const renderResizableSpan = () => {
+        if (column.resizable === true) {
+            return (
+                <ResizableSpan
+                    onMouseDown={(event) => {
+                        screenX.current = event.screenX
+                        event.stopPropagation();
+                    }}
+                />
+            )
+        }
         return null
     }
 
@@ -78,39 +144,43 @@ function HeaderCell<T>({
             isLastFeftFixed={isLastFeftFixed}
             isLastRightFixed={isLastRightFixed}
             styled={tempStyled}
-            onClick={() => {
-                if (column.sort === true) {
-                    const newSortColumn: SortColumn[] = []
-                    let isHaveSortColumns = false
-                    state.sortColumns.forEach((ele) => {
-                        if (ele.columnKey === column.name) {
-                            isHaveSortColumns = true
-                            if (ele.direction === 'ASC') {
-                                newSortColumn.push({
-                                    columnKey: column.name,
-                                    direction: 'DESC',
-                                })
+        >
+            <HeaderTitle
+                onClick={() => {
+                    if (column.sort === true) {
+                        const newSortColumn: SortColumn[] = []
+                        let isHaveSortColumns = false
+                        state.sortColumns.forEach((ele) => {
+                            if (ele.columnKey === column.name) {
+                                isHaveSortColumns = true
+                                if (ele.direction === 'ASC') {
+                                    newSortColumn.push({
+                                        columnKey: column.name,
+                                        direction: 'DESC',
+                                    })
+                                }
                             }
-                        }
-                    })
+                        })
 
-                    if (isHaveSortColumns === false) {
-                        newSortColumn.push({
-                            columnKey: column.name,
-                            direction: 'ASC',
+                        if (isHaveSortColumns === false) {
+                            newSortColumn.push({
+                                columnKey: column.name,
+                                direction: 'ASC',
+                            })
+                        }
+
+                        // 执行排序逻辑
+                        onSort?.(newSortColumn)
+                        dispatch({
+                            type: 'setSortColumn',
+                            payload: newSortColumn,
                         })
                     }
-
-                    // 执行排序逻辑
-                    onSort?.(newSortColumn)
-                    dispatch({
-                        type: 'setSortColumn',
-                        payload: newSortColumn,
-                    })
-                }
-            }}
-        >
-            {children} {getSortStatus()}
+                }}
+            >
+                {children} {getSortStatus()}
+            </HeaderTitle>
+            {renderResizableSpan()}
         </GridHeaderCell>
     )
 }
