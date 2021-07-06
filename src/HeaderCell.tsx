@@ -48,7 +48,6 @@ const ResizableSpan = styled.span`
 `
 
 const HeaderTitle = styled.span`
-    cursor: pointer;
 `
 
 export interface HeaderCellProps<T> {
@@ -147,6 +146,9 @@ function HeaderCell<T>({
             styled={tempStyled}
         >
             <HeaderTitle
+                style={{
+                    cursor: column.sort === true ? 'pointer' : undefined
+                }}
                 onClick={() => {
                     if (column.sort === true) {
                         const newSortColumn: SortColumn[] = []
