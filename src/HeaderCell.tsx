@@ -16,7 +16,6 @@ const GridHeaderCell = styled.div.attrs<GridHeaderCellProps>((props) => ({
 })) <GridHeaderCellProps>`
     display: inline-flex;
     position: absolute;
-    cursor: pointer;
     border-right: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
     box-sizing: border-box;
@@ -49,6 +48,7 @@ const ResizableSpan = styled.span`
 `
 
 const HeaderTitle = styled.span`
+    cursor: pointer;
 `
 
 export interface HeaderCellProps<T> {
@@ -179,8 +179,9 @@ function HeaderCell<T>({
                     }
                 }}
             >
-                {children} {getSortStatus()}
+                {children} 
             </HeaderTitle>
+            {getSortStatus()}
             {renderResizableSpan()}
         </GridHeaderCell>
     )
