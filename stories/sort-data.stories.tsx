@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { Meta } from '@storybook/react'
+import produce from 'immer'
 
 import DataGrid, { Row, Column, Cell } from '../src'
 
@@ -60,8 +61,8 @@ for (let i = 0; i < 500; i += 1) {
 }
 
 const RowDataGrid = () => {
-    const oldData = useRef<Row<any>[]>([...rows])
-    const [datas, setDatas] = useState<Row<any>[]>(rows)
+    const oldData = useRef<Row<any>[]>(produce(rows, () => {}))
+    const [datas, setDatas] = useState<Row<any>[]>(produce(rows, () => {}))
     return (
         <DataGrid<unknown>
             rows={datas}
@@ -73,23 +74,26 @@ const RowDataGrid = () => {
                 if (sort.length > 0) {
                     const { direction } = sort[0]
                     const { columnKey } = sort[0]
-                    datas.sort((a, b) => {
-                        const aData: string = a.object[columnKey]
-                        const bData: string = b.object[columnKey]
-                        if (direction === 'ASC') {
-                            if (aData.toUpperCase() > bData.toUpperCase()) {
-                                return 1
+                    const rowsData = produce(datas, (newData) => {
+                        newData.sort((a, b) => {
+                            const aData: string = a.object[columnKey]
+                            const bData: string = b.object[columnKey]
+
+                            if (direction === 'ASC') {
+                                if (aData.toUpperCase() > bData.toUpperCase()) {
+                                    return 1
+                                }
+                                return -1
+                            }
+                            if (direction === 'DESC') {
+                                if (aData.toUpperCase() < bData.toUpperCase()) {
+                                    return 1
+                                }
                             }
                             return -1
-                        }
-                        if (direction === 'DESC') {
-                            if (aData.toUpperCase() < bData.toUpperCase()) {
-                                return 1
-                            }
-                        }
-                        return -1
+                        })
                     })
-                    setDatas([...datas])
+                    setDatas(rowsData)
                 }
             }}
         />
