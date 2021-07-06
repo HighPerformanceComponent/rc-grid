@@ -1,25 +1,30 @@
 import { createContext, Dispatch } from 'react'
-import { EditorChange } from './types'
+import type { EditorChange, SortColumn } from './types'
 
 type Action =
-| {
-    type: 'setSelectPosition'
-    payload: {
-        x: number
-        y: number
-    }
-} 
-| {
-    type: 'setEditorChange'
-    payload: EditorChange<any>[]
-}
+    | {
+          type: 'setSelectPosition'
+          payload: {
+              x: number
+              y: number
+          }
+      }
+    | {
+          type: 'setEditorChange'
+          payload: EditorChange<any>[]
+      }
+    | {
+          type: 'setSortColumn'
+          payload: SortColumn[]
+      }
 
 export interface State {
     selectPosition?: {
         x: number
         y: number
-    },
+    }
     editorChange: EditorChange<any>[]
+    sortColumns: SortColumn[]
 }
 
 const Context = createContext<{
@@ -27,7 +32,8 @@ const Context = createContext<{
     dispatch: Dispatch<Action>
 }>({
     state: {
-        editorChange: []
+        editorChange: [],
+        sortColumns: [],
     },
     dispatch: () => null,
 })
@@ -39,6 +45,10 @@ export function reducer(state: State, action: Action): State {
 
     if (action.type === 'setEditorChange') {
         return { ...state, editorChange: action.payload }
+    }
+
+    if (action.type === 'setSortColumn') {
+        return { ...state, sortColumns: action.payload }
     }
 
     throw Error(`reducer unknown type [${(action as any).type}]`)

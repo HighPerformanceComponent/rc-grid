@@ -35,6 +35,7 @@ function HeaderRow<R>({
         estimatedColumnWidth,
         cacheRemoveCount,
         onHeaderCellRender = ({ headerCell }) => [headerCell],
+        onSort,
     },
 }: HeaderRowProps<R>) {
     const fixedColumns = useMemo(
@@ -102,6 +103,8 @@ function HeaderRow<R>({
                             rightFixedColumns[0].name === column.name
                         }
                         styled={cellStyled}
+                        column={column}
+                        onSort={onSort}
                     >
                         {column.title}
                     </HeaderCell>

@@ -36,9 +36,11 @@ function DataGrid<R>({
     onEmptyRowsRenderer,
     onHeaderRowRender = (node: JSX.Element) => node,
     onEditorChangeSave,
+    onSort,
 }: DataGridProps<R>) {
     const [state, dispatch] = useReducer(reducer, {
         editorChange: [],
+        sortColumns: [],
     })
 
     const gridRef = useRef<HTMLDivElement>(null)
@@ -114,6 +116,7 @@ function DataGrid<R>({
                     onEmptyRowsRenderer,
                     onHeaderRowRender,
                     onEditorChangeSave,
+                    onSort,
                 }}
             />
         )
@@ -157,6 +160,7 @@ function DataGrid<R>({
                         onEmptyRowsRenderer,
                         onHeaderRowRender,
                         onEditorChangeSave,
+                        onSort,
                     }}
                 />
             )

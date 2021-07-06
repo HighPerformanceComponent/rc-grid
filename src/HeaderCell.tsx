@@ -1,5 +1,9 @@
-import React, { CSSProperties, ReactNode } from 'react'
+import React, { CSSProperties, ReactNode, useContext } from 'react'
 import styled from 'styled-components'
+
+import Context from './Context'
+import type { Column, SortColumn } from './types'
+import { SortUpIcon, SortDownIcon } from './Icon'
 
 interface GridHeaderCellProps extends React.HTMLAttributes<HTMLDivElement> {
     isLastFeftFixed: boolean
@@ -12,6 +16,7 @@ const GridHeaderCell = styled.div.attrs<GridHeaderCellProps>((props) => ({
 }))<GridHeaderCellProps>`
     display: inline-flex;
     position: absolute;
+    cursor: pointer;
     border-right: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
     box-sizing: border-box;
@@ -34,26 +39,78 @@ const GridHeaderCell = styled.div.attrs<GridHeaderCellProps>((props) => ({
     text-overflow: ellipsis;
 `
 
-export interface HeaderCellProps {
+export interface HeaderCellProps<T> {
     isLastFeftFixed: boolean
     isLastRightFixed: boolean
     styled: CSSProperties
+    column: Column<T>
     children: ReactNode
+    onSort?: (sortColumn: SortColumn[]) => void
 }
 
-function HeaderCell({
+function HeaderCell<T>({
     isLastFeftFixed,
     isLastRightFixed,
     styled: tempStyled,
     children,
-}: HeaderCellProps) {
+    column,
+    onSort,
+}: HeaderCellProps<T>) {
+    const { state, dispatch } = useContext(Context)
+
+    const getSortStatus = () => {
+        const result = state.sortColumns.find(
+            (ele) => ele.columnKey === column.name
+        )
+        if (result?.direction === 'ASC') {
+            return <SortUpIcon />
+        }
+
+        if (result?.direction === 'DESC') {
+            return <SortDownIcon />
+        }
+
+        return null
+    }
+
     return (
         <GridHeaderCell
             isLastFeftFixed={isLastFeftFixed}
             isLastRightFixed={isLastRightFixed}
             styled={tempStyled}
+            onClick={() => {
+                if (column.sort === true) {
+                    const newSortColumn: SortColumn[] = []
+                    let isHaveSortColumns = false
+                    state.sortColumns.forEach((ele) => {
+                        if (ele.columnKey === column.name) {
+                            isHaveSortColumns = true
+                            if (ele.direction === 'ASC') {
+                                newSortColumn.push({
+                                    columnKey: column.name,
+                                    direction: 'DESC',
+                                })
+                            }
+                        }
+                    })
+
+                    if (isHaveSortColumns === false) {
+                        newSortColumn.push({
+                            columnKey: column.name,
+                            direction: 'ASC',
+                        })
+                    }
+
+                    // 执行排序逻辑
+                    onSort?.(newSortColumn)
+                    dispatch({
+                        type: 'setSortColumn',
+                        payload: newSortColumn,
+                    })
+                }
+            }}
         >
-            {children}
+            {children} {getSortStatus()}
         </GridHeaderCell>
     )
 }
