@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import Context from './Context'
 import type { Column, DataGridProps, SortColumn } from './types'
-import { SortUpIcon, SortDownIcon } from './Icon'
+import { SortUpIcon, SortDownIcon, FilterIcon } from './Icon'
 
 interface GridHeaderCellProps extends React.HTMLAttributes<HTMLDivElement> {
     isLastFeftFixed: boolean
@@ -36,6 +36,11 @@ const GridHeaderCell = styled.div.attrs<GridHeaderCellProps>((props) => ({
     padding: 0px 8px;
     white-space: nowrap;
     text-overflow: ellipsis;
+    :hover {
+        > i {
+            opacity: .85;
+        }
+    }
 `
 
 /** 用来显示可以拖拽的鼠标指示 */
@@ -45,6 +50,16 @@ const ResizableSpan = styled.span`
     right: 0px;
     width: 10px;
     height: 100%;
+`
+
+const Filter = styled.i`
+    position: absolute;
+    right: 10px;
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 500ms;
 `
 
 const HeaderTitle = styled.span`
@@ -84,6 +99,17 @@ function HeaderCell<T>({
 
         if (result?.direction === 'DESC') {
             return <SortDownIcon />
+        }
+        return null
+    }
+
+    const getFilter = () => {
+        if (column.filter === true) {
+            return (
+                <Filter>
+                    <FilterIcon />
+                </Filter>
+            )
         }
         return null
     }
@@ -187,6 +213,7 @@ function HeaderCell<T>({
                 {children} 
             </HeaderTitle>
             {getSortStatus()}
+            {getFilter()}
             {renderResizableSpan()}
         </GridHeaderCell>
     )

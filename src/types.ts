@@ -111,6 +111,8 @@ export interface Column<TRow> {
     readonly sort?: boolean
     /** 列是否可以拖拽改变大小 */
     readonly resizable?: boolean
+    /** 此列是否允许筛选 */
+    readonly filter?: boolean
     /** 表格的编辑按钮 */
     readonly editor?: ComponentType<EditorProps> | null
 }
