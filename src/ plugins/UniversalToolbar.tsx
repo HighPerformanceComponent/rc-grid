@@ -21,13 +21,18 @@ const InputContainer = styled.div`
 `
 
 interface UniversalToolbarProps {
+    value: string
     onChange: (value: string) => void
     onBlur: () => void
 }
 
 // 表格通用的工具栏
-function UniversalToolbar({ onChange, onBlur }: UniversalToolbarProps) {
-    const [value, setValue] = useState<string>('')
+function UniversalToolbar({
+    onChange,
+    onBlur,
+    value: tempValue,
+}: UniversalToolbarProps) {
+    const [value, setValue] = useState<string>(tempValue)
     return (
         <InputContainer>
             <input
