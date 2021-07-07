@@ -1,6 +1,7 @@
 # rc-grid 表格组件
 
 ![type-badge](https://img.shields.io/npm/types/react-data-grid)
+![eslint](https://github.com/HighPerformanceComponent/rc-grid/actions/workflows/eslint.yml/badge.svg)
 
 ![working](./.resources/images/working.gif)
 
@@ -17,11 +18,12 @@
 
 - [x] 固定左/右列
 - [x] 单元格合并
+- [x] 表头可拖拽改变大小
 - [x] 表格头部合并
 - [x] 表格单元格编辑
+- [x] 表格单列排序
 - [ ] 数据分组
 - [ ] 可展开表格
-- [ ] 排序/多列排序
 - [ ] 树形表格
 - [ ] 表格筛选
 
