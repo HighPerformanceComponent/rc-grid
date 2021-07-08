@@ -106,7 +106,7 @@ export interface Column<TRow> {
     /** 列头显示文字 */
     readonly title: ReactNode
     /** 列宽度 */
-    readonly width?: number
+    width?: number
     /** 对其方式 */
     readonly align?: 'left' | 'right' | 'center'
     /** 固定列 */

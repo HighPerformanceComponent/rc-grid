@@ -132,6 +132,27 @@ function DataGrid<R>({
             }
             newColumns.splice(0, 0, expandableColumn)
         }
+
+        const cols: Column<R>[] = []
+        let widthOffset: number = 0
+        let countWidth: number = 0
+        newColumns.forEach((ele) => {
+            if (typeof ele.width === 'number') {
+                widthOffset += ele.width
+            } else {
+                cols.push(ele)
+            }
+            countWidth += ele.width || defaultColumnWidth
+        })
+
+        // 如果列没有占满, 那么就进行自动分配
+        if (countWidth < width) {
+            cols.forEach(ele => {
+                const col = ele
+                col.width = Math.ceil((width - widthOffset) / cols.length)
+            })
+        }
+        
         return newColumns
     }, [columns])
 

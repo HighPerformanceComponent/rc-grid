@@ -9,39 +9,37 @@ const columns: Array<Column<unknown>> = [
     {
         name: `0`,
         title: `姓名`,
+        width: 120
     },
     {
         name: `1`,
         title: `年龄`,
+        width: 120
     },
     {
         name: `2`,
         title: `身份证号`,
+        width: 120
     },
     {
         name: `3`,
         title: `家庭地址`,
+        width: 120
     },
     {
         name: `4`,
         title: `家庭电话号码`,
+        width: 120
     },
     {
         name: `5`,
         title: `家庭人员数量`,
+        width: 120
     },
     {
         name: `6`,
-        title: `公司名称`,
-    },
-    {
-        name: `7`,
         title: `公司地址`,
-    },
-    {
-        name: `8`,
-        title: `公司电话号码`,
-    },
+    }
 ]
 
 const GridHeaderCell = styled.div`
