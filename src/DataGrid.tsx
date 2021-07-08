@@ -17,7 +17,7 @@ import DataGridRow from './Row'
 import HeaderRow from './HeaderRow'
 import Context, { reducer } from './Context'
 import UniversalToolbar from './ plugins/UniversalToolbar'
-import { useChevronRightIcon } from './Icon'
+import { useChevronRightIcon, useChevronDownIcon } from './Icon'
 
 const GridContainer = styled.div`
     position: relative;
@@ -41,15 +41,22 @@ function useExpandableRender<T>(
     isExpandable: (data: Row<T>) => boolean
 ) {
     const { state, dispatch } = useContext(Context)
-    const icon = useChevronRightIcon()
+    let icon = useChevronRightIcon()
     if (isExpandable?.(row) === false) {
         return null
     }
+
+    const expandable = state.expandableKey.includes(row.key)
+    
+    if (expandable) {
+        icon = useChevronDownIcon()
+    }
+
     return (
         <ExpandableIcon
             onClick={() => {
                 const newKeys: Key[] = []
-                if (state.expandableKey.includes(row.key)) {
+                if (expandable) {
                     state.expandableKey.forEach(ele => {
                         if(ele !== row.key) {
                             newKeys.push(ele)
@@ -81,10 +88,7 @@ function DataGrid<R>({
     headerRowHeight = 35,
     cacheRemoveCount = 6,
     defaultColumnWidth = 120,
-    expandable: {
-        isExpandable,
-        expandedRowRender
-    },
+    expandable,
     onHeaderCellRender,
     onEmptyRowsRenderer,
     onHeaderRowRender = (node: JSX.Element) => node,
@@ -115,17 +119,18 @@ function DataGrid<R>({
             }
             return 0
         })
-        const expandable: Column<R> = {
-            name: '$expandable',
-            title: '',
-            width: 35,
-            isSelect: () => false,
-            fixed: 'left',
-            render: (_text, row) => useExpandableRender(row, isExpandable)
-        }
+
         // 如果展开行属性存在, 那么进行新增展开逻辑
         if (expandable) {
-            newColumns.splice(0, 0, expandable)
+            const expandableColumn: Column<R> = {
+                name: '$expandable',
+                title: '',
+                width: 35,
+                isSelect: () => false,
+                fixed: 'left',
+                render: (_text, row) => useExpandableRender(row, expandable?.isExpandable)
+            }
+            newColumns.splice(0, 0, expandableColumn)
         }
         return newColumns
     }, [columns])
@@ -260,8 +265,8 @@ function DataGrid<R>({
             top += row.height
 
             // 计算表格的可展开
-            if (expandedRowRender && state.expandableKey.includes(row.key) ) {
-                const expandableElement = expandedRowRender(row, {
+            if (expandable?.expandedRowRender && state.expandableKey.includes(row.key) ) {
+                const expandableElement = expandable?.expandedRowRender(row, {
                     top,
                     width: scrollWidth,
                     position: 'absolute',
