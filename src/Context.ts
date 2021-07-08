@@ -1,4 +1,4 @@
-import { createContext, Dispatch } from 'react'
+import { createContext, Dispatch, Key } from 'react'
 import type { EditorChange, SortColumn } from './types'
 
 type Action =
@@ -16,7 +16,11 @@ type Action =
     | {
           type: 'setSortColumn'
           payload: SortColumn[]
-      }
+    }
+    | {
+          type: 'setExpandableKey'
+          payload: Key[]
+    }
 
 export interface State {
     selectPosition?: {
@@ -24,7 +28,9 @@ export interface State {
         y: number
     }
     editorChange: EditorChange<any>[]
+    expandableKey: Key[]
     sortColumns: SortColumn[]
+    
 }
 
 const Context = createContext<{
@@ -34,6 +40,7 @@ const Context = createContext<{
     state: {
         editorChange: [],
         sortColumns: [],
+        expandableKey: []
     },
     dispatch: () => null,
 })
@@ -49,6 +56,10 @@ export function reducer(state: State, action: Action): State {
 
     if (action.type === 'setSortColumn') {
         return { ...state, sortColumns: action.payload }
+    }
+
+    if (action.type === 'setExpandableKey') {
+        return { ...state, expandableKey: action.payload }
     }
 
     throw Error(`reducer unknown type [${(action as any).type}]`)

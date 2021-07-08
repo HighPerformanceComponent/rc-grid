@@ -155,7 +155,7 @@ function Row<T>({
                     }
                     isSelect={isSelect}
                     onClick={() => {
-                        if (cell.disableSelect !== true) {
+                        if (column.isSelect?.(cell) !== false) {
                             dispatch({
                                 type: 'setSelectPosition',
                                 payload: {
@@ -169,7 +169,7 @@ function Row<T>({
                     value={txt}
                     onEditorChangeSave={onEditorChangeSave}
                     onFocus={() => {
-                        if (cell.disableSelect !== true) {
+                        if (column.isSelect?.(cell) !== false) {
                             dispatch({
                                 type: 'setSelectPosition',
                                 payload: {

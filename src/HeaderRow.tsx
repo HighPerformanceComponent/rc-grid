@@ -123,10 +123,11 @@ function HeaderRow<R>({
                     </HeaderCell>
                 ),
             })
-            result.splice(-1, 0, headerCell)
+            result.push(headerCell)
             left += columnWidth
             return false
         })
+
         return result
     }
 
