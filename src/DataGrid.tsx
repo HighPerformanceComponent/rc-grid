@@ -264,6 +264,7 @@ function DataGrid<R>({
                     value={universalValue}
                     onChange={setUniversalValue}
                     onBlur={() => {
+                        gridRef.current.focus()
                         setIsShowUniversal(!isShowUniversal)
                     }}
                 />
@@ -295,7 +296,7 @@ function DataGrid<R>({
                     }}
                     tabIndex={-1}
                     onKeyDown={(e) => {
-                        if (e.key === 'p' && e.ctrlKey) {
+                        if (e.key === 'f' && e.ctrlKey) {
                             setIsShowUniversal(!isShowUniversal)
                             e.preventDefault()
                         }
