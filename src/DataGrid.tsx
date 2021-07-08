@@ -4,7 +4,7 @@ import React, {
     useMemo,
     useReducer,
     useRef,
-    useState
+    useState,
 } from 'react'
 import styled from 'styled-components'
 
@@ -12,6 +12,11 @@ import type { DataGridProps } from './types'
 import DataGridRow from './Row'
 import HeaderRow from './HeaderRow'
 import Context, { reducer } from './Context'
+import UniversalToolbar from './ plugins/UniversalToolbar'
+
+const GridContainer = styled.div`
+    position: relative;
+`
 
 const Grid = styled.div`
     position: relative;
@@ -43,6 +48,9 @@ function DataGrid<R>({
         editorChange: [],
         sortColumns: [],
     })
+
+    const [universalValue, setUniversalValue] = useState<string>('')
+    const [isShowUniversal, setIsShowUniversal] = useState<boolean>(false)
 
     const gridRef = useRef<HTMLDivElement>(null)
 
@@ -88,6 +96,22 @@ function DataGrid<R>({
 
     // 渲染表格的行信息
     const renderRow = useMemo(() => {
+        // 过滤找到的内容信息
+        const filterRows = () =>
+            rows.filter((row) => {
+                const { cells } = row
+                if (universalValue !== '') {
+                    const result = cells.some((cell) => {
+                        if (cell.value.indexOf(universalValue) !== -1) {
+                            return true
+                        }
+                        return false
+                    })
+                    return result
+                }
+                return true
+            })
+
         const domRows: Array<ReactNode> = []
         let top = startRowTop.current
         const headerStyled: CSSProperties = {
@@ -126,8 +150,7 @@ function DataGrid<R>({
         domRows.push(onHeaderRowRender(headerRow))
 
         top += headerRowHeight
-
-        rows.some((row, index) => {
+        filterRows().some((row, index) => {
             if (top < scrollTop - calcCacheRemove) {
                 top += row.height
                 return false
@@ -177,6 +200,7 @@ function DataGrid<R>({
     }, [
         scrollTop,
         scrollLeft,
+        universalValue,
         columns,
         estimatedColumnWidth,
         width,
@@ -228,6 +252,19 @@ function DataGrid<R>({
         }
     }
 
+    const renderUniversal = () => {
+        if (isShowUniversal) {
+            return (
+                <UniversalToolbar
+                    onChange={setUniversalValue}
+                    onBlur={() => {
+                        setIsShowUniversal(!isShowUniversal)
+                    }}
+                />
+            )
+        }
+        return null
+    }
 
     return (
         <Context.Provider
@@ -236,37 +273,51 @@ function DataGrid<R>({
                 dispatch,
             }}
         >
-            <Grid
-                ref={gridRef}
-                className={className}
+            <GridContainer
                 style={{
-                    height,
                     width,
-                    ...style,
                 }}
-                onScroll={onScroll}
             >
-                <div
+                {renderUniversal()}
+                <Grid
+                    ref={gridRef}
+                    className={className}
                     style={{
-                        height: scrollHeight,
-                        pointerEvents: isScroll ? 'none' : undefined,
+                        height,
+                        width: '100%',
+                        ...style,
                     }}
+                    tabIndex={-1}
+                    onKeyDown={(e) => {
+                        if (e.key === 'p' && e.ctrlKey) {
+                            setIsShowUniversal(!isShowUniversal)
+                            e.preventDefault()
+                        }
+                    }}
+                    onScroll={onScroll}
                 >
-                    {renderRow}
-                </div>
-                {rows.length === 0 && onEmptyRowsRenderer ? (
                     <div
                         style={{
-                            height: '100%',
-                            width,
-                            position: 'sticky',
-                            left: 0,
+                            height: scrollHeight,
+                            pointerEvents: isScroll ? 'none' : undefined,
                         }}
                     >
-                        {onEmptyRowsRenderer()}
+                        {renderRow}
                     </div>
-                ) : undefined}
-            </Grid>
+                    {rows.length === 0 && onEmptyRowsRenderer ? (
+                        <div
+                            style={{
+                                height: '100%',
+                                width,
+                                position: 'sticky',
+                                left: 0,
+                            }}
+                        >
+                            {onEmptyRowsRenderer()}
+                        </div>
+                    ) : undefined}
+                </Grid>
+            </GridContainer>
         </Context.Provider>
     )
 }
