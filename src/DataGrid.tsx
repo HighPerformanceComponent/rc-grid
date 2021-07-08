@@ -294,6 +294,7 @@ function DataGrid<R>({
                     lineHeight: `${row.height}px`,
                     boxSizing:  'border-box',
                     borderBottom: `1px solid #ddd`,
+                    padding: 10
                 })
                 if (isValidElement(expandableElement)) {
                     const { style: pStyle = {}, ...restProps} = expandableElement.props
