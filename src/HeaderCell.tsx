@@ -1,4 +1,10 @@
-import React, { CSSProperties, ReactNode, useContext, useEffect, useRef } from 'react'
+import React, {
+    CSSProperties,
+    ReactNode,
+    useContext,
+    useEffect,
+    useRef,
+} from 'react'
 import styled from 'styled-components'
 
 import Context from './Context'
@@ -13,7 +19,7 @@ interface GridHeaderCellProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const GridHeaderCell = styled.div.attrs<GridHeaderCellProps>((props) => ({
     style: props.styled,
-})) <GridHeaderCellProps>`
+}))<GridHeaderCellProps>`
     display: inline-flex;
     position: absolute;
     border-right: 1px solid #ddd;
@@ -36,6 +42,11 @@ const GridHeaderCell = styled.div.attrs<GridHeaderCellProps>((props) => ({
     padding: 0px 8px;
     white-space: nowrap;
     text-overflow: ellipsis;
+    :hover {
+        > i {
+            opacity: 0.85;
+        }
+    }
 `
 
 /** 用来显示可以拖拽的鼠标指示 */
@@ -47,8 +58,7 @@ const ResizableSpan = styled.span`
     height: 100%;
 `
 
-const HeaderTitle = styled.span`
-`
+const HeaderTitle = styled.span``
 
 export interface HeaderCellProps<T> {
     isLastFeftFixed: boolean
@@ -65,12 +75,7 @@ function HeaderCell<T>({
     styled: tempStyled,
     children,
     column,
-    gridProps: {
-        columns,
-        onSort,
-        defaultColumnWidth,
-        onHeaderResizable,
-    }
+    gridProps: { columns, onSort, defaultColumnWidth, onHeaderResizable },
 }: HeaderCellProps<T>) {
     const { state, dispatch } = useContext(Context)
 
@@ -97,14 +102,14 @@ function HeaderCell<T>({
             if (screenX.current !== 0 && isResizableEnd.current === false) {
                 const offset: number = event.screenX - screenX.current
                 const newColumns: Column<T>[] = []
-                columns.forEach(ele => {
+                columns.forEach((ele) => {
                     if (ele.name === column.name) {
                         newColumns.push({
                             ...column,
-                            width: columnWidth.current + offset
+                            width: columnWidth.current + offset,
                         })
-                    }else {
-                        newColumns.push(ele)   
+                    } else {
+                        newColumns.push(ele)
                     }
                 })
                 onHeaderResizable?.(newColumns)
@@ -126,7 +131,6 @@ function HeaderCell<T>({
         }
     }, [screenX.current, columns, columnWidth])
 
-
     const renderResizableSpan = () => {
         if (column.resizable === true) {
             return (
@@ -134,7 +138,7 @@ function HeaderCell<T>({
                     onMouseDown={(event) => {
                         isResizableEnd.current = false
                         screenX.current = event.screenX
-                        event.stopPropagation();
+                        event.stopPropagation()
                     }}
                 />
             )
@@ -150,7 +154,7 @@ function HeaderCell<T>({
         >
             <HeaderTitle
                 style={{
-                    cursor: column.sort === true ? 'pointer' : undefined
+                    cursor: column.sort === true ? 'pointer' : undefined,
                 }}
                 onClick={() => {
                     if (column.sort === true) {
@@ -184,7 +188,7 @@ function HeaderCell<T>({
                     }
                 }}
             >
-                {children} 
+                {children}
             </HeaderTitle>
             {getSortStatus()}
             {renderResizableSpan()}
