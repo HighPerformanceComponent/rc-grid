@@ -69,14 +69,32 @@ function DataGrid<R>({
         return newColumns
     }, [columns])
 
+    const filterRows = useMemo(
+        () =>
+            rows.filter((row) => {
+                const { cells } = row
+                if (universalValue !== '') {
+                    const result = cells.some((cell) => {
+                        if (cell.value.indexOf(universalValue) !== -1) {
+                            return true
+                        }
+                        return false
+                    })
+                    return result
+                }
+                return true
+            }),
+        [universalValue]
+    )
+
     // 滚动的高度
     const scrollHeight = useMemo(() => {
         let result = 0
-        rows.forEach((row) => {
+        filterRows.forEach((row) => {
             result += row.height
         })
         return result
-    }, [rows])
+    }, [filterRows])
 
     // 滚动的宽度
     const scrollWidth = useMemo(() => {
@@ -97,21 +115,6 @@ function DataGrid<R>({
     // 渲染表格的行信息
     const renderRow = useMemo(() => {
         // 过滤找到的内容信息
-        const filterRows = () =>
-            rows.filter((row) => {
-                const { cells } = row
-                if (universalValue !== '') {
-                    const result = cells.some((cell) => {
-                        if (cell.value.indexOf(universalValue) !== -1) {
-                            return true
-                        }
-                        return false
-                    })
-                    return result
-                }
-                return true
-            })
-
         const domRows: Array<ReactNode> = []
         let top = startRowTop.current
         const headerStyled: CSSProperties = {
@@ -150,7 +153,8 @@ function DataGrid<R>({
         domRows.push(onHeaderRowRender(headerRow))
 
         top += headerRowHeight
-        filterRows().some((row, index) => {
+        filterRows.some((row) => {
+            const index = rows.findIndex((ele) => ele.key === row.key)
             if (top < scrollTop - calcCacheRemove) {
                 top += row.height
                 return false
@@ -200,7 +204,7 @@ function DataGrid<R>({
     }, [
         scrollTop,
         scrollLeft,
-        universalValue,
+        filterRows,
         columns,
         estimatedColumnWidth,
         width,
@@ -208,6 +212,7 @@ function DataGrid<R>({
         headerRowHeight,
         rows,
         estimatedRowHeight,
+        state.selectPosition,
     ])
 
     const lastScrollTop = useRef<number>(0)
