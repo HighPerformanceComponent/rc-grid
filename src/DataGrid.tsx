@@ -84,7 +84,7 @@ function DataGrid<R>({
                 }
                 return true
             }),
-        [universalValue]
+        [universalValue, rows]
     )
 
     // 滚动的高度
