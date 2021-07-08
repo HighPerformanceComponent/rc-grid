@@ -20,6 +20,7 @@ const GridCell = styled.div.attrs<GridCellProps>((props) => ({
     box-sizing: border-box;
     background-color: #fff;
     outline: none;
+    user-select: none;
     box-shadow: ${({ isLastFeftFixed, isLastRightFixed, isSelect }) => {
         if (isSelect) {
             return 'inset 0 0 0 2px #66afe9'
