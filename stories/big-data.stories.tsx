@@ -12,6 +12,11 @@ columns.push({
     fixed: 'left',
 })
 
+columns.push({
+    name: `0.0`,
+    title: `字段 - 0.0`,
+    fixed: 'left',
+})
 for (let i = 2; i < 1000; i += 1) {
     columns.push({
         name: `${i}`,
