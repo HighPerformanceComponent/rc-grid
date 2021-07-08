@@ -256,6 +256,7 @@ function DataGrid<R>({
         if (isShowUniversal) {
             return (
                 <UniversalToolbar
+                    value={universalValue}
                     onChange={setUniversalValue}
                     onBlur={() => {
                         setIsShowUniversal(!isShowUniversal)
