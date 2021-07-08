@@ -46,9 +46,12 @@ function UniversalToolbar({
                     onBlur()
                     onChange?.(`${value}`)
                 }}
-                onKeyPress={(e) => {
+                onKeyDown={(e) => {
                     if (e.key === 'Enter') {
                         onChange?.(`${value}`)
+                    }
+                    if (e.key === 'Escape') {
+                        onBlur()
                     }
                 }}
             />
