@@ -139,6 +139,13 @@ function Cell<T>({
         )
     }
 
+    const renderChild = () => {
+        if (column.render) {
+            return column.render(defaultValue, row)
+        }
+        return value
+    }
+
     return (
         <GridCell
             style={style}
@@ -154,7 +161,7 @@ function Cell<T>({
             }}
             onFocus={onFocus}
         >
-            {value}
+            {renderChild()}
         </GridCell>
     )
 }

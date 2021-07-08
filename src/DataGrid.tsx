@@ -1,6 +1,10 @@
 import React, {
+    cloneElement,
     CSSProperties,
+    isValidElement,
+    Key,
     ReactNode,
+    useContext,
     useMemo,
     useReducer,
     useRef,
@@ -8,11 +12,12 @@ import React, {
 } from 'react'
 import styled from 'styled-components'
 
-import type { DataGridProps } from './types'
+import type { Column, DataGridProps, Row } from './types'
 import DataGridRow from './Row'
 import HeaderRow from './HeaderRow'
 import Context, { reducer } from './Context'
 import UniversalToolbar from './ plugins/UniversalToolbar'
+import { useChevronRightIcon } from './Icon'
 
 const GridContainer = styled.div`
     position: relative;
@@ -24,6 +29,45 @@ const Grid = styled.div`
     border: 1px solid #ddd;
     outline: none;
 `
+
+const ExpandableIcon = styled.i`
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+`
+
+function useExpandableRender<T>(
+    row: Row<T>,
+    isExpandable: (data: Row<T>) => boolean
+) {
+    const { state, dispatch } = useContext(Context)
+    const icon = useChevronRightIcon()
+    if (isExpandable?.(row) === false) {
+        return null
+    }
+    return (
+        <ExpandableIcon
+            onClick={() => {
+                const newKeys: Key[] = []
+                if (state.expandableKey.includes(row.key)) {
+                    state.expandableKey.forEach(ele => {
+                        if(ele !== row.key) {
+                            newKeys.push(ele)
+                        }
+                    })
+                } else  {
+                    newKeys.push(...state.expandableKey, row.key)
+                }
+                dispatch({
+                    type: 'setExpandableKey',
+                    payload: newKeys
+                })
+            }}
+        >
+            {icon}
+        </ExpandableIcon>
+    )
+}
 
 function DataGrid<R>({
     className,
@@ -37,6 +81,10 @@ function DataGrid<R>({
     headerRowHeight = 35,
     cacheRemoveCount = 6,
     defaultColumnWidth = 120,
+    expandable: {
+        isExpandable,
+        expandedRowRender
+    },
     onHeaderCellRender,
     onEmptyRowsRenderer,
     onHeaderRowRender = (node: JSX.Element) => node,
@@ -47,6 +95,7 @@ function DataGrid<R>({
     const [state, dispatch] = useReducer(reducer, {
         editorChange: [],
         sortColumns: [],
+        expandableKey: []
     })
 
     const [universalValue, setUniversalValue] = useState<string>('')
@@ -66,6 +115,18 @@ function DataGrid<R>({
             }
             return 0
         })
+        const expandable: Column<R> = {
+            name: '$expandable',
+            title: '',
+            width: 35,
+            isSelect: () => false,
+            fixed: 'left',
+            render: (_text, row) => useExpandableRender(row, isExpandable)
+        }
+        // 如果展开行属性存在, 那么进行新增展开逻辑
+        if (expandable) {
+            newColumns.splice(0, 0, expandable)
+        }
         return newColumns
     }, [columns])
 
@@ -99,11 +160,11 @@ function DataGrid<R>({
     // 滚动的宽度
     const scrollWidth = useMemo(() => {
         let result = 0
-        columns.forEach((column) => {
+        sortColumns.forEach((column) => {
             result += column.width || defaultColumnWidth
         })
         return result
-    }, [columns])
+    }, [sortColumns])
 
     const startRowTop = useRef<number>(0)
     const [scrollTop, setScrollTop] = useState<number>(0)
@@ -150,6 +211,7 @@ function DataGrid<R>({
             />
         )
 
+ 
         domRows.push(onHeaderRowRender(headerRow))
 
         top += headerRowHeight
@@ -194,7 +256,36 @@ function DataGrid<R>({
                     }}
                 />
             )
+
             top += row.height
+
+            // 计算表格的可展开
+            if (expandedRowRender && state.expandableKey.includes(row.key) ) {
+                const expandableElement = expandedRowRender(row, {
+                    top,
+                    width: scrollWidth,
+                    position: 'absolute',
+                    lineHeight: `${row.height}px`,
+                    boxSizing:  'border-box',
+                    borderBottom: `1px solid #ddd`,
+                })
+                if (isValidElement(expandableElement)) {
+                    const { style: pStyle = {}, ...restProps} = expandableElement.props
+                    const expandableHeight = pStyle.height || 300
+                    domRows.push(
+                        cloneElement(expandableElement, {
+                            key: `${row.key}-expandable`,
+                            style: {
+                                ...pStyle,
+                                height: expandableHeight,
+                            },
+                            ...restProps
+                        })
+                    )
+                    top += expandableHeight
+                }
+            }
+
             if (top > height + scrollTop + calcCacheRemove) {
                 return true
             }
@@ -205,7 +296,7 @@ function DataGrid<R>({
         scrollTop,
         scrollLeft,
         filterRows,
-        columns,
+        sortColumns,
         estimatedColumnWidth,
         width,
         cacheRemoveCount,
@@ -213,6 +304,7 @@ function DataGrid<R>({
         rows,
         estimatedRowHeight,
         state.selectPosition,
+        state.expandableKey
     ])
 
     const lastScrollTop = useRef<number>(0)

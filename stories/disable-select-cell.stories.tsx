@@ -9,6 +9,7 @@ const columns: Array<Column<unknown>> = [
     {
         name: `0`,
         title: `姓名`,
+        isSelect: () => false
     },
     {
         name: `1`,
@@ -66,14 +67,12 @@ for (let i = 0; i < 5000; i += 1) {
             cells.push({
                 name: `${y}`,
                 value: `${i} - ${y}`,
-                disableSelect: true,
             })
         }
         if (i === 3 && y === 2) {
             cells.push({
                 name: `${y}`,
                 value: `${i} - ${y}`,
-                disableSelect: true,
                 style: {},
             })
         } else if (i === 8 && y === 2) {

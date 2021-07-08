@@ -4,36 +4,34 @@ import { Meta } from '@storybook/react'
 import DataGrid, { Row, Column, Cell } from '../src'
 
 const rows: Array<Row<any>> = []
-const columns: Array<Column<unknown>> = []
+const tempColumns: Array<Column<unknown>> = []
 
-columns.push({
+tempColumns.push({
     name: `0`,
     title: `字段 - 0`,
     fixed: 'left',
 })
 
-columns.push({
-    name: `0.0`,
-    title: `字段 - 0.0`,
-    fixed: 'left',
-})
-for (let i = 2; i < 1000; i += 1) {
-    columns.push({
+for (let i = 2; i < 20; i += 1) {
+    tempColumns.push({
         name: `${i}`,
         title: `字段 - ${i}`,
+        sort: true,
     })
 }
 
-columns.push({
+tempColumns.push({
     name: `1`,
     title: `字段 - 1`,
     fixed: 'right',
 })
 
-for (let i = 0; i < 5000; i += 1) {
+for (let i = 0; i < 500; i += 1) {
     const cells: Array<Cell> = []
 
-    for (let y = 0; y < 1000; y += 1) {
+    const object: any = {}
+    for (let y = 0; y < tempColumns.length; y += 1) {
+        object[`${y}`] = `${i} - ${y}`
         if (i === 3 && y === 2) {
             cells.push({
                 name: `${y}`,
@@ -56,15 +54,24 @@ for (let i = 0; i < 5000; i += 1) {
     rows.push({
         height: 35,
         key: `${i}`,
+        object,
         cells,
     })
 }
 
-const RowDataGrid = () => <DataGrid<unknown> rows={rows} columns={columns} />
+const RowDataGrid = () => (
+    <DataGrid<unknown>
+        rows={rows}
+        columns={tempColumns}
+        expandable={{
+            expandedRowRender: (row, style) => <div style={style}> 这是一个展开的内容信息 {JSON.stringify(row)} </div>
+        }}
+    />
+)
 
 export default {
     component: RowDataGrid,
     title: 'Demos',
 } as Meta
 
-export const BigData: React.VFC<{}> = () => <RowDataGrid />
+export const expandable: React.VFC<{}> = () => <RowDataGrid />

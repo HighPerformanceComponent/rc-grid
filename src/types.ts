@@ -31,6 +31,12 @@ export interface DataGridProps<R> extends SharedDivProps {
     cacheRemoveCount?: number
     /** 默认列的宽度信息 */
     defaultColumnWidth?: number
+    expandable?: {
+        /** 是否显示可展开按钮 */
+        isExpandable?: (row: Row<R>) => boolean
+        /** 渲染的实际内容 */
+        expandedRowRender: (row: Row<R>, style: CSSProperties) => ReactNode
+    }
     /** 用户编辑触发的数据 */
     onEditorChangeSave?: (change: EditorChange<R>) => void
     /** 渲染表格头部的单元格 */
@@ -43,6 +49,8 @@ export interface DataGridProps<R> extends SharedDivProps {
     onEmptyRowsRenderer?: () => ReactNode
     /** 表格执行排序的时候触发的方法 */
     onSort?: (sortColumn: SortColumn[]) => void
+    /** 用户展开当前行 */
+
 }
 
 export interface Row<T> {
@@ -70,8 +78,6 @@ export interface Cell {
     colSpan?: number
     /** 合并行的数量 */
     rowSpan?: number
-    /** 禁用选中 */
-    disableSelect?: boolean
     /** css 样式 */
     style?: CellStyle
 }
@@ -113,6 +119,10 @@ export interface Column<TRow> {
     readonly resizable?: boolean
     /** 表格的编辑按钮 */
     readonly editor?: ComponentType<EditorProps> | null
+    /** 是否允许选中 */
+    readonly isSelect?: (cell: Cell) => boolean
+    /** 渲染表格的单元格信息 */
+    readonly render?: (text: EditorValue, row: Row<TRow>) => ReactNode
 }
 
 export interface HeaderCellRenderParam<R> {
