@@ -10,7 +10,7 @@ export function onHeaderDrop<T>(
     const sourceIndex = columns.findIndex((ele) => ele.name === source.name)
     const targetIndex = columns.findIndex((ele) => ele.name === target.name)
     return produce(columns, (changeColumns) => {
-        changeColumns.splice(sourceIndex, 1, target)
-        changeColumns.splice(targetIndex, 1, source)
+        changeColumns.splice(sourceIndex, 1)
+        changeColumns.splice(targetIndex, 0, source)
     })
 }

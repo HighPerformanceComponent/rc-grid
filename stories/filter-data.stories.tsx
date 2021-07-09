@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Meta } from '@storybook/react'
 import produce from 'immer'
 
@@ -60,12 +60,6 @@ for (let i = 0; i < 500; i += 1) {
 }
 
 const RowDataGrid = () => {
-    useEffect(() => {
-        setTimeout(() => {
-            // eslint-disable-next-line no-alert
-            alert('请按快捷键 ctrl + f 进行数据搜索')
-        }, 1000);
-    }, [])
     const [datas] = useState<Row<any>[]>(produce(rows, () => {}))
     return <DataGrid<unknown> rows={datas} columns={tempColumns} />
 }

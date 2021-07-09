@@ -4,6 +4,7 @@ import React, {
     useContext,
     useEffect,
     useRef,
+    useState,
 } from 'react'
 import styled from 'styled-components'
 
@@ -14,6 +15,7 @@ import { SortUpIcon, SortDownIcon } from './Icon'
 interface GridHeaderCellProps extends React.HTMLAttributes<HTMLDivElement> {
     isLastFeftFixed: boolean
     isLastRightFixed: boolean
+    isDragHover: boolean
     styled: CSSProperties
 }
 
@@ -24,6 +26,12 @@ const GridHeaderCell = styled.div.attrs<GridHeaderCellProps>((props) => ({
     position: absolute;
     border-right: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
+    border-left: ${({ isDragHover }) => {
+        if (isDragHover) {
+            return '2px solid #3740ff'
+        }
+        return 'unset'
+    }};
     box-sizing: border-box;
     height: 100%;
     align-items: center;
@@ -153,20 +161,32 @@ function HeaderCell<T>({
         return null
     }
 
+    const dragRef = useRef<HTMLDivElement>(null)
+
+    const [isDragHover, setIsDragHover] = useState<boolean>(false)
+    const isDragCount = useRef<number>(0)
     return (
         <GridHeaderCell
+            ref={dragRef}
             isLastFeftFixed={isLastFeftFixed}
             isLastRightFixed={isLastRightFixed}
+            isDragHover={isDragHover}
             styled={tempStyled}
-            draggable
-            onDragStart={({ dataTransfer }) => {
-                dataTransfer.setData('name', column.name)
-                dataTransfer.setData('target', `table-${state.id}`)
-            }}
+            draggable={onHeaderDrop !== undefined}
             data-id={`table-${state.id}`}
             data-name={column.name}
-            onDrop={({ dataTransfer, target }) => {
-                const targetElement = target as HTMLDivElement
+            onDragStart={({ dataTransfer, currentTarget }) => {
+                dataTransfer.setData('name', column.name)
+                dataTransfer.setData('target', `table-${state.id}`)
+                const { dataset } = currentTarget
+                dataset.dragstart = 'true'
+            }}
+            onDrop={(event) => {
+                const { dataTransfer, currentTarget } = event 
+                const targetElement = currentTarget as HTMLDivElement
+                const { style } = targetElement
+                style.boxShadow = undefined
+
                 const sourceName = dataTransfer.getData('name')
                 const targetName = targetElement.dataset.name
                 let sourceCol: Column<T>
@@ -184,27 +204,33 @@ function HeaderCell<T>({
                     return false
                 })
                 onHeaderDrop?.(sourceCol, targetCol)
+                event.stopPropagation()
+            }}
+            onDragEnter={(e) => {
+                const targetElement = e.currentTarget as HTMLDivElement
+                if (targetElement.dataset.dragstart !== 'true') {
+                    if (e.dataTransfer.getData('name') !== column.name) {
+                        isDragCount.current += 1
+                        e.preventDefault()
+                        if (isDragHover === false) {
+                            setIsDragHover(true)
+                        }
+                    }
+                }
+            }}
+            onDragLeave={(e) => {
+                const targetElement = e.currentTarget as HTMLDivElement
+                if (targetElement.dataset.dragstart !== 'true') {
+                    isDragCount.current -= 1
+                    if (isDragCount.current === 0 ) {
+                        setIsDragHover(false)
+                    }
+                }
             }}
             onDragOver={(e) => {
                 const targetElement = e.currentTarget as HTMLDivElement
-
-                let sourceCol: Column<T>
-                let targetCol: Column<T>
-                columns.some((ele) => {
-                    if (ele.name === column.name) {
-                        sourceCol = ele
-                    } else if (ele.name === targetElement.dataset.name) {
-                        targetCol = ele
-                    }
-
-                    if (sourceCol && targetCol) {
-                        return true
-                    }
-                    return false
-                })
-
-                if (targetElement.dataset.id === `table-${state.id}`) {
-                    if (onHeaderDragOver?.(sourceCol, targetCol)) {
+                if (targetElement.dataset.id === `table-${state.id}` && targetElement.dataset.dragstart !== 'true') {
+                    if (onHeaderDragOver?.(e)) {
                         e.preventDefault()
                     }
                 }
