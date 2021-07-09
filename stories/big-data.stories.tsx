@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Meta } from '@storybook/react'
 
 import DataGrid, { Row, Column, Cell } from '../src'
+import { onHeaderDrop } from './utils'
 
 const rows: Array<Row<any>> = []
 const columns: Array<Column<unknown>> = []
@@ -55,8 +56,19 @@ for (let i = 0; i < 5000; i += 1) {
     })
 }
 
-const RowDataGrid = () => <DataGrid<unknown> rows={rows} columns={columns} />
+const RowDataGrid = () => {
+    const [cols, setCols] = useState<Column<unknown>[]>(columns)
 
+    return (
+        <DataGrid<unknown>
+            rows={rows}
+            columns={cols}
+            onHeaderDrop={(source, target) => {
+                setCols(onHeaderDrop(cols, source, target))
+            }}
+        />
+    )
+}
 export default {
     component: RowDataGrid,
     title: 'Demos',

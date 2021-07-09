@@ -16,11 +16,11 @@ type Action =
     | {
           type: 'setSortColumn'
           payload: SortColumn[]
-    }
+      }
     | {
           type: 'setExpandableKey'
           payload: Key[]
-    }
+      }
 
 export interface State {
     selectPosition?: {
@@ -30,7 +30,7 @@ export interface State {
     editorChange: EditorChange<any>[]
     expandableKey: Key[]
     sortColumns: SortColumn[]
-    
+    id: number
 }
 
 const Context = createContext<{
@@ -40,7 +40,8 @@ const Context = createContext<{
     state: {
         editorChange: [],
         sortColumns: [],
-        expandableKey: []
+        expandableKey: [],
+        id: 0,
     },
     dispatch: () => null,
 })

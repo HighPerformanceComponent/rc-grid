@@ -49,8 +49,10 @@ export interface DataGridProps<R> extends SharedDivProps {
     onEmptyRowsRenderer?: () => ReactNode
     /** 表格执行排序的时候触发的方法 */
     onSort?: (sortColumn: SortColumn[]) => void
-    /** 用户展开当前行 */
-
+    /** 拖拽用户表头触发的事件 */
+    onHeaderDrop?: (source: Column<R>, target: Column<R>) => void
+    /** 允许当期表头进行放置 */
+    onHeaderDragOver?: (source: Column<R>, target: Column<R>) => boolean
 }
 
 export interface Row<T> {

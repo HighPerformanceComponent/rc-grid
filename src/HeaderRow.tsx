@@ -37,6 +37,8 @@ function HeaderRow<R>({
         estimatedColumnWidth,
         cacheRemoveCount,
         onHeaderCellRender = ({ headerCell }) => [headerCell],
+        onHeaderDrop,
+        onHeaderDragOver,
         onHeaderResizable,
         onSort,
     },
@@ -116,6 +118,8 @@ function HeaderRow<R>({
                             cacheRemoveCount,
                             onHeaderCellRender,
                             onHeaderResizable,
+                            onHeaderDrop,
+                            onHeaderDragOver,
                             onSort,
                         }}
                     >
