@@ -133,7 +133,7 @@ const RowDataGrid = () => {
     return (
         <DataGrid<unknown>
             rows={rows}
-            columns={columns}
+            columns={cols}
             onHeaderRowRender={(node) => {
                 const { styled: tempStyled, ...restProps } = node.props
                 return React.cloneElement(node, {
