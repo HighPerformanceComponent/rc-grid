@@ -165,6 +165,7 @@ function HeaderCell<T>({
 
     const [isDragHover, setIsDragHover] = useState<boolean>(false)
     const isDragCount = useRef<number>(0)
+
     return (
         <GridHeaderCell
             ref={dragRef}
@@ -172,7 +173,7 @@ function HeaderCell<T>({
             isLastRightFixed={isLastRightFixed}
             isDragHover={isDragHover}
             styled={tempStyled}
-            draggable={onHeaderDrop !== undefined}
+            draggable={onHeaderDrop !== undefined && column.fixed === undefined}
             data-id={`table-${state.id}`}
             data-name={column.name}
             onDragStart={({ dataTransfer, currentTarget }) => {
@@ -182,33 +183,35 @@ function HeaderCell<T>({
                 dataset.dragstart = 'true'
             }}
             onDrop={(event) => {
-                const { dataTransfer, currentTarget } = event 
-                const targetElement = currentTarget as HTMLDivElement
-                const { style } = targetElement
-                style.boxShadow = undefined
-
-                const sourceName = dataTransfer.getData('name')
-                const targetName = targetElement.dataset.name
-                let sourceCol: Column<T>
-                let targetCol: Column<T>
-                columns.some((ele) => {
-                    if (ele.name === sourceName) {
-                        sourceCol = ele
-                    } else if (ele.name === targetName) {
-                        targetCol = ele
-                    }
-
-                    if (sourceCol && targetCol) {
-                        return true
-                    }
-                    return false
-                })
-                onHeaderDrop?.(sourceCol, targetCol)
-                event.stopPropagation()
+                if (column.fixed === undefined) {
+                    const { dataTransfer, currentTarget } = event 
+                    const targetElement = currentTarget as HTMLDivElement
+                    const { style } = targetElement
+                    style.boxShadow = undefined
+    
+                    const sourceName = dataTransfer.getData('name')
+                    const targetName = targetElement.dataset.name
+                    let sourceCol: Column<T>
+                    let targetCol: Column<T>
+                    columns.some((ele) => {
+                        if (ele.name === sourceName) {
+                            sourceCol = ele
+                        } else if (ele.name === targetName) {
+                            targetCol = ele
+                        }
+    
+                        if (sourceCol && targetCol) {
+                            return true
+                        }
+                        return false
+                    })
+                    onHeaderDrop?.(sourceCol, targetCol)
+                    event.stopPropagation()
+                }
             }}
             onDragEnter={(e) => {
                 const targetElement = e.currentTarget as HTMLDivElement
-                if (targetElement.dataset.dragstart !== 'true') {
+                if (targetElement.dataset.dragstart !== 'true' && column.fixed === undefined) {
                     if (e.dataTransfer.getData('name') !== column.name) {
                         isDragCount.current += 1
                         e.preventDefault()
@@ -220,7 +223,7 @@ function HeaderCell<T>({
             }}
             onDragLeave={(e) => {
                 const targetElement = e.currentTarget as HTMLDivElement
-                if (targetElement.dataset.dragstart !== 'true') {
+                if (targetElement.dataset.dragstart !== 'true' && column.fixed === undefined) {
                     isDragCount.current -= 1
                     if (isDragCount.current === 0 ) {
                         setIsDragHover(false)
