@@ -3,6 +3,7 @@ import { Meta } from '@storybook/react'
 import produce from 'immer'
 
 import DataGrid, { Row, Column, Cell } from '../src'
+import { onHeaderDrop } from './utils'
 
 const rows: Array<Row<any>> = []
 const tempColumns: Array<Column<unknown>> = []
@@ -63,10 +64,14 @@ for (let i = 0; i < 500; i += 1) {
 const RowDataGrid = () => {
     const oldData = useRef<Row<any>[]>(produce(rows, () => {}))
     const [datas, setDatas] = useState<Row<any>[]>(produce(rows, () => {}))
+    const [cols, setCols] = useState<Column<unknown>[]>(tempColumns)
     return (
         <DataGrid<unknown>
             rows={datas}
-            columns={tempColumns}
+            columns={cols}
+            onHeaderDrop={(source, target) => {
+                setCols(onHeaderDrop(cols, source, target))
+            }}
             onSort={(sort) => {
                 if (sort.length === 0) {
                     setDatas(oldData.current)

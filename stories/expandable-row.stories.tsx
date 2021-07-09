@@ -16,7 +16,6 @@ for (let i = 2; i < 20; i += 1) {
     tempColumns.push({
         name: `${i}`,
         title: `字段 - ${i}`,
-        sort: true,
     })
 }
 
@@ -64,7 +63,12 @@ const RowDataGrid = () => (
         rows={rows}
         columns={tempColumns}
         expandable={{
-            expandedRowRender: (row, style) => <div style={style}> 这是一个展开的内容信息 {JSON.stringify(row)} </div>
+            expandedRowRender: (row, style) => (
+                <div style={style}>
+                    {' '}
+                    这是一个展开的内容信息 {JSON.stringify(row)}{' '}
+                </div>
+            ),
         }}
     />
 )

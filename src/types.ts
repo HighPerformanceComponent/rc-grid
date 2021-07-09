@@ -1,4 +1,4 @@
-import { ComponentType, CSSProperties, HTMLAttributes, ReactNode } from 'react'
+import { ComponentType, CSSProperties, HTMLAttributes, ReactNode, DragEvent } from 'react'
 
 type SharedDivProps = Pick<
     HTMLAttributes<HTMLDivElement>,
@@ -52,7 +52,7 @@ export interface DataGridProps<R> extends SharedDivProps {
     /** 拖拽用户表头触发的事件 */
     onHeaderDrop?: (source: Column<R>, target: Column<R>) => void
     /** 允许当期表头进行放置 */
-    onHeaderDragOver?: (source: Column<R>, target: Column<R>) => boolean
+    onHeaderDragOver?: (event: DragEvent<HTMLDivElement>) => boolean
 }
 
 export interface Row<T> {
