@@ -75,7 +75,14 @@ function HeaderCell<T>({
     styled: tempStyled,
     children,
     column,
-    gridProps: { columns, onSort, defaultColumnWidth, onHeaderResizable },
+    gridProps: {
+        columns,
+        onSort,
+        defaultColumnWidth,
+        onHeaderResizable,
+        onHeaderDrop,
+        onHeaderDragOver,
+    },
 }: HeaderCellProps<T>) {
     const { state, dispatch } = useContext(Context)
 
@@ -151,6 +158,57 @@ function HeaderCell<T>({
             isLastFeftFixed={isLastFeftFixed}
             isLastRightFixed={isLastRightFixed}
             styled={tempStyled}
+            draggable
+            onDragStart={({ dataTransfer }) => {
+                dataTransfer.setData('name', column.name)
+                dataTransfer.setData('target', `table-${state.id}`)
+            }}
+            data-id={`table-${state.id}`}
+            data-name={column.name}
+            onDrop={({ dataTransfer, target }) => {
+                const targetElement = target as HTMLDivElement
+                const sourceName = dataTransfer.getData('name')
+                const targetName = targetElement.dataset.name
+                let sourceCol: Column<T>
+                let targetCol: Column<T>
+                columns.some((ele) => {
+                    if (ele.name === sourceName) {
+                        sourceCol = ele
+                    } else if (ele.name === targetName) {
+                        targetCol = ele
+                    }
+
+                    if (sourceCol && targetCol) {
+                        return true
+                    }
+                    return false
+                })
+                onHeaderDrop?.(sourceCol, targetCol)
+            }}
+            onDragOver={(e) => {
+                const targetElement = e.currentTarget as HTMLDivElement
+
+                let sourceCol: Column<T>
+                let targetCol: Column<T>
+                columns.some((ele) => {
+                    if (ele.name === column.name) {
+                        sourceCol = ele
+                    } else if (ele.name === targetElement.dataset.name) {
+                        targetCol = ele
+                    }
+
+                    if (sourceCol && targetCol) {
+                        return true
+                    }
+                    return false
+                })
+
+                if (targetElement.dataset.id === `table-${state.id}`) {
+                    if (onHeaderDragOver?.(sourceCol, targetCol)) {
+                        e.preventDefault()
+                    }
+                }
+            }}
         >
             <HeaderTitle
                 style={{

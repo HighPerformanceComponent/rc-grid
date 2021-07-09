@@ -3,6 +3,7 @@ import { Meta } from '@storybook/react'
 
 import styled from 'styled-components'
 import DataGrid, { Row, Column, Cell, EditorProps } from '../src'
+import { onHeaderDrop } from './utils'
 
 const rows: Array<Row<any>> = []
 
@@ -127,71 +128,77 @@ for (let i = 0; i < 5000; i += 1) {
     })
 }
 
-const RowDataGrid = () => (
-    <DataGrid<unknown>
-        rows={rows}
-        columns={columns}
-        onHeaderRowRender={(node) => {
-            const { styled: tempStyled, ...restProps } = node.props
-            return React.cloneElement(node, {
-                ...restProps,
-                styled: {
-                    ...tempStyled,
-                    top: 35,
-                },
-                key: node.key,
-            })
-        }}
-        onEditorChangeSave={(change) => {
-            console.log(change)
-        }}
-        onHeaderCellRender={({ headerCell, index }) => {
-            const { styled: tempStyled, ...restProps } = headerCell.props
-            if (index === 0) {
-                return [
-                    <GridHeaderCell
-                        key="merge-header-cell"
-                        style={{
-                            width: 120 * 6,
-                            height: 35,
-                            position: 'absolute',
-                            display: 'inline-flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            zIndex: 100,
-                            left: tempStyled.left,
-                            top: (tempStyled.top || 0) - 35,
-                        }}
-                    >
-                        人员资料
-                    </GridHeaderCell>,
-                    headerCell,
-                ]
-            }
+const RowDataGrid = () => {
+    const [cols, setCols] = useState(columns)
+    return (
+        <DataGrid<unknown>
+            rows={rows}
+            columns={columns}
+            onHeaderRowRender={(node) => {
+                const { styled: tempStyled, ...restProps } = node.props
+                return React.cloneElement(node, {
+                    ...restProps,
+                    styled: {
+                        ...tempStyled,
+                        top: 35,
+                    },
+                    key: node.key,
+                })
+            }}
+            onEditorChangeSave={(change) => {
+                console.log(change)
+            }}
+            onHeaderDrop={(source, target) => {
+                setCols(onHeaderDrop(cols, source, target))
+            }}
+            onHeaderCellRender={({ headerCell, index }) => {
+                const { styled: tempStyled, ...restProps } = headerCell.props
+                if (index === 0) {
+                    return [
+                        <GridHeaderCell
+                            key="merge-header-cell"
+                            style={{
+                                width: 120 * 6,
+                                height: 35,
+                                position: 'absolute',
+                                display: 'inline-flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                zIndex: 100,
+                                left: tempStyled.left,
+                                top: (tempStyled.top || 0) - 35,
+                            }}
+                        >
+                            人员资料
+                        </GridHeaderCell>,
+                        headerCell,
+                    ]
+                }
 
-            if (index > 5) {
+                if (index > 5) {
+                    return [
+                        React.cloneElement(headerCell, {
+                            ...restProps,
+                            styled: {
+                                ...tempStyled,
+                                top: -35,
+                                height: 35 * 2,
+                            },
+                        }),
+                    ]
+                }
                 return [
                     React.cloneElement(headerCell, {
                         ...restProps,
                         styled: {
                             ...tempStyled,
-                            top: -35,
-                            height: 35 * 2,
                         },
                     }),
                 ]
-            }
-            return [
-                React.cloneElement(headerCell, {
-                    ...restProps,
-                    styled: {
-                        ...tempStyled,
-                    },
-                }),
-            ]
-        }}
-    />
-)
+            }}
+        />
+    )
+}
 
 export default {
     component: RowDataGrid,
