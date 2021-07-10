@@ -17,8 +17,3 @@ storybook-static
 
 # lock
 yarn.lock
-
-# yarn 
-.yarn
-.pnp.js
-.yarnrc.yml
