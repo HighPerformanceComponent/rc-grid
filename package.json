@@ -1,6 +1,7 @@
 {
     "name": "rc-project",
     "repository": "https://github.com/jhoneybee/rc-grid.git",
+    "private": true,
     "author": "jhoneybee <zhangjin19960908@gmail.com>",
     "license": "MIT",
     "scripts": {
