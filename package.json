@@ -6,7 +6,8 @@
     "license": "MIT",
     "scripts": {
         "start": "yarn workspace rc-grid start",
-        "lint:script": "yarn workspace rc-grid lint:script"
+        "lint:script": "yarn workspace rc-grid lint:script",
+        "build:storybook": "yarn workspace rc-grid build-storybook"
     },
     "workspaces": [
         "packages/*"
