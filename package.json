@@ -4,7 +4,8 @@
     "author": "jhoneybee <zhangjin19960908@gmail.com>",
     "license": "MIT",
     "scripts": {
-        "start": "yarn workspace rc-grid start"
+        "start": "yarn workspace rc-grid start",
+        "lint:script": "yarn workspace rc-grid lint:script"
     },
     "workspaces": [
         "packages/*"
