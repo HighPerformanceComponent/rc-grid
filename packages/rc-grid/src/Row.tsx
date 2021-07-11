@@ -12,6 +12,10 @@ const GridRow = styled.div.attrs<GridRowProps>((props) => ({
     style: props.styled,
 }))<GridRowProps>`
     position: absolute;
+    background-color: #fff;
+    :hover {
+        background-color: hsl(0deg 0% 96%);
+    }
 `
 
 interface RowProps<R>
