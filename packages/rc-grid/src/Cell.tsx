@@ -18,14 +18,13 @@ const GridCell = styled.div.attrs<GridCellProps>((props) => ({
     border-right: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
     box-sizing: border-box;
-    background-color: #fff;
     outline: none;
+    background-color: inherit;
     user-select: none;
     box-shadow: ${({ isLastFeftFixed, isLastRightFixed, isSelect }) => {
         if (isSelect) {
             return 'inset 0 0 0 2px #66afe9'
         }
-
         if (isLastFeftFixed) {
             return '2px 0 5px -2px rgb(136 136 136 / 30%)'
         }
