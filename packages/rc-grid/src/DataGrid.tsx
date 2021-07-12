@@ -99,6 +99,8 @@ function DataGrid<R>({
     onSort,
     onHeaderDrop,
     onHeaderDragOver = () => true,
+    onRowClick,
+    onRowDoubleClick,
 }: DataGridProps<R>) {
     const [state, dispatch] = useReducer(reducer, {
         editorChange: [],
@@ -241,6 +243,8 @@ function DataGrid<R>({
                     onSort,
                     onHeaderDrop,
                     onHeaderDragOver,
+                    onRowClick,
+                    onRowDoubleClick,
                 }}
             />
         )
@@ -286,6 +290,8 @@ function DataGrid<R>({
                         onHeaderResizable,
                         onEditorChangeSave,
                         onSort,
+                        onRowClick,
+                        onRowDoubleClick,
                     }}
                 />
             )
@@ -307,8 +313,10 @@ function DataGrid<R>({
                     padding: 10,
                 })
                 if (isValidElement(expandableElement)) {
-                    const { style: pStyle = {}, ...restProps } =
-                        expandableElement.props
+                    const {
+                        style: pStyle = {},
+                        ...restProps
+                    } = expandableElement.props
                     const expandableHeight = pStyle.height || 300
                     domRows.push(
                         cloneElement(expandableElement, {
@@ -364,8 +372,10 @@ function DataGrid<R>({
             timeout.current = undefined
         }, 400)
 
-        const { scrollTop: currentScrollTop, scrollLeft: currentScrollLeft } =
-            currentTarget
+        const {
+            scrollTop: currentScrollTop,
+            scrollLeft: currentScrollLeft,
+        } = currentTarget
         if (currentTarget) {
             if (
                 // 纵向： currentScrollTop - lastScrollTop.current 距离上次滚动的距离

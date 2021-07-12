@@ -9,7 +9,17 @@
         "lint:script": "yarn workspace rc-grid lint:script",
         "build:storybook": "yarn workspace rc-grid build-storybook"
     },
+    "devDependencies": {
+        "husky": ">=6",
+        "lint-staged": "^11.0.0"
+    },
     "workspaces": [
         "packages/*"
-    ]
+    ],
+    "lint-staged": {
+        "**/*.{js,jsx,ts,tsx}": "eslint --ext .js,.jsx,.ts,.tsx",
+        "**/*.{js,jsx,tsx,ts,less,json}": [
+            "prettier --write"
+        ]
+    }
 }
