@@ -18,6 +18,7 @@ import HeaderRow from './HeaderRow'
 import Context, { reducer } from './Context'
 import UniversalToolbar from './ plugins/UniversalToolbar'
 import { useChevronRightIcon, useChevronDownIcon } from './Icon'
+import { getScrollbarWidth } from './utils/browser'
 
 const GridContainer = styled.div`
     position: relative;
@@ -157,7 +158,9 @@ function DataGrid<R>({
         if (countWidth < width) {
             cols.forEach((ele) => {
                 const col = ele
-                col.width = Math.ceil((width - widthOffset) / cols.length)
+                col.width = Math.floor(
+                    (width - widthOffset - getScrollbarWidth()) / cols.length
+                )
             })
         }
 
