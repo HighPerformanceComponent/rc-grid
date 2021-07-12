@@ -42,14 +42,15 @@ function Row<T>({
         estimatedColumnWidth,
         cacheRemoveCount,
         width,
+        onRowClick,
+        onRowDoubleClick,
     },
 }: RowProps<T>) {
     const { cells, key, height } = rows[rowIndex]
     const { state, dispatch } = useContext(Context)
-    const fixedColumns = useMemo(
-        () => columns.filter((ele) => ele.fixed),
-        [columns]
-    )
+    const fixedColumns = useMemo(() => columns.filter((ele) => ele.fixed), [
+        columns,
+    ])
 
     const leftFixedColumns = fixedColumns.filter((ele) => ele.fixed === 'left')
     const rightFixedColumns = fixedColumns.filter(
@@ -198,7 +199,19 @@ function Row<T>({
         state.selectPosition,
     ])
 
-    return <GridRow styled={tempStyled}>{renderCell}</GridRow>
+    return (
+        <GridRow
+            styled={tempStyled}
+            onClick={() => {
+                onRowClick?.(rows[rowIndex])
+            }}
+            onDoubleClick={() => {
+                onRowDoubleClick?.(rows[rowIndex])
+            }}
+        >
+            {renderCell}
+        </GridRow>
+    )
 }
 
 export default Row
