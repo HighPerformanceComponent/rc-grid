@@ -39,7 +39,7 @@ export interface DataGridProps<R> extends SharedDivProps {
     defaultColumnWidth?: number
     /** 展开的配置信息 */
     expandable?: {
-        /** 展示树形数据时，每层缩进的宽度，以 px 为单位 */
+        /** 展示树形数据时，每层缩进的宽度，以 rem 为单位 */
         indentSize?: number
         /** 指定树形结构的列名  */
         childrenColumnName?: string
