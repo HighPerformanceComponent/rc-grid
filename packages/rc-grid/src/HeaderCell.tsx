@@ -184,11 +184,11 @@ function HeaderCell<T>({
             }}
             onDrop={(event) => {
                 if (column.fixed === undefined) {
-                    const { dataTransfer, currentTarget } = event 
+                    const { dataTransfer, currentTarget } = event
                     const targetElement = currentTarget as HTMLDivElement
                     const { style } = targetElement
                     style.boxShadow = undefined
-    
+
                     const sourceName = dataTransfer.getData('name')
                     const targetName = targetElement.dataset.name
                     let sourceCol: Column<T>
@@ -199,7 +199,7 @@ function HeaderCell<T>({
                         } else if (ele.name === targetName) {
                             targetCol = ele
                         }
-    
+
                         if (sourceCol && targetCol) {
                             return true
                         }
@@ -211,7 +211,10 @@ function HeaderCell<T>({
             }}
             onDragEnter={(e) => {
                 const targetElement = e.currentTarget as HTMLDivElement
-                if (targetElement.dataset.dragstart !== 'true' && column.fixed === undefined) {
+                if (
+                    targetElement.dataset.dragstart !== 'true' &&
+                    column.fixed === undefined
+                ) {
                     if (e.dataTransfer.getData('name') !== column.name) {
                         isDragCount.current += 1
                         e.preventDefault()
@@ -223,17 +226,23 @@ function HeaderCell<T>({
             }}
             onDragLeave={(e) => {
                 const targetElement = e.currentTarget as HTMLDivElement
-                if (targetElement.dataset.dragstart !== 'true' && column.fixed === undefined) {
+                if (
+                    targetElement.dataset.dragstart !== 'true' &&
+                    column.fixed === undefined
+                ) {
                     isDragCount.current -= 1
-                    if (isDragCount.current === 0 ) {
+                    if (isDragCount.current === 0) {
                         setIsDragHover(false)
                     }
                 }
             }}
             onDragOver={(e) => {
                 const targetElement = e.currentTarget as HTMLDivElement
-                if (targetElement.dataset.id === `table-${state.id}` && targetElement.dataset.dragstart !== 'true') {
-                    if (onHeaderDragOver?.(e)) {
+                if (
+                    targetElement.dataset.id === `table-${state.id}` &&
+                    targetElement.dataset.dragstart !== 'true'
+                ) {
+                    if (onHeaderDragOver?.(e) !== false) {
                         e.preventDefault()
                     }
                 }
