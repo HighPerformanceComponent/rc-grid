@@ -35,18 +35,12 @@ for (let i = 0; i < 5000; i += 1) {
                 value: `${i} - ${y}`,
                 rowSpan: 2,
                 colSpan: 2,
-                style: {
-                    backgroundColor: '#ffb300'
-                },
             })
         } else if (i === 8 && y === 2) {
             cells.push({
                 name: `${y}`,
                 value: `${i} - ${y}`,
                 rowSpan: 2,
-                style: {
-                    backgroundColor: '#ffb300'
-                },
             })
         } else {
             cells.push({
