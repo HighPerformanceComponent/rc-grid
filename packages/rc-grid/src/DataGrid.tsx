@@ -338,7 +338,10 @@ function DataGrid<R>(props: DataGridProps<R>) {
                         )
                         top += child.height
                         renderExpandedRowRender(child)
-                        renderChildrenRows(child, level + 1)
+                        renderChildrenRows(
+                            child,
+                            level + (expandable.indentSize || 1)
+                        )
                     })
                 }
             }
