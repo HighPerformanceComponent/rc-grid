@@ -84,14 +84,14 @@ function DataGrid<R>(props: DataGridProps<R>) {
         className,
         style = {},
         rows,
-        height = 500,
-        width = 1000,
+        height,
+        width,
         columns,
-        estimatedRowHeight = 50,
-        estimatedColumnWidth = 120,
-        headerRowHeight = 35,
-        cacheRemoveCount = 6,
-        defaultColumnWidth = 120,
+        estimatedRowHeight,
+        estimatedColumnWidth,
+        headerRowHeight,
+        cacheRemoveCount,
+        defaultColumnWidth,
         expandable,
         onEmptyRowsRenderer,
         onHeaderRowRender = (node: JSX.Element) => node,
@@ -347,8 +347,8 @@ function DataGrid<R>(props: DataGridProps<R>) {
             }
 
             renderChildrenRows(row, 1)
-
             if (top > height + scrollTop + calcCacheRemove) {
+                console.log(top)
                 return true
             }
             return false
@@ -487,7 +487,13 @@ function DataGrid<R>(props: DataGridProps<R>) {
 }
 
 DataGrid.defaultProps = {
+    width: 1000,
+    height: 600,
     defaultColumnWidth: 120,
+    estimatedRowHeight: 50,
+    estimatedColumnWidth: 120,
+    headerRowHeight: 35,
+    cacheRemoveCount: 6,
 }
 
 export default DataGrid
