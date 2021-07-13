@@ -191,6 +191,7 @@ function Row<T>({
                     }}
                 />
             )
+
             left += columnWidth
 
             return false
