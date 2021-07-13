@@ -21,11 +21,22 @@ type Action =
           type: 'setExpandableKey'
           payload: Key[]
       }
+    | {
+          type: 'setEditPosition'
+          payload: {
+              rowKey?: string
+              colName?: string
+          }
+      }
 
 export interface State {
     selectPosition?: {
         x: number
         y: number
+    }
+    editPosition?: {
+        rowKey?: string
+        colName?: string
     }
     editorChange: EditorChange<any>[]
     expandableKey: Key[]
@@ -49,6 +60,9 @@ const Context = createContext<{
 export function reducer(state: State, action: Action): State {
     if (action.type === 'setSelectPosition') {
         return { ...state, selectPosition: action.payload }
+    }
+    if (action.type === 'setEditPosition') {
+        return { ...state, editPosition: action.payload }
     }
 
     if (action.type === 'setEditorChange') {

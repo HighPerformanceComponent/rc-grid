@@ -1,4 +1,4 @@
-import React, { CSSProperties, useContext, useState } from 'react'
+import React, { CSSProperties, useContext } from 'react'
 import styled from 'styled-components'
 import Context from './Context'
 import { Column, EditorChange, EditorValue, Row } from './types'
@@ -77,7 +77,6 @@ function Cell<T>({
     if (changeData && changeValue) {
         value = changeValue
     }
-    const [status, setStatus] = useState<'edit' | 'normal'>('normal')
 
     let readonly = false
 
@@ -89,7 +88,15 @@ function Cell<T>({
         readonly = true
     }
 
-    if (column.editor && status === 'edit' && readonly === false) {
+    const rowKey = row.key
+    const colName = column.name
+
+    if (
+        column.editor &&
+        state.editPosition?.colName === colName &&
+        state.editPosition?.rowKey === rowKey &&
+        readonly === false
+    ) {
         const Editor = column.editor
         return (
             <GridCell
@@ -109,12 +116,15 @@ function Cell<T>({
                     }}
                     value={value}
                     onEditCompleted={(newValue) => {
-                        setStatus('normal')
+                        dispatch({
+                            type: 'setEditPosition',
+                            payload: {},
+                        })
                         const data: EditorChange<T> = {
                             row,
-                            changeValue: {
+                            changeValue: ({
                                 [column.name]: newValue,
-                            } as unknown as T,
+                            } as unknown) as T,
                         }
 
                         if (changeData) {
@@ -154,7 +164,13 @@ function Cell<T>({
             isSelect={isSelect}
             onClick={(e) => {
                 if (isSelect) {
-                    setStatus('edit')
+                    dispatch({
+                        type: 'setEditPosition',
+                        payload: {
+                            rowKey,
+                            colName,
+                        },
+                    })
                 }
                 onClick?.(e)
             }}
