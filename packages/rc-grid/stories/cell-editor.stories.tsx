@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Meta } from '@storybook/react'
 
 import styled from 'styled-components'
-import DataGrid, { Row, Column, Cell, EditorProps } from '../src'
+import DataGrid, { Row, Column, Cell, EditorProps, AutoSize } from '../src'
 import { onHeaderDrop } from './utils'
 
 const rows: Array<Row<any>> = []
@@ -38,7 +38,7 @@ const columns: Array<Column<unknown>> = [
         title: `年龄`,
         editor: Input,
         readonly: (row) => {
-            if ((row.key as unknown as number) % 2 === 0) {
+            if (((row.key as unknown) as number) % 2 === 0) {
                 return true
             }
             return false
@@ -131,72 +131,81 @@ for (let i = 0; i < 5000; i += 1) {
 const RowDataGrid = () => {
     const [cols, setCols] = useState(columns)
     return (
-        <DataGrid<unknown>
-            rows={rows}
-            columns={cols}
-            onHeaderRowRender={(node) => {
-                const { styled: tempStyled, ...restProps } = node.props
-                return React.cloneElement(node, {
-                    ...restProps,
-                    styled: {
-                        ...tempStyled,
-                        top: 35,
-                    },
-                    key: node.key,
-                })
-            }}
-            onEditorChangeSave={(change) => {
-                console.log(change)
-            }}
-            onHeaderDrop={(source, target) => {
-                setCols(onHeaderDrop(cols, source, target))
-            }}
-            onHeaderCellRender={({ headerCell, index }) => {
-                const { styled: tempStyled, ...restProps } = headerCell.props
-                if (index === 0) {
-                    return [
-                        <GridHeaderCell
-                            key="merge-header-cell"
-                            style={{
-                                width: 120 * 6,
-                                height: 35,
-                                position: 'absolute',
-                                display: 'inline-flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                zIndex: 100,
-                                left: tempStyled.left,
-                                top: (tempStyled.top || 0) - 35,
-                            }}
-                        >
-                            人员资料
-                        </GridHeaderCell>,
-                        headerCell,
-                    ]
-                }
-
-                if (index > 5) {
-                    return [
-                        React.cloneElement(headerCell, {
+        <AutoSize>
+            {(width, height) => (
+                <DataGrid<unknown>
+                    rows={rows}
+                    width={width}
+                    height={height}
+                    columns={cols}
+                    onHeaderRowRender={(node) => {
+                        const { styled: tempStyled, ...restProps } = node.props
+                        return React.cloneElement(node, {
                             ...restProps,
                             styled: {
                                 ...tempStyled,
-                                top: -35,
-                                height: 35 * 2,
+                                top: 35,
                             },
-                        }),
-                    ]
-                }
-                return [
-                    React.cloneElement(headerCell, {
-                        ...restProps,
-                        styled: {
-                            ...tempStyled,
-                        },
-                    }),
-                ]
-            }}
-        />
+                            key: node.key,
+                        })
+                    }}
+                    onEditorChangeSave={(change) => {
+                        console.log(change)
+                    }}
+                    onHeaderDrop={(source, target) => {
+                        setCols(onHeaderDrop(cols, source, target))
+                    }}
+                    onHeaderCellRender={({ headerCell, index }) => {
+                        const {
+                            styled: tempStyled,
+                            ...restProps
+                        } = headerCell.props
+                        if (index === 0) {
+                            return [
+                                <GridHeaderCell
+                                    key="merge-header-cell"
+                                    style={{
+                                        width: 120 * 6,
+                                        height: 35,
+                                        position: 'absolute',
+                                        display: 'inline-flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        zIndex: 100,
+                                        left: tempStyled.left,
+                                        top: (tempStyled.top || 0) - 35,
+                                    }}
+                                >
+                                    人员资料
+                                </GridHeaderCell>,
+                                headerCell,
+                            ]
+                        }
+
+                        if (index > 5) {
+                            return [
+                                React.cloneElement(headerCell, {
+                                    ...restProps,
+                                    styled: {
+                                        ...tempStyled,
+                                        top: -35,
+                                        height: 35 * 2,
+                                    },
+                                }),
+                            ]
+                        }
+                        return [
+                            React.cloneElement(headerCell, {
+                                ...restProps,
+                                styled: {
+                                    ...tempStyled,
+                                },
+                            }),
+                        ]
+                    }}
+                />
+            )}
+        </AutoSize>
     )
 }
 
