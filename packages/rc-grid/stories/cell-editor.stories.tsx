@@ -31,11 +31,13 @@ const columns: Array<Column<unknown>> = [
         name: `0`,
         title: `姓名`,
         editor: Input,
+        width: 120,
         readonly: true,
     },
     {
         name: `1`,
         title: `年龄`,
+        width: 120,
         editor: Input,
         readonly: (row) => {
             if (((row.key as unknown) as number) % 2 === 0) {
@@ -47,22 +49,26 @@ const columns: Array<Column<unknown>> = [
     {
         name: `2`,
         title: `身份证号`,
+        width: 120,
         editor: Input,
     },
     {
         name: `3`,
         title: `家庭地址`,
+        width: 120,
         editor: Input,
     },
     {
         name: `4`,
         title: `家庭电话号码`,
         editor: Input,
+        width: 120,
     },
     {
         name: `5`,
         title: `家庭人员数量`,
         editor: Input,
+        width: 120,
     },
     {
         name: `6`,
