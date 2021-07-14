@@ -14,7 +14,7 @@ jobs:
           persist-credentials: false
 
       - name: Build
-        run: yarn && yarn build:storybook
+        run: yarn && yarn build:storybook && cp CNAME website/dist/
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
