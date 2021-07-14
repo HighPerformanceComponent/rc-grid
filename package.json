@@ -19,8 +19,8 @@
         "website"
     ],
     "lint-staged": {
-        "**/*.{js,jsx,ts,tsx}": "eslint --ext .js,.jsx,.ts,.tsx",
-        "**/*.{js,jsx,tsx,ts,less,json}": [
+        "packages/**/*.{js,jsx,ts,tsx}": "eslint --ext .js,.jsx,.ts,.tsx",
+        "packages/**/*.{js,jsx,tsx,ts,less,json}": [
             "prettier --write"
         ]
     }
