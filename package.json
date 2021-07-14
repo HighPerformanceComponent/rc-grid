@@ -8,7 +8,8 @@
         "start": "yarn workspace rc-grid start",
         "start:docs": "yarn workspace website start",
         "lint:script": "yarn workspace rc-grid lint:script",
-        "build:storybook": "yarn workspace rc-grid build-storybook"
+        "build:storybook": "yarn workspace rc-grid build-storybook",
+        "build:docs": "yarn workspace website build"
     },
     "devDependencies": {
         "husky": ">=6",

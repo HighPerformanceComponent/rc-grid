@@ -14,11 +14,11 @@ jobs:
           persist-credentials: false
 
       - name: Build
-        run: yarn && yarn build:storybook
+        run: yarn && yarn build:docs && cp CNAME website/dist/
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: packages/rc-grid/storybook-static
+          FOLDER: website/dist/
