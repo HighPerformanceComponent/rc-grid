@@ -3,6 +3,7 @@ nav:
   title: 文档
   order: 1
 title: 介绍
+order: 1
 ---
 
 # Rc-Grid 组件

@@ -2,7 +2,8 @@
 nav:
   title: Docs
   order: 1
-title: introduce
+title: Introduce
+order: 1
 ---
 
 # Rc-Grid Component
