@@ -6,10 +6,22 @@
     "license": "MIT",
     "scripts": {
         "start": "yarn workspace rc-grid start",
+        "start:docs": "yarn workspace website start",
         "lint:script": "yarn workspace rc-grid lint:script",
         "build:storybook": "yarn workspace rc-grid build-storybook"
     },
+    "devDependencies": {
+        "husky": ">=6",
+        "lint-staged": "^11.0.0"
+    },
     "workspaces": [
-        "packages/*"
-    ]
+        "packages/*",
+        "website"
+    ],
+    "lint-staged": {
+        "**/*.{js,jsx,ts,tsx}": "eslint --ext .js,.jsx,.ts,.tsx",
+        "**/*.{js,jsx,tsx,ts,less,json}": [
+            "prettier --write"
+        ]
+    }
 }

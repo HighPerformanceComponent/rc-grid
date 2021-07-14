@@ -2,33 +2,39 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 
 import styled from 'styled-components'
-import DataGrid, { Row, Column, Cell } from '../src'
+import DataGrid, { Row, Column, Cell, AutoSize } from '../src'
 
 const rows: Array<Row<any>> = []
 const columns: Array<Column<unknown>> = [
     {
         name: `0`,
         title: `姓名`,
-        isSelect: () => false
+        width: 120,
+        isSelect: () => false,
     },
     {
         name: `1`,
+        width: 120,
         title: `年龄`,
     },
     {
         name: `2`,
+        width: 120,
         title: `身份证号`,
     },
     {
         name: `3`,
+        width: 120,
         title: `家庭地址`,
     },
     {
         name: `4`,
+        width: 120,
         title: `家庭电话号码`,
     },
     {
         name: `5`,
+        width: 120,
         title: `家庭人员数量`,
     },
     {
@@ -96,64 +102,75 @@ for (let i = 0; i < 5000; i += 1) {
 }
 
 const RowDataGrid = () => (
-    <DataGrid<unknown>
-        rows={rows}
-        columns={columns}
-        onHeaderRowRender={(node) => {
-            const { styled: tempStyled, ...restProps } = node.props
-            return React.cloneElement(node, {
-                ...restProps,
-                styled: {
-                    ...tempStyled,
-                    top: 35,
-                },
-                key: node.key,
-            })
-        }}
-        onHeaderCellRender={({ headerCell, index }) => {
-            const { styled: tempStyled, ...restProps } = headerCell.props
-            if (index === 0) {
-                return [
-                    <GridHeaderCell
-                        key="merge-header-cell"
-                        style={{
-                            width: 120 * 6,
-                            height: 35,
-                            position: 'absolute',
-                            display: 'inline-flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            zIndex: 100,
-                            left: tempStyled.left,
-                            top: (tempStyled.top || 0) - 35,
-                        }}
-                    >
-                        人员资料
-                    </GridHeaderCell>,
-                    headerCell
-                ]
-            }
-
-            if (index > 5) {
-                return [
-                    React.cloneElement(headerCell, {
+    <AutoSize>
+        {(width, height) => (
+            <DataGrid<unknown>
+                rows={rows}
+                width={width}
+                height={height}
+                columns={columns}
+                onHeaderRowRender={(node) => {
+                    const { styled: tempStyled, ...restProps } = node.props
+                    return React.cloneElement(node, {
                         ...restProps,
                         styled: {
                             ...tempStyled,
-                            top: -35,
-                            height: 35 * 2,
+                            top: 35,
                         },
+                        key: node.key,
                     })
-                ]
-            }
-            return [React.cloneElement(headerCell, {
-                ...restProps,
-                styled: {
-                    ...tempStyled,
-                },
-            })]
-        }}
-    />
+                }}
+                onHeaderCellRender={({ headerCell, index }) => {
+                    const {
+                        styled: tempStyled,
+                        ...restProps
+                    } = headerCell.props
+                    if (index === 0) {
+                        return [
+                            <GridHeaderCell
+                                key="merge-header-cell"
+                                style={{
+                                    width: 120 * 6,
+                                    height: 35,
+                                    position: 'absolute',
+                                    display: 'inline-flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    zIndex: 100,
+                                    left: tempStyled.left,
+                                    top: (tempStyled.top || 0) - 35,
+                                }}
+                            >
+                                人员资料
+                            </GridHeaderCell>,
+                            headerCell,
+                        ]
+                    }
+
+                    if (index > 5) {
+                        return [
+                            React.cloneElement(headerCell, {
+                                ...restProps,
+                                styled: {
+                                    ...tempStyled,
+                                    top: -35,
+                                    height: 35 * 2,
+                                },
+                            }),
+                        ]
+                    }
+                    return [
+                        React.cloneElement(headerCell, {
+                            ...restProps,
+                            styled: {
+                                ...tempStyled,
+                            },
+                        }),
+                    ]
+                }}
+            />
+        )}
+    </AutoSize>
 )
 
 export default {

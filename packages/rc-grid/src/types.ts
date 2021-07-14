@@ -1,4 +1,10 @@
-import { ComponentType, CSSProperties, HTMLAttributes, ReactNode, DragEvent } from 'react'
+import {
+    ComponentType,
+    CSSProperties,
+    HTMLAttributes,
+    ReactNode,
+    DragEvent,
+} from 'react'
 
 type SharedDivProps = Pick<
     HTMLAttributes<HTMLDivElement>,
@@ -31,7 +37,14 @@ export interface DataGridProps<R> extends SharedDivProps {
     cacheRemoveCount?: number
     /** 默认列的宽度信息 */
     defaultColumnWidth?: number
+    /** 展开的配置信息 */
     expandable?: {
+        /** 展示树形数据时，每层缩进的宽度，以 rem 为单位 */
+        indentSize?: number
+        /** 指定树形结构的列名  */
+        childrenColumnName?: string
+        /** 通过点击行进行展开 */
+        expandRowByClick?: boolean
         /** 是否显示可展开按钮 */
         isExpandable?: (row: Row<R>) => boolean
         /** 渲染的实际内容 */
@@ -53,14 +66,21 @@ export interface DataGridProps<R> extends SharedDivProps {
     onHeaderDrop?: (source: Column<R>, target: Column<R>) => void
     /** 允许当期表头进行放置 */
     onHeaderDragOver?: (event: DragEvent<HTMLDivElement>) => boolean
+    /** 表格行的点击事件 */
+    onRowClick?: (row: Row<R>) => void
+    /** 表格行的双击事件 */
+    onRowDoubleClick?: (row: Row<R>) => void
+    /** 树形节点的子节点信息 */
+    onChildrenRows?: (row: Row<R>) => readonly Row<R>[]
 }
 
 export interface Row<T> {
+    /** 表格的唯一 key */
     key: string
     /** 表格行的高度 */
     height: number
     /** 表格的单元格信息 */
-    cells: Array<Cell>
+    cells: Cell[]
     /** 任何 JSON 数据 */
     object?: T
 }

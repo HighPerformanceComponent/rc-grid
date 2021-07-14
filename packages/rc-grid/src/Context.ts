@@ -6,7 +6,7 @@ type Action =
           type: 'setSelectPosition'
           payload: {
               x: number
-              y: number
+              y: string
           }
       }
     | {
@@ -21,14 +21,30 @@ type Action =
           type: 'setExpandableKey'
           payload: Key[]
       }
+    | {
+          type: 'setEditPosition'
+          payload: {
+              rowKey?: string
+              colName?: string
+          }
+      }
+    | {
+          type: 'setExpandableTreeKey'
+          payload: Key[]
+      }
 
 export interface State {
     selectPosition?: {
         x: number
-        y: number
+        y: string
+    }
+    editPosition?: {
+        rowKey?: string
+        colName?: string
     }
     editorChange: EditorChange<any>[]
     expandableKey: Key[]
+    expandableTreeKey: Key[]
     sortColumns: SortColumn[]
     id: number
 }
@@ -41,6 +57,7 @@ const Context = createContext<{
         editorChange: [],
         sortColumns: [],
         expandableKey: [],
+        expandableTreeKey: [],
         id: 0,
     },
     dispatch: () => null,
@@ -49,6 +66,9 @@ const Context = createContext<{
 export function reducer(state: State, action: Action): State {
     if (action.type === 'setSelectPosition') {
         return { ...state, selectPosition: action.payload }
+    }
+    if (action.type === 'setEditPosition') {
+        return { ...state, editPosition: action.payload }
     }
 
     if (action.type === 'setEditorChange') {
@@ -61,6 +81,10 @@ export function reducer(state: State, action: Action): State {
 
     if (action.type === 'setExpandableKey') {
         return { ...state, expandableKey: action.payload }
+    }
+
+    if (action.type === 'setExpandableTreeKey') {
+        return { ...state, expandableTreeKey: action.payload }
     }
 
     throw Error(`reducer unknown type [${(action as any).type}]`)

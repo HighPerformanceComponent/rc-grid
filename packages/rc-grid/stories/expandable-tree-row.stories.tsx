@@ -67,12 +67,47 @@ const RowDataGrid = () => (
                 height={height}
                 columns={tempColumns}
                 expandable={{
+                    childrenColumnName: '2',
                     expandedRowRender: (row, style) => (
                         <div style={style}>
-                            {' '}
                             这是一个展开的内容信息 {JSON.stringify(row)}{' '}
                         </div>
                     ),
+                }}
+                onChildrenRows={(row) => {
+                    const tempRow = []
+                    for (let i = 500; i < 510; i += 1) {
+                        const cells: Array<Cell> = []
+                        const object: any = {}
+                        for (let y = 0; y < tempColumns.length; y += 1) {
+                            object[`${y}`] = `${i} - ${y}`
+                            if (i === 3 && y === 2) {
+                                cells.push({
+                                    name: `${y}`,
+                                    value: `${i} - ${y}`,
+                                    style: {},
+                                })
+                            } else if (i === 8 && y === 2) {
+                                cells.push({
+                                    name: `${y}`,
+                                    value: `${i} - ${y}`,
+                                    style: {},
+                                })
+                            } else {
+                                cells.push({
+                                    name: `${y}`,
+                                    value: `${i} - ${y}`,
+                                })
+                            }
+                        }
+                        tempRow.push({
+                            height: 35,
+                            key: `${row.key}-${i}`,
+                            object,
+                            cells,
+                        })
+                    }
+                    return tempRow
                 }}
             />
         )}
@@ -84,4 +119,4 @@ export default {
     title: 'Demos',
 } as Meta
 
-export const expandable: React.VFC<{}> = () => <RowDataGrid />
+export const TreeRow: React.VFC<{}> = () => <RowDataGrid />

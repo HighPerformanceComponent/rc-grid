@@ -22,7 +22,9 @@ interface RowProps<R>
     extends Pick<React.HTMLAttributes<HTMLDivElement>, 'style'> {
     rows: readonly RowType<R>[]
     rowIndex: number
+    rowIndexCode: string
     width: number
+    level: number
     scrollLeft: number
     scrollWidth: number
     styled: CSSProperties
@@ -35,21 +37,24 @@ function Row<T>({
     scrollLeft,
     scrollWidth,
     styled: tempStyled = {},
-    gridProps: {
-        onEditorChangeSave,
+    rowIndexCode,
+    level,
+    gridProps,
+}: RowProps<T>) {
+    const {
         defaultColumnWidth,
         columns = [],
         estimatedColumnWidth,
         cacheRemoveCount,
         width,
-    },
-}: RowProps<T>) {
+        onRowClick,
+        onRowDoubleClick,
+    } = gridProps
     const { cells, key, height } = rows[rowIndex]
     const { state, dispatch } = useContext(Context)
-    const fixedColumns = useMemo(
-        () => columns.filter((ele) => ele.fixed),
-        [columns]
-    )
+    const fixedColumns = useMemo(() => columns.filter((ele) => ele.fixed), [
+        columns,
+    ])
 
     const leftFixedColumns = fixedColumns.filter((ele) => ele.fixed === 'left')
     const rightFixedColumns = fixedColumns.filter(
@@ -113,7 +118,7 @@ function Row<T>({
 
             const isSelect =
                 state.selectPosition?.x === index &&
-                state.selectPosition?.y === rowIndex
+                state.selectPosition?.y === `${rowIndexCode}-${rowIndex}`
 
             let zIndex
 
@@ -143,6 +148,7 @@ function Row<T>({
                 <Cell<T>
                     key={`${key}-${column.name}`}
                     column={column}
+                    level={level}
                     style={cell?.style}
                     styled={{
                         ...cellStyled,
@@ -164,27 +170,28 @@ function Row<T>({
                                 type: 'setSelectPosition',
                                 payload: {
                                     x: index,
-                                    y: rowIndex,
+                                    y: `${rowIndexCode}-${rowIndex}`,
                                 },
                             })
                         }
                     }}
                     row={rows[rowIndex]}
                     value={txt}
-                    onEditorChangeSave={onEditorChangeSave}
+                    girdProps={gridProps}
                     onFocus={() => {
                         if (column.isSelect?.(cell) !== false) {
                             dispatch({
                                 type: 'setSelectPosition',
                                 payload: {
                                     x: index,
-                                    y: rowIndex,
+                                    y: `${rowIndexCode}-${rowIndex}`,
                                 },
                             })
                         }
                     }}
                 />
             )
+
             left += columnWidth
 
             return false
@@ -198,7 +205,19 @@ function Row<T>({
         state.selectPosition,
     ])
 
-    return <GridRow styled={tempStyled}>{renderCell}</GridRow>
+    return (
+        <GridRow
+            styled={tempStyled}
+            onClick={() => {
+                onRowClick?.(rows[rowIndex])
+            }}
+            onDoubleClick={() => {
+                onRowDoubleClick?.(rows[rowIndex])
+            }}
+        >
+            {renderCell}
+        </GridRow>
+    )
 }
 
 export default Row

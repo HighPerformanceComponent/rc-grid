@@ -1,7 +1,59 @@
-import React, { CSSProperties, useContext, useState } from 'react'
+import React, { CSSProperties, Key, useContext } from 'react'
 import styled from 'styled-components'
 import Context from './Context'
-import { Column, EditorChange, EditorValue, Row } from './types'
+import { useChevronDownIcon, useChevronRightIcon } from './Icon'
+import { Column, DataGridProps, EditorChange, EditorValue, Row } from './types'
+
+const ExpandableIcon = styled.i`
+    width: 16px;
+    height: 16px;
+    margin-right: 1rem;
+    cursor: pointer;
+`
+
+function useExpandableRender<T>(
+    row: Row<T>,
+    isExpandable: (data: Row<T>) => boolean,
+    level: number
+) {
+    const { state, dispatch } = useContext(Context)
+    let icon = useChevronRightIcon()
+    if (isExpandable?.(row) === false) {
+        return null
+    }
+
+    const expandable = state.expandableTreeKey.includes(row.key)
+
+    if (expandable) {
+        icon = useChevronDownIcon()
+    }
+
+    return (
+        <ExpandableIcon
+            style={{
+                margin: `${level}rem`,
+            }}
+            onClick={() => {
+                const newKeys: Key[] = []
+                if (expandable) {
+                    state.expandableTreeKey.forEach((ele) => {
+                        if (ele !== row.key) {
+                            newKeys.push(ele)
+                        }
+                    })
+                } else {
+                    newKeys.push(...state.expandableTreeKey, row.key)
+                }
+                dispatch({
+                    type: 'setExpandableTreeKey',
+                    payload: newKeys,
+                })
+            }}
+        >
+            {icon}
+        </ExpandableIcon>
+    )
+}
 
 interface GridCellProps extends React.HTMLAttributes<HTMLDivElement> {
     isLastFeftFixed: boolean
@@ -50,7 +102,8 @@ export interface CellProps<T> extends React.HTMLAttributes<HTMLDivElement> {
     column: Column<T>
     value: EditorValue
     row: Row<T>
-    onEditorChangeSave?: (change: EditorChange<T>) => void
+    level: number
+    girdProps: DataGridProps<T>
 }
 
 function Cell<T>({
@@ -64,7 +117,8 @@ function Cell<T>({
     style,
     row,
     value: defaultValue,
-    onEditorChangeSave,
+    level,
+    girdProps: { onEditorChangeSave, expandable },
 }: CellProps<T>) {
     const { state, dispatch } = useContext(Context)
 
@@ -77,7 +131,6 @@ function Cell<T>({
     if (changeData && changeValue) {
         value = changeValue
     }
-    const [status, setStatus] = useState<'edit' | 'normal'>('normal')
 
     let readonly = false
 
@@ -89,7 +142,15 @@ function Cell<T>({
         readonly = true
     }
 
-    if (column.editor && status === 'edit' && readonly === false) {
+    const rowKey = row.key
+    const colName = column.name
+
+    if (
+        column.editor &&
+        state.editPosition?.colName === colName &&
+        state.editPosition?.rowKey === rowKey &&
+        readonly === false
+    ) {
         const Editor = column.editor
         return (
             <GridCell
@@ -109,12 +170,15 @@ function Cell<T>({
                     }}
                     value={value}
                     onEditCompleted={(newValue) => {
-                        setStatus('normal')
+                        dispatch({
+                            type: 'setEditPosition',
+                            payload: {},
+                        })
                         const data: EditorChange<T> = {
                             row,
-                            changeValue: {
+                            changeValue: ({
                                 [column.name]: newValue,
-                            } as unknown as T,
+                            } as unknown) as T,
                         }
 
                         if (changeData) {
@@ -145,6 +209,16 @@ function Cell<T>({
         return value
     }
 
+    const renderTreeExpandableIcon = () => {
+        if (
+            expandable?.childrenColumnName === column.name &&
+            expandable?.isExpandable?.(row) !== false
+        ) {
+            return useExpandableRender(row, expandable.isExpandable, level)
+        }
+        return null
+    }
+
     return (
         <GridCell
             style={style}
@@ -154,12 +228,19 @@ function Cell<T>({
             isSelect={isSelect}
             onClick={(e) => {
                 if (isSelect) {
-                    setStatus('edit')
+                    dispatch({
+                        type: 'setEditPosition',
+                        payload: {
+                            rowKey,
+                            colName,
+                        },
+                    })
                 }
                 onClick?.(e)
             }}
             onFocus={onFocus}
         >
+            {renderTreeExpandableIcon()}
             {renderChild()}
         </GridCell>
     )

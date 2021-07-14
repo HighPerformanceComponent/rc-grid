@@ -18,6 +18,7 @@ import HeaderRow from './HeaderRow'
 import Context, { reducer } from './Context'
 import UniversalToolbar from './ plugins/UniversalToolbar'
 import { useChevronRightIcon, useChevronDownIcon } from './Icon'
+import { getScrollbarWidth } from './utils/browser'
 
 const GridContainer = styled.div`
     position: relative;
@@ -76,34 +77,33 @@ function useExpandableRender<T>(
     )
 }
 
+// 设置页面唯一ID
 let id = 0
 
-function DataGrid<R>({
-    className,
-    style = {},
-    rows,
-    height = 500,
-    width = 1000,
-    columns,
-    estimatedRowHeight = 50,
-    estimatedColumnWidth = 120,
-    headerRowHeight = 35,
-    cacheRemoveCount = 6,
-    defaultColumnWidth = 120,
-    expandable,
-    onHeaderCellRender,
-    onEmptyRowsRenderer,
-    onHeaderRowRender = (node: JSX.Element) => node,
-    onHeaderResizable,
-    onEditorChangeSave,
-    onSort,
-    onHeaderDrop,
-    onHeaderDragOver = () => true,
-}: DataGridProps<R>) {
+function DataGrid<R>(props: DataGridProps<R>) {
+    const {
+        className,
+        style = {},
+        rows,
+        height,
+        width,
+        columns,
+        estimatedRowHeight,
+        estimatedColumnWidth,
+        headerRowHeight,
+        cacheRemoveCount,
+        defaultColumnWidth,
+        expandable,
+        onEmptyRowsRenderer,
+        onHeaderRowRender = (node: JSX.Element) => node,
+        onChildrenRows,
+    } = props
+
     const [state, dispatch] = useReducer(reducer, {
         editorChange: [],
         sortColumns: [],
         expandableKey: [],
+        expandableTreeKey: [],
         id: (id += 1),
     })
 
@@ -155,12 +155,14 @@ function DataGrid<R>({
         if (countWidth < width) {
             cols.forEach((ele) => {
                 const col = ele
-                col.width = Math.ceil((width - widthOffset) / cols.length)
+                col.width = Math.floor(
+                    (width - widthOffset - getScrollbarWidth()) / cols.length
+                )
             })
         }
 
         return newColumns
-    }, [columns])
+    }, [columns, width])
 
     const filterRows = useMemo(
         () =>
@@ -196,7 +198,7 @@ function DataGrid<R>({
             result += column.width || defaultColumnWidth
         })
         return result
-    }, [sortColumns])
+    }, [sortColumns, defaultColumnWidth])
 
     const startRowTop = useRef<number>(0)
     const [scrollTop, setScrollTop] = useState<number>(0)
@@ -222,25 +224,8 @@ function DataGrid<R>({
                 scrollWidth={scrollWidth}
                 styled={headerStyled}
                 gridProps={{
-                    className,
-                    style,
-                    rows,
-                    height,
-                    width,
+                    ...props,
                     columns: sortColumns,
-                    estimatedRowHeight,
-                    estimatedColumnWidth,
-                    headerRowHeight,
-                    cacheRemoveCount,
-                    defaultColumnWidth,
-                    onHeaderCellRender,
-                    onHeaderResizable,
-                    onEmptyRowsRenderer,
-                    onHeaderRowRender,
-                    onEditorChangeSave,
-                    onSort,
-                    onHeaderDrop,
-                    onHeaderDragOver,
                 }}
             />
         )
@@ -254,12 +239,15 @@ function DataGrid<R>({
                 top += row.height
                 return false
             }
+
             domRows.push(
                 <DataGridRow<R>
                     key={row.key}
                     rows={rows}
+                    rowIndexCode="row"
                     rowIndex={index}
                     width={width}
+                    level={0}
                     scrollWidth={scrollWidth}
                     scrollLeft={scrollLeft}
                     styled={{
@@ -269,61 +257,97 @@ function DataGrid<R>({
                         lineHeight: `${row.height}px`,
                     }}
                     gridProps={{
-                        className,
-                        style,
-                        rows,
-                        height,
-                        width,
+                        ...props,
                         columns: sortColumns,
-                        estimatedRowHeight,
-                        estimatedColumnWidth,
-                        headerRowHeight,
-                        cacheRemoveCount,
-                        defaultColumnWidth,
-                        onHeaderCellRender,
-                        onEmptyRowsRenderer,
-                        onHeaderRowRender,
-                        onHeaderResizable,
-                        onEditorChangeSave,
-                        onSort,
                     }}
                 />
             )
 
             top += row.height
 
-            // 计算表格的可展开
-            if (
-                expandable?.expandedRowRender &&
-                state.expandableKey.includes(row.key)
-            ) {
-                const expandableElement = expandable?.expandedRowRender(row, {
-                    top,
-                    width: scrollWidth,
-                    position: 'absolute',
-                    lineHeight: `${row.height}px`,
-                    boxSizing: 'border-box',
-                    borderBottom: `1px solid #ddd`,
-                    padding: 10,
-                })
-                if (isValidElement(expandableElement)) {
-                    const { style: pStyle = {}, ...restProps } =
-                        expandableElement.props
-                    const expandableHeight = pStyle.height || 300
-                    domRows.push(
-                        cloneElement(expandableElement, {
-                            key: `${row.key}-expandable`,
-                            style: {
-                                ...pStyle,
-                                height: expandableHeight,
-                            },
-                            ...restProps,
-                        })
+            const renderExpandedRowRender = (parent: Row<R>) => {
+                // 计算表格的可展开
+                if (
+                    expandable?.expandedRowRender &&
+                    state.expandableKey.includes(parent.key)
+                ) {
+                    const expandableElement = expandable?.expandedRowRender(
+                        parent,
+                        {
+                            top,
+                            width: scrollWidth,
+                            position: 'absolute',
+                            lineHeight: `${parent.height}px`,
+                            boxSizing: 'border-box',
+                            borderBottom: `1px solid #ddd`,
+                            padding: 10,
+                        }
                     )
-                    top += expandableHeight
+                    if (isValidElement(expandableElement)) {
+                        const {
+                            style: pStyle = {},
+                            ...restProps
+                        } = expandableElement.props
+                        const expandableHeight = pStyle.height || 300
+                        domRows.push(
+                            cloneElement(expandableElement, {
+                                key: `${parent.key}-expandable`,
+                                style: {
+                                    ...pStyle,
+                                    height: expandableHeight,
+                                },
+                                ...restProps,
+                            })
+                        )
+                        top += expandableHeight
+                    }
                 }
             }
 
+            renderExpandedRowRender(row)
+
+            const renderChildrenRows = (parent: Row<R>, level: number) => {
+                // 计算表格树
+                if (
+                    expandable?.childrenColumnName &&
+                    state.expandableTreeKey.includes(parent.key)
+                ) {
+                    const childrenRows = onChildrenRows?.(parent) || []
+                    childrenRows.forEach((child, childIndex) => {
+                        domRows.push(
+                            <DataGridRow<R>
+                                key={`tree-${parent.key}-${child.key}`}
+                                rows={childrenRows}
+                                rowIndex={childIndex}
+                                rowIndexCode={`tree-${parent.key}`}
+                                level={level}
+                                width={width}
+                                scrollWidth={scrollWidth}
+                                scrollLeft={scrollLeft}
+                                styled={{
+                                    height: parent.height,
+                                    top,
+                                    width: scrollWidth,
+                                    lineHeight: `${child.height}px`,
+                                }}
+                                gridProps={{
+                                    ...props,
+                                    columns: sortColumns,
+                                    rows: childrenRows,
+                                }}
+                            />
+                        )
+                        top += child.height
+                        renderExpandedRowRender(child)
+                        renderChildrenRows(
+                            child,
+                            level + (expandable.indentSize || 1)
+                        )
+                    })
+                }
+            }
+
+            renderChildrenRows(row, 1)
             if (top > height + scrollTop + calcCacheRemove) {
                 return true
             }
@@ -337,12 +361,14 @@ function DataGrid<R>({
         sortColumns,
         estimatedColumnWidth,
         width,
+        height,
         cacheRemoveCount,
         headerRowHeight,
         rows,
         estimatedRowHeight,
         state.selectPosition,
         state.expandableKey,
+        state.expandableTreeKey,
     ])
 
     const lastScrollTop = useRef<number>(0)
@@ -364,8 +390,10 @@ function DataGrid<R>({
             timeout.current = undefined
         }, 400)
 
-        const { scrollTop: currentScrollTop, scrollLeft: currentScrollLeft } =
-            currentTarget
+        const {
+            scrollTop: currentScrollTop,
+            scrollLeft: currentScrollLeft,
+        } = currentTarget
         if (currentTarget) {
             if (
                 // 纵向： currentScrollTop - lastScrollTop.current 距离上次滚动的距离
@@ -413,6 +441,7 @@ function DataGrid<R>({
             <GridContainer
                 style={{
                     width,
+                    height,
                 }}
             >
                 {renderUniversal()}
@@ -420,7 +449,7 @@ function DataGrid<R>({
                     ref={gridRef}
                     className={className}
                     style={{
-                        height,
+                        height: '100%',
                         width: '100%',
                         ...style,
                     }}
@@ -457,6 +486,16 @@ function DataGrid<R>({
             </GridContainer>
         </Context.Provider>
     )
+}
+
+DataGrid.defaultProps = {
+    width: 1000,
+    height: 600,
+    defaultColumnWidth: 120,
+    estimatedRowHeight: 50,
+    estimatedColumnWidth: 120,
+    headerRowHeight: 35,
+    cacheRemoveCount: 6,
 }
 
 export default DataGrid

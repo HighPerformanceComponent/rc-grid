@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Meta } from '@storybook/react'
 import produce from 'immer'
 
-import DataGrid, { Row, Column, Cell } from '../src'
+import DataGrid, { Row, Column, Cell, AutoSize } from '../src'
 
 const rows: Array<Row<any>> = []
 const tempColumns: Array<Column<unknown>> = []
@@ -61,7 +61,18 @@ for (let i = 0; i < 500; i += 1) {
 
 const RowDataGrid = () => {
     const [datas] = useState<Row<any>[]>(produce(rows, () => {}))
-    return <DataGrid<unknown> rows={datas} columns={tempColumns} />
+    return (
+        <AutoSize>
+            {(width, height) => (
+                <DataGrid<unknown>
+                    width={width}
+                    height={height}
+                    rows={datas}
+                    columns={tempColumns}
+                />
+            )}
+        </AutoSize>
+    )
 }
 
 export default {
