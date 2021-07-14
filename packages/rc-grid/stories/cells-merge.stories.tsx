@@ -74,4 +74,5 @@ export default {
     title: 'Demos',
 } as Meta
 
+
 export const CellMerge: React.VFC<{}> = () => <RowDataGrid />
