@@ -2,9 +2,10 @@
 nav:
   title: 文档
   order: 1
+title: 介绍
 ---
 
-# Rc-Grid 表格
+# Rc-Grid 组件
 
 Rc-Grid 是基于 React 和 styled-components 的组件库，主要企业级中后台产品中的表格。
 
@@ -15,8 +16,7 @@ Rc-Grid 是基于 React 和 styled-components 的组件库，主要企业级中�
 - ⚙️ 组件功能丰富，支持固定列，可展开表格，表格树，拖拽列头，排序等等...
 
 
-## 兼容环境
-
+## 浏览器支持
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/> Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>iOS Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/samsung-internet/samsung-internet_48x48.png" alt="Samsung" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Samsung | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Electron |
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
@@ -64,7 +64,5 @@ yarn add rc-grid
 ### 社区互助
 
 如果您在使用的过程中碰到问题，可以通过下面几个途径寻求帮助，同时我们也鼓励资深用户通过下面的途径给新人提供帮助。
-
-通过 GitHub Discussions 提问时，建议使用 Q&A 标签。
 
 - [GitHub Discussions](https://github.com/HighPerformanceComponent/rc-grid/discussions)
