@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import { Meta } from '@storybook/react'
 import produce from 'immer'
 
-import DataGrid, { Row, Column, Cell } from '../src'
+import DataGrid, { Row, Column, Cell, AutoSize } from '../src'
 
 const rows: Array<Row<any>> = []
 const tempColumns: Array<Column<unknown>> = []
@@ -66,42 +66,54 @@ const RowDataGrid = () => {
     const [columns, setColumns] = useState<Array<Column<unknown>>>(tempColumns)
     const [datas, setDatas] = useState<Row<any>[]>(produce(rows, () => {}))
     return (
-        <DataGrid<unknown>
-            rows={datas}
-            columns={columns}
-            onSort={(sort) => {
-                if (sort.length === 0) {
-                    setDatas(oldData.current)
-                }
-                if (sort.length > 0) {
-                    const { direction } = sort[0]
-                    const { columnKey } = sort[0]
-                    const rowsData = produce(datas, (newData) => {
-                        newData.sort((a, b) => {
-                            const aData: string = a.object[columnKey]
-                            const bData: string = b.object[columnKey]
+        <AutoSize>
+            {(width, height) => (
+                <DataGrid<unknown>
+                    rows={datas}
+                    width={width}
+                    height={height}
+                    columns={columns}
+                    onSort={(sort) => {
+                        if (sort.length === 0) {
+                            setDatas(oldData.current)
+                        }
+                        if (sort.length > 0) {
+                            const { direction } = sort[0]
+                            const { columnKey } = sort[0]
+                            const rowsData = produce(datas, (newData) => {
+                                newData.sort((a, b) => {
+                                    const aData: string = a.object[columnKey]
+                                    const bData: string = b.object[columnKey]
 
-                            if (direction === 'ASC') {
-                                if (aData.toUpperCase() > bData.toUpperCase()) {
-                                    return 1
-                                }
-                                return -1
-                            }
-                            if (direction === 'DESC') {
-                                if (aData.toUpperCase() < bData.toUpperCase()) {
-                                    return 1
-                                }
-                            }
-                            return -1
-                        })
-                    })
-                    setDatas(rowsData)
-                }
-            }}
-            onHeaderResizable={(changeColumns) => {
-                setColumns(changeColumns)
-            }}
-        />
+                                    if (direction === 'ASC') {
+                                        if (
+                                            aData.toUpperCase() >
+                                            bData.toUpperCase()
+                                        ) {
+                                            return 1
+                                        }
+                                        return -1
+                                    }
+                                    if (direction === 'DESC') {
+                                        if (
+                                            aData.toUpperCase() <
+                                            bData.toUpperCase()
+                                        ) {
+                                            return 1
+                                        }
+                                    }
+                                    return -1
+                                })
+                            })
+                            setDatas(rowsData)
+                        }
+                    }}
+                    onHeaderResizable={(changeColumns) => {
+                        setColumns(changeColumns)
+                    }}
+                />
+            )}
+        </AutoSize>
     )
 }
 

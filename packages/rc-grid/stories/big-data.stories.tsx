@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Meta } from '@storybook/react'
 
-import DataGrid, { Row, Column, Cell } from '../src'
+import DataGrid, { Row, Column, Cell, AutoSize } from '../src'
 import { onHeaderDrop } from './utils'
 
 const rows: Array<Row<any>> = []
@@ -58,15 +58,20 @@ for (let i = 0; i < 5000; i += 1) {
 
 const RowDataGrid = () => {
     const [cols, setCols] = useState<Column<unknown>[]>(columns)
-
     return (
-        <DataGrid<unknown>
-            rows={rows}
-            columns={cols}
-            onHeaderDrop={(source, target) => {
-                setCols(onHeaderDrop(cols, source, target))
-            }}
-        />
+        <AutoSize>
+            {(width, height) => (
+                <DataGrid<unknown>
+                    rows={rows}
+                    columns={cols}
+                    width={width}
+                    height={height}
+                    onHeaderDrop={(source, target) => {
+                        setCols(onHeaderDrop(cols, source, target))
+                    }}
+                />
+            )}
+        </AutoSize>
     )
 }
 export default {
