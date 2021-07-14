@@ -348,7 +348,6 @@ function DataGrid<R>(props: DataGridProps<R>) {
 
             renderChildrenRows(row, 1)
             if (top > height + scrollTop + calcCacheRemove) {
-                console.log(top)
                 return true
             }
             return false
