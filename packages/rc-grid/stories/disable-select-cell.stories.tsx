@@ -9,26 +9,32 @@ const columns: Array<Column<unknown>> = [
     {
         name: `0`,
         title: `姓名`,
+        width: 120,
         isSelect: () => false,
     },
     {
         name: `1`,
+        width: 120,
         title: `年龄`,
     },
     {
         name: `2`,
+        width: 120,
         title: `身份证号`,
     },
     {
         name: `3`,
+        width: 120,
         title: `家庭地址`,
     },
     {
         name: `4`,
+        width: 120,
         title: `家庭电话号码`,
     },
     {
         name: `5`,
+        width: 120,
         title: `家庭人员数量`,
     },
     {
