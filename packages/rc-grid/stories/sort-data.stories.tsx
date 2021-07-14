@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import { Meta } from '@storybook/react'
 import produce from 'immer'
 
-import DataGrid, { Row, Column, Cell } from '../src'
+import DataGrid, { Row, Column, Cell, AutoSize } from '../src'
 import { onHeaderDrop } from './utils'
 
 const rows: Array<Row<any>> = []
@@ -66,42 +66,54 @@ const RowDataGrid = () => {
     const [datas, setDatas] = useState<Row<any>[]>(produce(rows, () => {}))
     const [cols, setCols] = useState<Column<unknown>[]>(tempColumns)
     return (
-        <DataGrid<unknown>
-            rows={datas}
-            columns={cols}
-            onHeaderDrop={(source, target) => {
-                setCols(onHeaderDrop(cols, source, target))
-            }}
-            onSort={(sort) => {
-                if (sort.length === 0) {
-                    setDatas(oldData.current)
-                }
-                if (sort.length > 0) {
-                    const { direction } = sort[0]
-                    const { columnKey } = sort[0]
-                    const rowsData = produce(datas, (newData) => {
-                        newData.sort((a, b) => {
-                            const aData: string = a.object[columnKey]
-                            const bData: string = b.object[columnKey]
+        <AutoSize>
+            {(width, height) => (
+                <DataGrid<unknown>
+                    rows={datas}
+                    width={width}
+                    height={height}
+                    columns={cols}
+                    onHeaderDrop={(source, target) => {
+                        setCols(onHeaderDrop(cols, source, target))
+                    }}
+                    onSort={(sort) => {
+                        if (sort.length === 0) {
+                            setDatas(oldData.current)
+                        }
+                        if (sort.length > 0) {
+                            const { direction } = sort[0]
+                            const { columnKey } = sort[0]
+                            const rowsData = produce(datas, (newData) => {
+                                newData.sort((a, b) => {
+                                    const aData: string = a.object[columnKey]
+                                    const bData: string = b.object[columnKey]
 
-                            if (direction === 'ASC') {
-                                if (aData.toUpperCase() > bData.toUpperCase()) {
-                                    return 1
-                                }
-                                return -1
-                            }
-                            if (direction === 'DESC') {
-                                if (aData.toUpperCase() < bData.toUpperCase()) {
-                                    return 1
-                                }
-                            }
-                            return -1
-                        })
-                    })
-                    setDatas(rowsData)
-                }
-            }}
-        />
+                                    if (direction === 'ASC') {
+                                        if (
+                                            aData.toUpperCase() >
+                                            bData.toUpperCase()
+                                        ) {
+                                            return 1
+                                        }
+                                        return -1
+                                    }
+                                    if (direction === 'DESC') {
+                                        if (
+                                            aData.toUpperCase() <
+                                            bData.toUpperCase()
+                                        ) {
+                                            return 1
+                                        }
+                                    }
+                                    return -1
+                                })
+                            })
+                            setDatas(rowsData)
+                        }
+                    }}
+                />
+            )}
+        </AutoSize>
     )
 }
 

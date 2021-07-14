@@ -1,7 +1,7 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 
-import DataGrid, { Row, Column, Cell } from '../src'
+import DataGrid, { Row, Column, Cell, AutoSize } from '../src'
 
 const rows: Array<Row<any>> = []
 const tempColumns: Array<Column<unknown>> = []
@@ -59,18 +59,24 @@ for (let i = 0; i < 500; i += 1) {
 }
 
 const RowDataGrid = () => (
-    <DataGrid<unknown>
-        rows={rows}
-        columns={tempColumns}
-        expandable={{
-            expandedRowRender: (row, style) => (
-                <div style={style}>
-                    {' '}
-                    这是一个展开的内容信息 {JSON.stringify(row)}{' '}
-                </div>
-            ),
-        }}
-    />
+    <AutoSize>
+        {(width, height) => (
+            <DataGrid<unknown>
+                rows={rows}
+                width={width}
+                height={height}
+                columns={tempColumns}
+                expandable={{
+                    expandedRowRender: (row, style) => (
+                        <div style={style}>
+                            {' '}
+                            这是一个展开的内容信息 {JSON.stringify(row)}{' '}
+                        </div>
+                    ),
+                }}
+            />
+        )}
+    </AutoSize>
 )
 
 export default {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 
-import DataGrid, { Row, Column } from '../src'
+import DataGrid, { Row, Column, AutoSize } from '../src'
 
 const rows: Array<Row<any>> = []
 const columns: Array<Column<unknown>> = []
@@ -25,25 +25,30 @@ columns.push({
     fixed: 'right',
 })
 
-
 const RowDataGrid = () => (
-    <DataGrid<unknown>
-        rows={rows}
-        columns={columns}
-        onEmptyRowsRenderer={() => (
-            <div
-                style={{
-                    height: '100%',
-                    width: '100%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                }}
-            >
-                无任何数据
-            </div>
+    <AutoSize>
+        {(width, height) => (
+            <DataGrid<unknown>
+                rows={rows}
+                width={width}
+                height={height}
+                columns={columns}
+                onEmptyRowsRenderer={() => (
+                    <div
+                        style={{
+                            height: '100%',
+                            width: '100%',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                        }}
+                    >
+                        无任何数据
+                    </div>
+                )}
+            />
         )}
-    />
+    </AutoSize>
 )
 
 export default {
