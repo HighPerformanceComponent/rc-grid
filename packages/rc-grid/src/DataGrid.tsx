@@ -77,6 +77,7 @@ function useExpandableRender<T>(
     )
 }
 
+// 设置页面唯一ID
 let id = 0
 
 function DataGrid<R>(props: DataGridProps<R>) {
@@ -161,7 +162,7 @@ function DataGrid<R>(props: DataGridProps<R>) {
         }
 
         return newColumns
-    }, [columns])
+    }, [columns, width])
 
     const filterRows = useMemo(
         () =>
@@ -197,7 +198,7 @@ function DataGrid<R>(props: DataGridProps<R>) {
             result += column.width || defaultColumnWidth
         })
         return result
-    }, [sortColumns])
+    }, [sortColumns, defaultColumnWidth])
 
     const startRowTop = useRef<number>(0)
     const [scrollTop, setScrollTop] = useState<number>(0)
@@ -360,6 +361,7 @@ function DataGrid<R>(props: DataGridProps<R>) {
         sortColumns,
         estimatedColumnWidth,
         width,
+        height,
         cacheRemoveCount,
         headerRowHeight,
         rows,
@@ -439,6 +441,7 @@ function DataGrid<R>(props: DataGridProps<R>) {
             <GridContainer
                 style={{
                     width,
+                    height,
                 }}
             >
                 {renderUniversal()}
@@ -446,7 +449,7 @@ function DataGrid<R>(props: DataGridProps<R>) {
                     ref={gridRef}
                     className={className}
                     style={{
-                        height,
+                        height: '100%',
                         width: '100%',
                         ...style,
                     }}
