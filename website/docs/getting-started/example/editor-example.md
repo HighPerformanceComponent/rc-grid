@@ -4,11 +4,11 @@ nav:
   order: -1
 group:
   title: Example
-title: Cell editing
+title: Cell Editor
 order: 2
 ---
 
-# Cell editing
+# Cell Editor
 
 <code src="../../../src/editor.tsx" title="Cell editing" desc="Provide a cell-editable table, Double click to edit" />
 
