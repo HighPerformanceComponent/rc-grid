@@ -2,6 +2,7 @@
 nav:
   title: 文档
   order: 1
+  path: /getting-started
 title: 介绍
 order: 1
 ---

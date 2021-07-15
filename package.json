@@ -6,6 +6,7 @@
     "license": "MIT",
     "scripts": {
         "start": "yarn workspace rc-grid start",
+        "build": "yarn workspace rc-grid build",
         "start:docs": "yarn workspace website start",
         "lint:script": "yarn workspace rc-grid lint:script",
         "build:storybook": "yarn workspace rc-grid build-storybook",
@@ -24,5 +25,8 @@
         "**/*.{js,jsx,tsx,ts,less,json}": [
             "prettier --write"
         ]
+    },
+    "resolutions": {
+        "@types/react": "^17.0.11"
     }
 }

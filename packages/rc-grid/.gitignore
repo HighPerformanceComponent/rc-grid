@@ -17,3 +17,5 @@ storybook-static
 
 # lock
 yarn.lock
+
+dist
