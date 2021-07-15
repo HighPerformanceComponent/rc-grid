@@ -2,6 +2,7 @@
 nav:
   title: Docs
   order: 1
+  path: /getting-started
 title: Introduce
 order: 1
 ---

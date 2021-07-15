@@ -1,9 +1,6 @@
 ---
-nav:
-  title: Docs
-  order: -1
 title: Change Log
-order: 2
+order: 3
 ---
 
 # Change Log

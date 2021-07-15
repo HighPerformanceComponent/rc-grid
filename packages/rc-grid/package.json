@@ -5,6 +5,7 @@
     "scripts": {
         "start": "start-storybook -p 8000",
         "build:storybook": "build-storybook",
+        "build": "tsc",
         "prepare": "husky install",
         "lint:script": "eslint src --ext .js,.jsx,.ts,.tsx"
     },
