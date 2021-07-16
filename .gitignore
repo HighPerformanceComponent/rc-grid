@@ -14,6 +14,7 @@ storybook-static
 
 # husky
 .husky
+front
 
 # lock
 yarn.lock
