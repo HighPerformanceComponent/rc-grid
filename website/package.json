@@ -23,6 +23,6 @@
     "yorkie": "^2.0.0"
   },
   "dependencies": {
-    "@lifhcp/rc-grid": "^1.0.0"
+    "@lifhcp/rc-grid": "*"
   }
 }
