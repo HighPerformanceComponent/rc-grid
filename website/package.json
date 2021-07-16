@@ -20,7 +20,9 @@
   },
   "devDependencies": {
     "dumi": "^1.0.13",
-    "yorkie": "^2.0.0",
+    "yorkie": "^2.0.0"
+  },
+  "dependencies": {
     "@lifhcp/rc-grid": "^1.0.0"
   }
 }
