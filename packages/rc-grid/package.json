@@ -1,12 +1,16 @@
 {
-    "name": "rc-grid",
+    "name": "@lifhcp/rc-grid",
     "version": "1.0.0",
     "license": "MIT",
+    "main": "dist/index.js",
+    "files": [
+        "dist"
+    ],
     "scripts": {
         "start": "start-storybook -p 8000",
-        "build:storybook": "build-storybook",
         "build": "tsc",
-        "prepare": "husky install",
+        "build:storybook": "build-storybook",
+        "prepare": "cd ../../ && husky install front/.husky",
         "lint:script": "eslint src --ext .js,.jsx,.ts,.tsx"
     },
     "dependencies": {

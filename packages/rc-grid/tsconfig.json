@@ -6,8 +6,8 @@
         "target": "es5",
         "lib": ["ESNext", "DOM", "DOM.Iterable"],
         "jsx": "react",
-        "allowJs": true,
         "declaration": true,
+        "allowJs": true,
         "moduleResolution": "node",
         "allowSyntheticDefaultImports": true
     },

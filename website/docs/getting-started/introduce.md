@@ -47,12 +47,12 @@ Rc-Grid is a component library based on React and styled-components. It is mainl
 
 We recommend using npm or yarn for development. Not only can it be easily debugged in the development environment, but it can also be packaged and deployed in the production environment with confidence, and enjoy the many benefits of the entire ecosystem and tool chain.
 
-```
-npm install rc-grid --save
+```sh
+npm install @lifhcp/rc-grid --save
 ```
 
-```
-yarn add rc-grid
+```sh
+yarn add @lifhcp/rc-grid
 ```
 
 ### Browser import
