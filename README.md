@@ -12,7 +12,7 @@
 ```
 npm install @lifhcp/rc-grid --save
 ```
-
+sdasdsa
 ```
 yarn add @lifhcp/rc-grid
 ```
