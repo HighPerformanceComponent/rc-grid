@@ -16,9 +16,6 @@ storybook-static
 .husky
 front
 
-# lock
-yarn.lock
-
 # yarn 
 .yarn
 .pnp.js
