@@ -13,7 +13,7 @@ order: 2
 <code src="../../../src/editor.tsx" title="单元格编辑" desc="这是一个简单的自定义单元格编辑的表格, 双击可进行表格编辑" />
 
 
-需要创建一个 `ComponentType<EditorProps>` 的组件, 例如一下
+需要创建一个 `ComponentType<EditorProps>` 的组件, 例如以下
  
 ```jsx | pure
 const Input = ({ style, value: tempValue, onEditCompleted }: EditorProps) => {
