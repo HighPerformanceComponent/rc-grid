@@ -18,7 +18,7 @@
     },
     "workspaces": [
         "packages/*",
-        "website/*"
+        "website"
     ],
     "lint-staged": {
         "**/*.{js,jsx,ts,tsx}": "eslint --ext .js,.jsx,.ts,.tsx",
