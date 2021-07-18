@@ -31,8 +31,7 @@ type Action =
     | {
           type: 'setExpandableTreeKey'
           payload: Key[]
-      }
-
+    }
 export interface State {
     selectPosition?: {
         x: number

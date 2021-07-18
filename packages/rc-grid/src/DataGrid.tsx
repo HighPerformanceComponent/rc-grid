@@ -94,6 +94,9 @@ function DataGrid<R>(props: DataGridProps<R>) {
         cacheRemoveCount,
         defaultColumnWidth,
         expandable,
+        select,
+        selectedRows,
+        onChangeSelectedRows,
         onEmptyRowsRenderer,
         onHeaderRowRender = (node: JSX.Element) => node,
         onChildrenRows,
@@ -139,6 +142,38 @@ function DataGrid<R>(props: DataGridProps<R>) {
             newColumns.splice(0, 0, expandableColumn)
         }
 
+        /** 添加选中组件 */
+        if (select) {
+            const onSelected = (row: Row<R>, mode: "single" | "multiple") => {
+                let newSelect: Key[] = []
+                if (mode === 'multiple') {
+                    newSelect = [...selectedRows]
+                }
+                const selectIndex = newSelect.indexOf(row.key)
+                if (selectIndex >= 0) {
+                    newSelect.splice(selectIndex, 1)
+                } else {
+                    newSelect.push(row.key)
+                }
+                onChangeSelectedRows(newSelect)
+            }
+
+            const selectColumn: Column<R> = {
+                name: '$select',
+                title: '',
+                width: 35,
+                isSelect: () => false,
+                fixed: 'left',
+                render: (_text, row) => select.component({
+                    row,
+                    mode: select.mode,
+                    onSelected,
+                    selected: selectedRows.includes(row.key)
+                })
+            }
+            newColumns.splice(0, 0, selectColumn)
+        }
+
         const cols: Column<R>[] = []
         let widthOffset: number = 0
         let countWidth: number = 0
@@ -160,9 +195,8 @@ function DataGrid<R>(props: DataGridProps<R>) {
                 )
             })
         }
-
         return newColumns
-    }, [columns, width])
+    }, [columns, width, selectedRows])
 
     const filterRows = useMemo(
         () =>
@@ -496,6 +530,7 @@ DataGrid.defaultProps = {
     estimatedColumnWidth: 120,
     headerRowHeight: 35,
     cacheRemoveCount: 6,
+    selectedRows: []
 }
 
 export default DataGrid
