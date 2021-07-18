@@ -4,6 +4,7 @@ import {
     HTMLAttributes,
     ReactNode,
     DragEvent,
+    Key,
 } from 'react'
 
 type SharedDivProps = Pick<
@@ -16,6 +17,13 @@ type SortDirection = 'ASC' | 'DESC'
 export interface SortColumn {
     readonly columnKey: string
     readonly direction: SortDirection
+}
+
+type SelectParam<T> = {
+    row: Row<T>
+    mode: 'single' | 'multiple'
+    selected: boolean
+    onSelected: (row: Row<T>, mode: 'single' | 'multiple') => void
 }
 
 export interface DataGridProps<R> extends SharedDivProps {
@@ -37,6 +45,17 @@ export interface DataGridProps<R> extends SharedDivProps {
     cacheRemoveCount?: number
     /** 默认列的宽度信息 */
     defaultColumnWidth?: number
+    /** 选中的配置信息 */
+    select?: {
+        /** 选择模式 */
+        mode?: 'single' | 'multiple'
+        /** 选中组件 */
+        component: (selectParam: SelectParam<R>) => ReactNode
+    }
+    /** 默认选中的数据信息 */
+    selectedRows?: Key[]
+    /** 改变选中的数据触发的事件 */
+    onChangeSelectedRows?: (keys: Key[]) => void
     /** 展开的配置信息 */
     expandable?: {
         /** 展示树形数据时，每层缩进的宽度，以 rem 为单位 */
