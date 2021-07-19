@@ -144,7 +144,7 @@ function DataGrid<R>(props: DataGridProps<R>) {
 
         /** 添加选中组件 */
         if (select) {
-            const onSelected = (row: Row<R>, mode: "single" | "multiple") => {
+            const onSelected = (row: Row<R>, mode: 'single' | 'multiple') => {
                 let newSelect: Key[] = []
                 if (mode === 'multiple') {
                     newSelect = [...selectedRows]
@@ -158,18 +158,20 @@ function DataGrid<R>(props: DataGridProps<R>) {
                 onChangeSelectedRows(newSelect)
             }
 
+            const title = select.headerComponent?.(select.mode) || ''
             const selectColumn: Column<R> = {
                 name: '$select',
-                title: '',
+                title,
                 width: 35,
                 isSelect: () => false,
                 fixed: 'left',
-                render: (_text, row) => select.component({
-                    row,
-                    mode: select.mode,
-                    onSelected,
-                    selected: selectedRows.includes(row.key)
-                })
+                render: (_text, row) =>
+                    select.component({
+                        row,
+                        mode: select.mode,
+                        onSelected,
+                        selected: selectedRows.includes(row.key),
+                    }),
             }
             newColumns.splice(0, 0, selectColumn)
         }
@@ -318,10 +320,8 @@ function DataGrid<R>(props: DataGridProps<R>) {
                         }
                     )
                     if (isValidElement(expandableElement)) {
-                        const {
-                            style: pStyle = {},
-                            ...restProps
-                        } = expandableElement.props
+                        const { style: pStyle = {}, ...restProps } =
+                            expandableElement.props
                         const expandableHeight = pStyle.height || 300
                         domRows.push(
                             cloneElement(expandableElement, {
@@ -424,10 +424,8 @@ function DataGrid<R>(props: DataGridProps<R>) {
             timeout.current = undefined
         }, 400)
 
-        const {
-            scrollTop: currentScrollTop,
-            scrollLeft: currentScrollLeft,
-        } = currentTarget
+        const { scrollTop: currentScrollTop, scrollLeft: currentScrollLeft } =
+            currentTarget
         if (currentTarget) {
             if (
                 // 纵向： currentScrollTop - lastScrollTop.current 距离上次滚动的距离
@@ -530,7 +528,7 @@ DataGrid.defaultProps = {
     estimatedColumnWidth: 120,
     headerRowHeight: 35,
     cacheRemoveCount: 6,
-    selectedRows: []
+    selectedRows: [],
 }
 
 export default DataGrid
