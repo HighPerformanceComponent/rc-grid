@@ -51,6 +51,8 @@ export interface DataGridProps<R> extends SharedDivProps {
         mode?: 'single' | 'multiple'
         /** 选中组件 */
         component: (selectParam: SelectParam<R>) => ReactNode
+        /** 渲染选中组件信息 */
+        headerComponent?: (mode: 'single' | 'multiple') => ReactNode
     }
     /** 默认选中的数据信息 */
     selectedRows?: Key[]

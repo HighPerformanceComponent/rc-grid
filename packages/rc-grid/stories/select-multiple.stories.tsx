@@ -79,7 +79,7 @@ const RowDataGrid = () => {
                     select={{
                         mode: 'multiple',
                         component: (param) => {
-                            const { onSelected, row, selected, mode} = param
+                            const { onSelected, row, selected, mode } = param
                             return (
                                 <input
                                     style={{
@@ -92,7 +92,15 @@ const RowDataGrid = () => {
                                     }}
                                 />
                             )
-                        }
+                        },
+                        headerComponent: () => (
+                            <input
+                                style={{
+                                    margin: 0,
+                                }}
+                                type="checkbox"
+                            />
+                        ),
                     }}
                     onHeaderDrop={(source, target) => {
                         setCols(onHeaderDrop(cols, source, target))
