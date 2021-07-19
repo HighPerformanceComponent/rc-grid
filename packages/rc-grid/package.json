@@ -48,5 +48,11 @@
         "immer": "^9.0.5",
         "jest": "^27.0.4",
         "ts-loader": "^9.2.3"
+    },
+    "lint-staged": {
+        "**/*.{js,jsx,ts,tsx}": "eslint --ext .js,.jsx,.ts,.tsx",
+        "**/*.{js,jsx,tsx,ts,less,json}": [
+            "prettier --write"
+        ]
     }
 }

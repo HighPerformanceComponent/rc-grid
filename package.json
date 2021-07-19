@@ -10,7 +10,7 @@
         "build": "yarn workspace @lifhcp/rc-grid build",
         "lint:script": "yarn workspace @lifhcp/rc-grid lint:script",
         "build:storybook": "yarn workspace @lifhcp/rc-grid build-storybook",
-        "build:docs": "yarn workspace website build"
+        "build:docs": "yarn workspace @lifhcp/rc-grid build && yarn workspace website build"
     },
     "devDependencies": {
         "husky": ">=6",
@@ -20,12 +20,6 @@
         "packages/*",
         "website"
     ],
-    "lint-staged": {
-        "**/*.{js,jsx,ts,tsx}": "eslint --ext .js,.jsx,.ts,.tsx",
-        "**/*.{js,jsx,tsx,ts,less,json}": [
-            "prettier --write"
-        ]
-    },
     "resolutions": {
         "@types/react": "^17.0.11"
     }

@@ -422,7 +422,7 @@ function DataGrid<R>(props: DataGridProps<R>) {
         timeout.current = setTimeout(() => {
             setIsScroll(false)
             timeout.current = undefined
-        }, 400)
+        }, 100)
 
         const { scrollTop: currentScrollTop, scrollLeft: currentScrollLeft } =
             currentTarget
