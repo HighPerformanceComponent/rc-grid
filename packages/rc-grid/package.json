@@ -1,6 +1,6 @@
 {
     "name": "@lifhcp/rc-grid",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "license": "MIT",
     "main": "dist/index.js",
     "repository": "https://github.com/jhoneybee/rc-grid.git",
