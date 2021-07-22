@@ -13,6 +13,7 @@
 | cacheRemoveCount     | Number of entries to be removed from the cache | `number`          |
 | defaultColumnWidth   | Default column width information     | `number`          |
 | expandable           | Expanded configuration information       | `Expandable`      |
+| select               | Select component settings                |
 | onEditorChangeSave   | User edit triggered data    | `(change: EditorChange<R>) => void` |
 | onHeaderCellRender   | Render the cell at the head of the table   | `(param: HeaderCellRenderParam<R>) => ReactNode[]` |
 | onHeaderRowRender    | Render the row information of the header of the table | `(node: JSX.Element) => ReactNode` |
