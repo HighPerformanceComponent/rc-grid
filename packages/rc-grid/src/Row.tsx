@@ -6,13 +6,19 @@ import Cell from './Cell'
 
 interface GridRowProps extends React.HTMLAttributes<HTMLDivElement> {
     styled: CSSProperties
+    isSelect: boolean
 }
 
 const GridRow = styled.div.attrs<GridRowProps>((props) => ({
     style: props.styled,
 }))<GridRowProps>`
     position: absolute;
-    background-color: #fff;
+    background-color: ${(props) => {
+        if (props.isSelect) {
+            return 'hsl(0deg 0% 96%)';
+        }
+        return '#fff'
+    }};
     :hover {
         background-color: hsl(0deg 0% 96%);
     }
@@ -208,6 +214,7 @@ function Row<T>({
     return (
         <GridRow
             styled={tempStyled}
+            isSelect={gridProps.selectedRows.includes(key)}
             onClick={() => {
                 onRowClick?.(rows[rowIndex])
             }}
