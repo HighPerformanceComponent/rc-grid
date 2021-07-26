@@ -10,4 +10,4 @@ order: 8
 
 # Header Resizable
 
-<code src="../../../src/header-resizable.tsx" title="Header Resizable" desc="The width information of table columns can be changed" />
+<code src="../../../src/header-resizable.tsx" />

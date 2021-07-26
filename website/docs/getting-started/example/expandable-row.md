@@ -10,4 +10,4 @@ order: 6
 
 # Expandable
 
-<code src="../../../src/expandable-row.tsx" title="Expandable" desc="Users can click expand to display the details of the bank" />
+<code src="../../../src/expandable-row.tsx" />

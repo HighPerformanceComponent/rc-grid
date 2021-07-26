@@ -1,3 +1,10 @@
+/**
+ * title: Fixed Column
+ * desc: You can fix the left and right columns of the table
+ * title.zh-CN: 固定列
+ * desc.zh-CN: 可以使用列的 `fixed` 属性来固定表格列
+ */
+
 import React from 'react'
 
 import DataGrid, { Row, Column, Cell, AutoSize } from '@lifhcp/rc-grid'

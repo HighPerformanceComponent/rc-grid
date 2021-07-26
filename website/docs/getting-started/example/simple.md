@@ -10,7 +10,7 @@ order: 1
 
 # Simple
 
-<code src="../../../src/simple.tsx" title="Basic table" desc="This is the basic simple table" />
+<code src="../../../src/simple.tsx"  />
 
 > Open the console, you can see the saved content information
 

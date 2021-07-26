@@ -11,5 +11,5 @@ order: 3
 # Cell Merge
 
 
-<code src="../../../src/cells-merge.tsx" title="Cell Merge" desc="The cells of the table can be merged" />
+<code src="../../../src/cells-merge.tsx" />
 

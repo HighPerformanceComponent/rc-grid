@@ -10,7 +10,7 @@ order: 1
 
 # 简单的表格
 
-<code src="../../../src/simple.tsx" title="基础表格" desc="这是一个简单的表格，展示如何加载数据，以及如何设置列" />
+<code src="../../../src/simple.tsx"/>
 
 > 打开控制台, 可以看保存的内容信息
 

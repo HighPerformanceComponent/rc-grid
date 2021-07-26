@@ -10,4 +10,4 @@ order: 5
 
 # Empty Rows
 
-<code src="../../../src/empty-rows.tsx" title="Empty Rows" desc="When the data is empty, you can customize the display content through `onEmptyRowsRenderer`" />
+<code src="../../../src/empty-rows.tsx" />

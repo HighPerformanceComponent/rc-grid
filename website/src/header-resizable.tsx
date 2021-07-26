@@ -1,3 +1,10 @@
+/**
+ * title: Header Resizable
+ * desc: The width information of table columns can be changed
+ * title.zh-CN: 列的宽度可调整
+ * desc.zh-CN: 可改变表格列的宽度信息
+ */
+
 import React, { useState } from 'react'
 
 import DataGrid, { Row, Column, Cell, AutoSize } from '@lifhcp/rc-grid'

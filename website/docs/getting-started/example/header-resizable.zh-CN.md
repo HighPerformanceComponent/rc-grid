@@ -10,4 +10,4 @@ order: 8
 
 # 列的宽度可调整
 
-<code src="../../../src/header-resizable.tsx" title="列的宽度可调整" desc="可改变表格列的宽度信息" />
+<code src="../../../src/header-resizable.tsx" />

@@ -10,7 +10,7 @@ order: 2
 
 # Cell Editor
 
-<code src="../../../src/editor.tsx" title="Cell editing" desc="Provide a cell-editable table, Double click to edit" />
+<code src="../../../src/editor.tsx" />
 
 Need to create a component of `ComponentType<EditorProps>`, such as the following
  

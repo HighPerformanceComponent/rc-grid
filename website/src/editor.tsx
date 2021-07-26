@@ -1,3 +1,9 @@
+/**
+ * title: Cell editing
+ * desc: Provide a cell-editable table, Double click to edit
+ * title.zh-CN: 单元格编辑
+ * desc.zh-CN: 这是一个简单的自定义单元格编辑的表格, 双击可进行表格编辑
+ */
 import React, { useState } from 'react'
 import DataGrid, { Cell, Row, AutoSize, EditorProps, Column } from '@lifhcp/rc-grid'
 
