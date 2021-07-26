@@ -1,3 +1,11 @@
+/**
+ * title: Select Multiple
+ * desc: Select items can be set by configuring the properties of 'select'
+ * title.zh-CN: 多选
+ * desc.zh-CN: 可通过配置 `select` 的属性来设置选择项
+ */
+
+
 import React, { Key, useState } from 'react'
 
 import DataGrid, { Row, Column, Cell, AutoSize } from '@lifhcp/rc-grid'

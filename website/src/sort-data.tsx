@@ -1,5 +1,13 @@
+/**
+ * title: Sort Data
+ * desc: Click on the column header to sort the data
+ * title.zh-CN: 数据排序
+ * desc.zh-CN: 点击列头，可对数据进行排序
+ */
+
+
 import React, { useRef, useState } from 'react'
-import { Meta } from '@storybook/react'
+
 import produce from 'immer'
 
 import DataGrid, { Row, Column, Cell, AutoSize } from '@lifhcp/rc-grid'

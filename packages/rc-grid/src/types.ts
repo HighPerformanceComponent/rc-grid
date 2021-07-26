@@ -5,6 +5,7 @@ import {
     ReactNode,
     DragEvent,
     Key,
+    MutableRefObject,
 } from 'react'
 
 type SharedDivProps = Pick<
@@ -26,6 +27,20 @@ type SelectParam<T> = {
     onSelected: (row: Row<T>, mode: 'single' | 'multiple') => void
 }
 
+export interface GridHandle {
+    /** HTML 元素 */
+    element: HTMLDivElement | null;
+    /** 滚动到指定的列 */
+    scrollToColumn: (colIdx: number) => void;
+    /** 滚动到指定的行 */
+    scrollToRow: (rowIdx: number) => void;
+    /** 选中 */
+    selectCell: (position: {
+        rowKey?: string
+        colName?: string
+    }, enableEditor?: boolean | null) => void
+}
+
 export interface DataGridProps<R> extends SharedDivProps {
     /** 表格的行数据信息 */
     rows: readonly Row<R>[]
@@ -45,6 +60,8 @@ export interface DataGridProps<R> extends SharedDivProps {
     cacheRemoveCount?: number
     /** 默认列的宽度信息 */
     defaultColumnWidth?: number
+    /** 表格的方法 */
+    grid?: MutableRefObject<GridHandle | null>
     /** 选中的配置信息 */
     select?: {
         /** 选择模式 */

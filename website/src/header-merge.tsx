@@ -1,3 +1,10 @@
+/**
+ * title: Header Merge
+ * desc: You can customize the merge column header information
+ * title.zh-CN: 列头合并
+ * desc.zh-CN: 可以自定义合并列头信息
+ */
+
 import React from 'react'
 
 import styled from 'styled-components'

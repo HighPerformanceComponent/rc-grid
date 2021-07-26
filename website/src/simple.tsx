@@ -1,3 +1,11 @@
+/**
+ * title: Basic table
+ * desc: This is the basic simple table
+ * title.zh-CN: 简单表格
+ * desc.zh-CN: 这是一个简单的表格，展示如何加载数据，以及如何设置列
+ */
+
+
 import React from 'react'
 import DataGrid, { Cell, Row, AutoSize } from '@lifhcp/rc-grid'
 

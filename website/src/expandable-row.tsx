@@ -1,3 +1,10 @@
+/**
+ * title: Expandable
+ * desc: Users can click expand to display the details of the bank
+ * title.zh-CN: 可展开表格
+ * desc.zh-CN: 用户点击展开，可以展开行的详细信息
+ */
+
 import React from 'react'
 
 import DataGrid, { Row, Column, Cell, AutoSize } from '@lifhcp/rc-grid'

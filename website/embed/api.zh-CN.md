@@ -13,6 +13,7 @@
 | cacheRemoveCount     | 缓存要移除的条目数量 | `number`          |
 | defaultColumnWidth   | 默认列的宽度信息     | `number`          |
 | expandable           | 展开的配置信息       | `Expandable`      |
+| select               | 选中的组件设置                |
 | onEditorChangeSave   | 用户编辑触发的数据    | `(change: EditorChange<R>) => void` |
 | onHeaderCellRender   | 渲染表格头部的单元格   | `(param: HeaderCellRenderParam<R>) => ReactNode[]` |
 | onHeaderRowRender    | 渲染表格的头部的行信息 | `(node: JSX.Element) => ReactNode` |

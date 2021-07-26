@@ -10,7 +10,7 @@ order: 2
 
 # 简单的表格
 
-<code src="../../../src/editor.tsx" title="单元格编辑" desc="这是一个简单的自定义单元格编辑的表格, 双击可进行表格编辑" />
+<code src="../../../src/editor.tsx" />
 
 
 需要创建一个 `ComponentType<EditorProps>` 的组件, 例如以下

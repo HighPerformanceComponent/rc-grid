@@ -1,3 +1,9 @@
+/**
+ * title: Cell Merge
+ * desc: The cells of the table can be merged
+ * title.zh-CN: 单元格合并
+ * desc.zh-CN: 通过设置 `rowSpan` 和 `colSpan` 来进行单元格合并
+ */
 import React from 'react'
 
 import DataGrid, { Row, Column, Cell, AutoSize } from '@lifhcp/rc-grid'

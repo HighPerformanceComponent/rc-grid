@@ -5,6 +5,7 @@ import React, {
     Key,
     ReactNode,
     useContext,
+    useLayoutEffect,
     useMemo,
     useReducer,
     useRef,
@@ -27,6 +28,7 @@ const GridContainer = styled.div`
 const Grid = styled.div`
     position: relative;
     overflow: auto;
+    scroll-behavior: smooth;
     border: 1px solid #ddd;
     outline: none;
 `
@@ -100,6 +102,7 @@ function DataGrid<R>(props: DataGridProps<R>) {
         onEmptyRowsRenderer,
         onHeaderRowRender = (node: JSX.Element) => node,
         onChildrenRows,
+        grid
     } = props
 
     const [state, dispatch] = useReducer(reducer, {
@@ -404,6 +407,61 @@ function DataGrid<R>(props: DataGridProps<R>) {
         state.expandableKey,
         state.expandableTreeKey,
     ])
+
+
+    const scrollRow = (row: number) => {
+        let tempScrollTop = 0
+        filterRows.some((data, index) => {
+            if (index === row) {
+                return true
+            }
+            tempScrollTop += data.height
+            return false
+        })
+        gridRef.current.scrollTo({
+            top: tempScrollTop
+        })
+    }
+
+    const scrollCol = (colIdx: number) => {
+        let tempScrollLeft = 0
+        sortColumns.some((data, index) => {
+            if (index === colIdx) {
+                return true
+            }
+            tempScrollLeft += data.width || defaultColumnWidth
+            return false
+        })
+        gridRef.current.scrollTo({
+            left: tempScrollLeft
+        })
+    }
+
+    useLayoutEffect(() => {
+        if (grid) {
+            grid.current = {
+                element: gridRef.current,
+                scrollToRow: scrollRow,
+                scrollToColumn: scrollCol,
+                selectCell: (position, enableEditor) => {
+                    const index = filterRows.findIndex(ele => ele.key === position.rowKey)
+                    dispatch({
+                        type: 'setSelectPosition',
+                        payload: {
+                            x:index,
+                            y: position.colName
+                        }
+                    })
+                    if (enableEditor) {
+                        dispatch({
+                            type: 'setEditPosition',
+                            payload: position
+                        })
+                    }
+                }   
+            }
+        }
+    } , [sortColumns, filterRows])
 
     const lastScrollTop = useRef<number>(0)
     const lastScrollLeft = useRef<number>(0)

@@ -1,3 +1,9 @@
+/**
+ * title: Empty Rows
+ * desc: When the data is empty, you can customize the display content through `onEmptyRowsRenderer`
+ * title.zh-CN: 空数据显示
+ * desc.zh-CN: 在空数据的时候可以通过 `onEmptyRowsRenderer` 自定义显示内容
+ */
 import React from 'react'
 
 import DataGrid, { Row, Column, AutoSize } from '@lifhcp/rc-grid'
