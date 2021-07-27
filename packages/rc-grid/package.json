@@ -3,7 +3,8 @@
     "version": "1.1.1",
     "license": "MIT",
     "main": "dist/index.js",
-    "repository": "https://github.com/jhoneybee/rc-grid.git",
+    "repository": "https://github.com/HighPerformanceComponent/rc-grid.git",
+    "homepage": "https://rc-grid.lif.ink/",
     "author": "jhoneybee <zhangjin19960908@gmail.com>",
     "files": [
         "dist"

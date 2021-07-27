@@ -17,7 +17,7 @@ import type { Column, DataGridProps, Row } from './types'
 import DataGridRow from './Row'
 import HeaderRow from './HeaderRow'
 import Context, { reducer } from './Context'
-import UniversalToolbar from './ plugins/UniversalToolbar'
+import UniversalToolbar from './plugins/UniversalToolbar'
 import { useChevronRightIcon, useChevronDownIcon } from './Icon'
 import { getScrollbarWidth } from './utils/browser'
 
