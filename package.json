@@ -11,7 +11,8 @@
         "lint:script": "yarn workspace @lifhcp/rc-grid lint:script",
         "build:storybook": "yarn workspace @lifhcp/rc-grid build-storybook",
         "build:docs": "yarn workspace @lifhcp/rc-grid build && yarn workspace website build",
-        "test": "yarn workspace @lifhcp/rc-grid jest"
+        "test": "yarn workspace @lifhcp/rc-grid jest",
+        "test:codecov": "yarn workspace @lifhcp/rc-grid test:codecov"
     },
     "devDependencies": {
         "husky": ">=6",
