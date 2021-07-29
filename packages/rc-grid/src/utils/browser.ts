@@ -15,11 +15,11 @@ function initScrollbarWidthAndVisibility(): void {
 
     body.appendChild(div)
 
-    let width: number | null = div.offsetWidth - div.clientWidth
+    let width: number = div.offsetWidth - div.clientWidth
 
     // if width is 0 and client width is 0, means the DOM isn't ready
     if (width === 0 && div.clientWidth === 0) {
-        width = null
+        width = undefined
     }
 
     // remove div
@@ -27,21 +27,20 @@ function initScrollbarWidthAndVisibility(): void {
         div.parentNode.removeChild(div)
     }
 
-    if (width != null) {
-        browserScrollbarWidth = width
-        invisibleScrollbar = width === 0
-    }
+    browserScrollbarWidth = width
+
+    invisibleScrollbar = width === 0 || width === undefined
 }
 
-export function getScrollbarWidth(): number | null {
-    if (browserScrollbarWidth == null) {
+export function getScrollbarWidth(): number {
+    if (browserScrollbarWidth === undefined) {
         initScrollbarWidthAndVisibility()
     }
     return browserScrollbarWidth
 }
 
 export function isInvisibleScrollbar(): boolean {
-    if (invisibleScrollbar == null) {
+    if (invisibleScrollbar === undefined) {
         initScrollbarWidthAndVisibility()
     }
     return invisibleScrollbar
