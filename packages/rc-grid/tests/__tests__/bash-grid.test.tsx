@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { render, waitFor, screen, fireEvent } from "@testing-library/react"
+import produce from 'immer'
 
 import DataGrid, { Column, DataGridProps, Row, AutoSize, Cell, GridHandle, EditorProps } from '../../src/index'
 
@@ -25,18 +26,18 @@ const Input = ({ style, value: tempValue, onEditCompleted }: EditorProps) => {
 
 const rowsData: any[] = []
 
-for (let i=0; i < 10000; i += 1) {
+for (let i = 0; i < 10000; i += 1) {
 
     const cells: Cell[] = [{
         name: 'id',
         value: `${i}`,
-    },{
+    }, {
         name: 'userName',
         value: `my name ${i}`,
-    },{
+    }, {
         name: 'address',
         value: `address ${i}`,
-    },{
+    }, {
         name: 'email',
         value: `E-Mail ${i}`,
     }, {
@@ -47,6 +48,13 @@ for (let i=0; i < 10000; i += 1) {
         height: 35,
         key: `key-${i}`,
         cells,
+        object: {
+            id: `${i}`,
+            userName: `my name ${i}`,
+            address: `address ${i}`,
+            email: `E-Mail ${i}`,
+            mobilePhone: `Mobile Phone ${i}`
+        }
     }
     rowsData.push(row)
 }
@@ -61,10 +69,53 @@ interface BashGridProps<T> extends Omit<DataGridProps<T>, 'rows' | 'columns'> {
 
 function BashGrid<T>(props: BashGridProps<T>) {
     const { columns, rows } = props
+
+    const oldData = useRef<Row<any>[]>(produce(rows, () => { }))
+    const [datas, setDatas] = useState<Row<any>[]>(produce(rows, () => { }))
+    const [col, setCol] = useState<Array<Column<T>>>(columns)
+    
     return (
         <DataGrid<T>
-            columns={columns}
-            rows={rows}
+            columns={col}
+            rows={datas}
+            onHeaderResizable={(newCols) => {
+                setCol(newCols)
+            }}
+            onSort={(sort) => {
+                if (sort.length === 0) {
+                    setDatas(oldData.current)
+                }
+                if (sort.length > 0) {
+                    const { direction } = sort[0]
+                    const { columnKey } = sort[0]
+                    const tempRowData = produce(datas, (newData) => {
+                        newData.sort((a, b) => {
+                            const aData: string = a.object[columnKey]
+                            const bData: string = b.object[columnKey]
+
+                            if (direction === 'ASC') {
+                                if (
+                                    aData.toUpperCase() >
+                                    bData.toUpperCase()
+                                ) {
+                                    return 1
+                                }
+                                return -1
+                            }
+                            if (direction === 'DESC') {
+                                if (
+                                    aData.toUpperCase() <
+                                    bData.toUpperCase()
+                                ) {
+                                    return 1
+                                }
+                            }
+                            return -1
+                        })
+                    })
+                    setDatas(tempRowData)
+                }
+            }}
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...props}
         />
@@ -75,20 +126,30 @@ BashGrid.defaultProps = {
     columns: [{
         name: 'id',
         title: 'id',
+        sort: true,
+        resizable: true,
         fixed: 'left'
     }, {
         name: 'userName',
+        sort: true,
+        resizable: true,
         title: 'User Name',
         editor: Input
     }, {
         name: 'address',
+        sort: true,
+        resizable: true,
         title: 'Address'
     }, {
         name: 'email',
+        sort: true,
+        resizable: true,
         title: 'E-Mail'
     }, {
         name: 'mobilePhone',
         title: 'Mobile Phone',
+        sort: true,
+        resizable: true,
         fixed: 'right'
     }],
     rows: []
@@ -101,7 +162,7 @@ test("grid columns test", () => {
 })
 
 test("auto size test", async () => {
-    const Grid= () => {
+    const Grid = () => {
         const ref = useRef<HTMLDivElement>(null)
         return (
             <div
@@ -129,7 +190,7 @@ test("auto size test", async () => {
 })
 
 test('scroll grid test', async () => {
-    const Grid= () => {
+    const Grid = () => {
         const ref = useRef<HTMLDivElement>(null)
         return (
             <div
@@ -164,7 +225,7 @@ test('scroll grid test', async () => {
 })
 
 test('scroll to row', async () => {
-    const Grid= () => {
+    const Grid = () => {
         const ref = useRef<HTMLDivElement>(null)
         const grid = useRef<GridHandle>(null)
         return (
@@ -230,7 +291,7 @@ test('scroll to row', async () => {
 
 
 test('cell select test', async () => {
-    const Grid= () => {
+    const Grid = () => {
         const ref = useRef<HTMLDivElement>(null)
         return (
             <div
@@ -259,7 +320,7 @@ test('cell select test', async () => {
 })
 
 test('cell editor test', async () => {
-    const Grid= () => {
+    const Grid = () => {
         const ref = useRef<HTMLDivElement>(null)
         return (
             <div
@@ -274,6 +335,7 @@ test('cell editor test', async () => {
                         <BashGrid
                             width={autoWidth}
                             height={autoHeight}
+                            
                             rows={rowsData}
                         />
                     )}
@@ -285,5 +347,55 @@ test('cell editor test', async () => {
     await waitFor(() => screen.getByRole('grid'))
     fireEvent.click(screen.getAllByRole('gridcell')[0])
     fireEvent.click(screen.getAllByRole('gridcell')[0])
+    fireEvent.blur(screen.getAllByRole('gridcell')[0])
     expect(autoSize).toMatchSnapshot()
+})
+
+test('grid sort test', async () => {
+    const Grid = () => (
+        <BashGrid
+            width={1200}
+            height={500}
+            rows={rowsData}
+        />
+    )
+    const grid = render(<Grid />)
+    await waitFor(() => screen.getByRole('grid'))
+    const element = await screen.findByText('User Name')
+    fireEvent.click(element)
+    fireEvent.click(element)
+    fireEvent.click(element)
+    expect(grid).toMatchSnapshot()
+})
+
+test('grid columns resizable test', async () => {
+    const Grid = () => (
+        <BashGrid
+            width={1200}
+            height={500}
+            rows={rowsData}
+        />
+    )
+    const grid = render(<Grid />)
+    await waitFor(() => grid.getByRole('grid'))
+    const element = await grid.findByText('User Name')
+    const span = element.nextElementSibling
+    
+    const options = {
+        screenX: 500
+    }
+
+    fireEvent.mouseDown(span, options)
+    fireEvent.mouseMove(span, options)
+    fireEvent.mouseMove(span, {
+        screenX: 800
+    })
+    fireEvent.mouseUp(span, {
+        screenX: 800
+    })
+
+    setTimeout(() => {
+        expect(element.parentElement.style.width).toBe('420px')
+        expect(grid).toMatchSnapshot()
+    } , 600)
 })
