@@ -5,6 +5,7 @@ import React, {
     Key,
     ReactNode,
     useContext,
+    useEffect,
     useLayoutEffect,
     useMemo,
     useReducer,
@@ -468,6 +469,12 @@ function DataGrid<R>(props: DataGridProps<R>) {
 
     const timeout = useRef<ReturnType<typeof setTimeout>>()
 
+    useEffect(() => () => {
+        if (timeout.current) {
+            clearTimeout(timeout.current)
+        }
+    }, [])
+
     const onScroll = ({
         currentTarget,
     }: React.UIEvent<HTMLDivElement, UIEvent>) => {
@@ -537,6 +544,7 @@ function DataGrid<R>(props: DataGridProps<R>) {
                 {renderUniversal()}
                 <Grid
                     ref={gridRef}
+                    role="grid"
                     className={className}
                     style={{
                         height: '100%',

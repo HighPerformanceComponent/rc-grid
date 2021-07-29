@@ -159,6 +159,7 @@ function Cell<T>({
                     display: 'inline-flex',
                     padding: 0,
                 }}
+                role="gridcell"
                 isLastFeftFixed={isLastFeftFixed}
                 isLastRightFixed={isLastRightFixed}
                 isSelect={false}
@@ -222,6 +223,7 @@ function Cell<T>({
     return (
         <GridCell
             style={style}
+            role="gridcell"
             styled={tempStyled}
             isLastFeftFixed={isLastFeftFixed}
             isLastRightFixed={isLastRightFixed}

@@ -2,6 +2,7 @@ module.exports = {
     env: {
         browser: true,
         es2021: true,
+        jest: true
     },
     extends: [
         'plugin:react/recommended',
@@ -47,5 +48,5 @@ module.exports = {
         '@typescript-eslint/no-use-before-define': ['error'],
         'no-unused-vars': 'off',
         '@typescript-eslint/no-unused-vars': 'error',
-    },
+    }
 }
