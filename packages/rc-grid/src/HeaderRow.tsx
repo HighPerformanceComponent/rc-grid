@@ -136,7 +136,11 @@ function HeaderRow<R>({
     }
 
     return (
-        <GridHeaderRow style={style} styled={tempStyled}>
+        <GridHeaderRow
+            style={style}
+            styled={tempStyled}
+            role="rowheader"
+        >
             {renderCell()}
         </GridHeaderRow>
     )

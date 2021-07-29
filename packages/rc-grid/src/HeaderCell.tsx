@@ -169,6 +169,7 @@ function HeaderCell<T>({
     return (
         <GridHeaderCell
             ref={dragRef}
+            role="columnheader"
             isLastFeftFixed={isLastFeftFixed}
             isLastRightFixed={isLastRightFixed}
             isDragHover={isDragHover}

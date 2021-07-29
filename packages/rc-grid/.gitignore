@@ -19,3 +19,7 @@ storybook-static
 yarn.lock
 
 dist
+
+
+# test 
+coverage
