@@ -34,7 +34,9 @@ function UniversalToolbar({
 }: UniversalToolbarProps) {
     const [value, setValue] = useState<string>(tempValue)
     return (
-        <InputContainer>
+        <InputContainer
+            role="search"
+        >
             <input
                 // eslint-disable-next-line jsx-a11y/no-autofocus
                 autoFocus

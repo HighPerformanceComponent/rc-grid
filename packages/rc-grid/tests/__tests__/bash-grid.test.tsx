@@ -68,14 +68,16 @@ interface BashGridProps<T> extends Omit<DataGridProps<T>, 'rows' | 'columns'> {
 }
 
 function BashGrid<T>(props: BashGridProps<T>) {
-    const { columns, rows } = props
+    const { columns, rows, ...restProps} = props
 
     const oldData = useRef<Row<any>[]>(produce(rows, () => { }))
     const [datas, setDatas] = useState<Row<any>[]>(produce(rows, () => { }))
-    const [col, setCol] = useState<Array<Column<T>>>(columns)
+    const [col, setCol] = useState<Column<T>[]>(columns)
     
     return (
         <DataGrid<T>
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            {...restProps}
             columns={col}
             rows={datas}
             onHeaderResizable={(newCols) => {
@@ -116,8 +118,6 @@ function BashGrid<T>(props: BashGridProps<T>) {
                     setDatas(tempRowData)
                 }
             }}
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            {...props}
         />
     )
 }
@@ -368,7 +368,7 @@ test('grid sort test', async () => {
     expect(grid).toMatchSnapshot()
 })
 
-test('grid columns resizable test', async () => {
+test('search grid test', async () => {
     const Grid = () => (
         <BashGrid
             width={1200}
@@ -378,7 +378,39 @@ test('grid columns resizable test', async () => {
     )
     const grid = render(<Grid />)
     await waitFor(() => grid.getByRole('grid'))
-    const element = await grid.findByText('User Name')
+
+    fireEvent.keyDown(grid.getByRole('grid'), {
+        key: 'f',
+        ctrlKey: true
+    })
+
+
+    await waitFor(() => grid.getByRole('search'))
+
+    const search = grid.getByRole('search').children[0] as HTMLInputElement
+    search.focus()
+
+    fireEvent.change(search, { target: { value: '10000' } })
+    fireEvent.keyDown(search, {
+        key: 'Enter'
+    })
+    fireEvent.keyDown(search,{
+        key: 'Escape'
+    })
+    expect(grid).toMatchSnapshot()
+})
+
+test('grid columns resizable test', async () => {
+    const Grid = () => (
+        <BashGrid
+            width={1200}
+            height={500}
+            rows={rowsData}
+        />
+    )
+    const {container, getByRole, findByText} = render(<Grid />)
+    await waitFor(() => getByRole('grid'))
+    const element = await findByText('User Name')
     const span = element.nextElementSibling
     
     const options = {
@@ -394,8 +426,10 @@ test('grid columns resizable test', async () => {
         screenX: 800
     })
 
-    setTimeout(() => {
-        expect(element.parentElement.style.width).toBe('420px')
-        expect(grid).toMatchSnapshot()
-    } , 600)
+    const header = getByRole('rowheader')
+    const userNameHeader = header.children[1] as HTMLDivElement
+
+    expect(userNameHeader.style.width).toBe('420px')
+    expect(container).toMatchSnapshot()
 })
+
