@@ -1,10 +1,11 @@
 # rc-grid 表格组件
 
+[![codecov](https://codecov.io/gh/HighPerformanceComponent/rc-grid/branch/canary/graph/badge.svg?token=0YTUDE0V88)](https://codecov.io/gh/HighPerformanceComponent/rc-grid)
 ![type-badge](https://img.shields.io/npm/types/react-data-grid)
 ![eslint](https://github.com/HighPerformanceComponent/rc-grid/actions/workflows/eslint.yml/badge.svg)
 ![MIT](https://img.shields.io/npm/l/@lifhcp/rc-grid)
 ![Size](https://img.shields.io/bundlephobia/min/@lifhcp/rc-grid)
-![Version](https://img.shields.io/npm/v/@lifhcp/rc-grid)
+[![Version](https://img.shields.io/npm/v/@lifhcp/rc-grid)](https://www.npmjs.com/package/@lifhcp/rc-grid)
 
 ![working](/.resources/images/working.gif)
 
