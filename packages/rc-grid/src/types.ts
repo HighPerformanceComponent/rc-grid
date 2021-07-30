@@ -36,8 +36,8 @@ export interface GridHandle {
     scrollToRow: (rowIdx: number) => void;
     /** 选中 */
     selectCell: (position: {
-        rowKey?: string
-        colName?: string
+        rowKey: string
+        colName: string
     }, enableEditor?: boolean | null) => void
 }
 
