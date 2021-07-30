@@ -213,6 +213,7 @@ function Row<T>({
 
     return (
         <GridRow
+            role="row"
             styled={tempStyled}
             isSelect={gridProps.selectedRows.includes(key)}
             onClick={() => {
