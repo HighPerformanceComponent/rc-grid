@@ -224,7 +224,75 @@ test('scroll grid test', async () => {
     expect(autoSize).toMatchSnapshot()
 })
 
-test('scroll to row', async () => {
+test('select cell', async () => {
+    const Grid = () => {
+        const ref = useRef<HTMLDivElement>(null)
+        const grid = useRef<GridHandle>(null)
+        return (
+            <>
+                <div
+                    ref={ref}
+                    style={{
+                        width: 1200,
+                        height: 500
+                    }}
+                >
+                    <AutoSize>
+                        {(autoWidth, autoHeight) => (
+                            <>
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        grid.current.selectCell({
+                                            rowKey: 'key-0',
+                                            colName: 'address'
+                                        }, true)
+                                    }}
+                                >
+                                    click
+                                </button>
+                                <BashGrid
+                                    grid={grid}
+                                    columns={[{
+                                        name: 'id',
+                                        title: 'id',
+                                        fixed: 'right',
+                                        isSelect: () => false
+                                    }, {
+                                        name: 'userName',
+                                        title: 'User Name',
+                                        isSelect: () => true
+                                    }, {
+                                        name: 'address',
+                                        title: 'Address'
+                                    }, {
+                                        name: 'email',
+                                        title: 'E-Mail'
+                                    }, {
+                                        name: 'mobilePhone',
+                                        title: 'Mobile Phone',
+                                        fixed: 'left'
+                                    }]}
+                                    width={autoWidth}
+                                    height={autoHeight}
+                                    rows={rowsData}
+                                />
+                            </>
+                        )}
+                    </AutoSize>
+                </div>
+            </>
+        )
+    }
+    const autoSize = render(<Grid />)
+
+
+    await waitFor(() => screen.getAllByRole('gridcell'))
+    fireEvent.click(await screen.findByText('click'))
+    expect(autoSize).toMatchSnapshot()
+})
+
+test('scroll to', async () => {
     const Grid = () => {
         const ref = useRef<HTMLDivElement>(null)
         const grid = useRef<GridHandle>(null)
@@ -244,6 +312,7 @@ test('scroll to row', async () => {
                                     type="button"
                                     onClick={() => {
                                         grid.current.scrollToRow(100)
+                                        grid.current.scrollToColumn(2)
                                     }}
                                 >
                                     click scroll
