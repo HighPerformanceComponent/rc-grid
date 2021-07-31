@@ -32,7 +32,6 @@
 |-----------   |------------------       |---------          |----------
 | indentSize   | 展示树形数据时，每层缩进的宽度，以 rem 为单位 | `number` |
 | childrenColumnName | 指定树形结构的列名  | `string` | 
-| expandRowByClick   | 通过点击行进行展开 | `boolean` | 
 | isExpandable     | 是否显示可展开按钮  | `(row: Row<R>) => boolean` | 
 | expandedRowRender | 渲染的展开的实际内容| `(row: Row<R>, style: CSSProperties) => ReactNode` |
 
