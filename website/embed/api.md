@@ -32,7 +32,6 @@
 |-----------   |------------------       |---------          |----------
 | indentSize   | When displaying tree data, the width of each level of indentation, with rem as the unit | `number` |
 | childrenColumnName | Specify the column name of the tree structure  | `string` | 
-| expandRowByClick   | Expand by clicking on the row | `boolean` | 
 | isExpandable     | Whether to show expandable buttons  | `(row: Row<R>) => boolean` | 
 | expandedRowRender | The actual content of the rendered expansion| `(row: Row<R>, style: CSSProperties) => ReactNode` |
 

@@ -81,12 +81,10 @@ export interface DataGridProps<R> extends SharedDivProps {
         indentSize?: number
         /** 指定树形结构的列名  */
         childrenColumnName?: string
-        /** 通过点击行进行展开 */
-        expandRowByClick?: boolean
         /** 是否显示可展开按钮 */
         isExpandable?: (row: Row<R>) => boolean
         /** 渲染的实际内容 */
-        expandedRowRender: (row: Row<R>, style: CSSProperties) => ReactNode
+        expandedRowRender?: (row: Row<R>, style: CSSProperties) => ReactNode
     }
     /** 用户编辑触发的数据 */
     onEditorChangeSave?: (change: EditorChange<R>) => void
