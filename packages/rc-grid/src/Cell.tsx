@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Context from './Context'
 import { useChevronDownIcon, useChevronRightIcon } from './Icon'
 import { Column, DataGridProps, EditorChange, EditorValue, Row } from './types'
+import { writeClipboardText } from './utils/browser'
 
 const ExpandableIcon = styled.i`
     width: 16px;
@@ -112,7 +113,6 @@ function Cell<T>({
     isSelect,
     styled: tempStyled,
     onClick,
-    onFocus,
     column,
     style,
     row,
@@ -228,6 +228,19 @@ function Cell<T>({
             isLastFeftFixed={isLastFeftFixed}
             isLastRightFixed={isLastRightFixed}
             isSelect={isSelect}
+            tabIndex={-2}
+            onKeyDown={(e) => {
+                const { currentTarget } = e
+                if (e.key === 'c' && e.ctrlKey) {
+                    writeClipboardText(currentTarget.textContent)
+                    currentTarget.style.opacity = '.6'
+                    setTimeout(() => {
+                        currentTarget.style.removeProperty('opacity')
+                        currentTarget.focus()
+                    }, 100)
+                    e.preventDefault()
+                }
+            }}
             onClick={(e) => {
                 if (isSelect) {
                     dispatch({
@@ -240,7 +253,6 @@ function Cell<T>({
                 }
                 onClick?.(e)
             }}
-            onFocus={onFocus}
         >
             {renderTreeExpandableIcon()}
             {renderChild()}

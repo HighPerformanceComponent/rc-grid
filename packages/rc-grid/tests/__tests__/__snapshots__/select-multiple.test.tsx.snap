@@ -270,6 +270,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -281,6 +282,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             0 - 0
           </div>
@@ -288,6 +290,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             0 - 2
           </div>
@@ -295,6 +298,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             0 - 3
           </div>
@@ -302,6 +306,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             0 - 4
           </div>
@@ -309,6 +314,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             0 - 5
           </div>
@@ -316,6 +322,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             0 - 6
           </div>
@@ -323,6 +330,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             0 - 7
           </div>
@@ -330,6 +338,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             0 - 8
           </div>
@@ -337,6 +346,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             0 - 9
           </div>
@@ -344,6 +354,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             0 - 10
           </div>
@@ -351,6 +362,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             0 - 11
           </div>
@@ -358,6 +370,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             0 - 12
           </div>
@@ -365,6 +378,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             0 - 13
           </div>
@@ -372,6 +386,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             0 - 14
           </div>
@@ -379,6 +394,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             0 - 1
           </div>
@@ -392,6 +408,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -403,6 +420,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             1 - 0
           </div>
@@ -410,6 +428,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             1 - 2
           </div>
@@ -417,6 +436,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             1 - 3
           </div>
@@ -424,6 +444,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             1 - 4
           </div>
@@ -431,6 +452,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             1 - 5
           </div>
@@ -438,6 +460,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             1 - 6
           </div>
@@ -445,6 +468,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             1 - 7
           </div>
@@ -452,6 +476,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             1 - 8
           </div>
@@ -459,6 +484,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             1 - 9
           </div>
@@ -466,6 +492,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             1 - 10
           </div>
@@ -473,6 +500,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             1 - 11
           </div>
@@ -480,6 +508,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             1 - 12
           </div>
@@ -487,6 +516,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             1 - 13
           </div>
@@ -494,6 +524,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             1 - 14
           </div>
@@ -501,6 +532,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             1 - 1
           </div>
@@ -514,6 +546,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -525,6 +558,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             2 - 0
           </div>
@@ -532,6 +566,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             2 - 2
           </div>
@@ -539,6 +574,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             2 - 3
           </div>
@@ -546,6 +582,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             2 - 4
           </div>
@@ -553,6 +590,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             2 - 5
           </div>
@@ -560,6 +598,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             2 - 6
           </div>
@@ -567,6 +606,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             2 - 7
           </div>
@@ -574,6 +614,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             2 - 8
           </div>
@@ -581,6 +622,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             2 - 9
           </div>
@@ -588,6 +630,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             2 - 10
           </div>
@@ -595,6 +638,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             2 - 11
           </div>
@@ -602,6 +646,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             2 - 12
           </div>
@@ -609,6 +654,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             2 - 13
           </div>
@@ -616,6 +662,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             2 - 14
           </div>
@@ -623,6 +670,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             2 - 1
           </div>
@@ -636,6 +684,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -647,6 +696,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             3 - 0
           </div>
@@ -654,6 +704,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             3 - 2
           </div>
@@ -661,6 +712,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             3 - 3
           </div>
@@ -668,6 +720,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             3 - 4
           </div>
@@ -675,6 +728,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             3 - 5
           </div>
@@ -682,6 +736,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             3 - 6
           </div>
@@ -689,6 +744,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             3 - 7
           </div>
@@ -696,6 +752,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             3 - 8
           </div>
@@ -703,6 +760,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             3 - 9
           </div>
@@ -710,6 +768,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             3 - 10
           </div>
@@ -717,6 +776,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             3 - 11
           </div>
@@ -724,6 +784,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             3 - 12
           </div>
@@ -731,6 +792,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             3 - 13
           </div>
@@ -738,6 +800,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             3 - 14
           </div>
@@ -745,6 +808,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             3 - 1
           </div>
@@ -758,6 +822,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -769,6 +834,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             4 - 0
           </div>
@@ -776,6 +842,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             4 - 2
           </div>
@@ -783,6 +850,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             4 - 3
           </div>
@@ -790,6 +858,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             4 - 4
           </div>
@@ -797,6 +866,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             4 - 5
           </div>
@@ -804,6 +874,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             4 - 6
           </div>
@@ -811,6 +882,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             4 - 7
           </div>
@@ -818,6 +890,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             4 - 8
           </div>
@@ -825,6 +898,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             4 - 9
           </div>
@@ -832,6 +906,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             4 - 10
           </div>
@@ -839,6 +914,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             4 - 11
           </div>
@@ -846,6 +922,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             4 - 12
           </div>
@@ -853,6 +930,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             4 - 13
           </div>
@@ -860,6 +938,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             4 - 14
           </div>
@@ -867,6 +946,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             4 - 1
           </div>
@@ -880,6 +960,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -891,6 +972,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             5 - 0
           </div>
@@ -898,6 +980,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             5 - 2
           </div>
@@ -905,6 +988,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             5 - 3
           </div>
@@ -912,6 +996,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             5 - 4
           </div>
@@ -919,6 +1004,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             5 - 5
           </div>
@@ -926,6 +1012,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             5 - 6
           </div>
@@ -933,6 +1020,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             5 - 7
           </div>
@@ -940,6 +1028,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             5 - 8
           </div>
@@ -947,6 +1036,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             5 - 9
           </div>
@@ -954,6 +1044,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             5 - 10
           </div>
@@ -961,6 +1052,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             5 - 11
           </div>
@@ -968,6 +1060,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             5 - 12
           </div>
@@ -975,6 +1068,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             5 - 13
           </div>
@@ -982,6 +1076,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             5 - 14
           </div>
@@ -989,6 +1084,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             5 - 1
           </div>
@@ -1002,6 +1098,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -1013,6 +1110,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             6 - 0
           </div>
@@ -1020,6 +1118,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             6 - 2
           </div>
@@ -1027,6 +1126,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             6 - 3
           </div>
@@ -1034,6 +1134,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             6 - 4
           </div>
@@ -1041,6 +1142,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             6 - 5
           </div>
@@ -1048,6 +1150,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             6 - 6
           </div>
@@ -1055,6 +1158,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             6 - 7
           </div>
@@ -1062,6 +1166,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             6 - 8
           </div>
@@ -1069,6 +1174,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             6 - 9
           </div>
@@ -1076,6 +1182,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             6 - 10
           </div>
@@ -1083,6 +1190,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             6 - 11
           </div>
@@ -1090,6 +1198,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             6 - 12
           </div>
@@ -1097,6 +1206,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             6 - 13
           </div>
@@ -1104,6 +1214,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             6 - 14
           </div>
@@ -1111,6 +1222,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             6 - 1
           </div>
@@ -1124,6 +1236,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -1135,6 +1248,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             7 - 0
           </div>
@@ -1142,6 +1256,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             7 - 2
           </div>
@@ -1149,6 +1264,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             7 - 3
           </div>
@@ -1156,6 +1272,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             7 - 4
           </div>
@@ -1163,6 +1280,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             7 - 5
           </div>
@@ -1170,6 +1288,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             7 - 6
           </div>
@@ -1177,6 +1296,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             7 - 7
           </div>
@@ -1184,6 +1304,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             7 - 8
           </div>
@@ -1191,6 +1312,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             7 - 9
           </div>
@@ -1198,6 +1320,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             7 - 10
           </div>
@@ -1205,6 +1328,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             7 - 11
           </div>
@@ -1212,6 +1336,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             7 - 12
           </div>
@@ -1219,6 +1344,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             7 - 13
           </div>
@@ -1226,6 +1352,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             7 - 14
           </div>
@@ -1233,6 +1360,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             7 - 1
           </div>
@@ -1246,6 +1374,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -1257,6 +1386,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             8 - 0
           </div>
@@ -1264,6 +1394,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             8 - 2
           </div>
@@ -1271,6 +1402,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             8 - 3
           </div>
@@ -1278,6 +1410,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             8 - 4
           </div>
@@ -1285,6 +1418,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             8 - 5
           </div>
@@ -1292,6 +1426,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             8 - 6
           </div>
@@ -1299,6 +1434,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             8 - 7
           </div>
@@ -1306,6 +1442,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             8 - 8
           </div>
@@ -1313,6 +1450,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             8 - 9
           </div>
@@ -1320,6 +1458,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             8 - 10
           </div>
@@ -1327,6 +1466,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             8 - 11
           </div>
@@ -1334,6 +1474,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             8 - 12
           </div>
@@ -1341,6 +1482,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             8 - 13
           </div>
@@ -1348,6 +1490,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             8 - 14
           </div>
@@ -1355,6 +1498,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             8 - 1
           </div>
@@ -1368,6 +1512,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -1379,6 +1524,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             9 - 0
           </div>
@@ -1386,6 +1532,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             9 - 2
           </div>
@@ -1393,6 +1540,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             9 - 3
           </div>
@@ -1400,6 +1548,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             9 - 4
           </div>
@@ -1407,6 +1556,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             9 - 5
           </div>
@@ -1414,6 +1564,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             9 - 6
           </div>
@@ -1421,6 +1572,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             9 - 7
           </div>
@@ -1428,6 +1580,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             9 - 8
           </div>
@@ -1435,6 +1588,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             9 - 9
           </div>
@@ -1442,6 +1596,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             9 - 10
           </div>
@@ -1449,6 +1604,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             9 - 11
           </div>
@@ -1456,6 +1612,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             9 - 12
           </div>
@@ -1463,6 +1620,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             9 - 13
           </div>
@@ -1470,6 +1628,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             9 - 14
           </div>
@@ -1477,6 +1636,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             9 - 1
           </div>
@@ -1490,6 +1650,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -1501,6 +1662,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             10 - 0
           </div>
@@ -1508,6 +1670,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             10 - 2
           </div>
@@ -1515,6 +1678,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             10 - 3
           </div>
@@ -1522,6 +1686,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             10 - 4
           </div>
@@ -1529,6 +1694,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             10 - 5
           </div>
@@ -1536,6 +1702,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             10 - 6
           </div>
@@ -1543,6 +1710,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             10 - 7
           </div>
@@ -1550,6 +1718,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             10 - 8
           </div>
@@ -1557,6 +1726,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             10 - 9
           </div>
@@ -1564,6 +1734,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             10 - 10
           </div>
@@ -1571,6 +1742,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             10 - 11
           </div>
@@ -1578,6 +1750,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             10 - 12
           </div>
@@ -1585,6 +1758,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             10 - 13
           </div>
@@ -1592,6 +1766,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             10 - 14
           </div>
@@ -1599,6 +1774,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             10 - 1
           </div>
@@ -1612,6 +1788,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -1623,6 +1800,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             11 - 0
           </div>
@@ -1630,6 +1808,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             11 - 2
           </div>
@@ -1637,6 +1816,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             11 - 3
           </div>
@@ -1644,6 +1824,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             11 - 4
           </div>
@@ -1651,6 +1832,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             11 - 5
           </div>
@@ -1658,6 +1840,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             11 - 6
           </div>
@@ -1665,6 +1848,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             11 - 7
           </div>
@@ -1672,6 +1856,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             11 - 8
           </div>
@@ -1679,6 +1864,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             11 - 9
           </div>
@@ -1686,6 +1872,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             11 - 10
           </div>
@@ -1693,6 +1880,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             11 - 11
           </div>
@@ -1700,6 +1888,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             11 - 12
           </div>
@@ -1707,6 +1896,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             11 - 13
           </div>
@@ -1714,6 +1904,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             11 - 14
           </div>
@@ -1721,6 +1912,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             11 - 1
           </div>
@@ -1734,6 +1926,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -1745,6 +1938,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             12 - 0
           </div>
@@ -1752,6 +1946,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             12 - 2
           </div>
@@ -1759,6 +1954,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             12 - 3
           </div>
@@ -1766,6 +1962,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             12 - 4
           </div>
@@ -1773,6 +1970,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             12 - 5
           </div>
@@ -1780,6 +1978,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             12 - 6
           </div>
@@ -1787,6 +1986,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             12 - 7
           </div>
@@ -1794,6 +1994,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             12 - 8
           </div>
@@ -1801,6 +2002,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             12 - 9
           </div>
@@ -1808,6 +2010,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             12 - 10
           </div>
@@ -1815,6 +2018,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             12 - 11
           </div>
@@ -1822,6 +2026,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             12 - 12
           </div>
@@ -1829,6 +2034,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             12 - 13
           </div>
@@ -1836,6 +2042,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             12 - 14
           </div>
@@ -1843,6 +2050,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             12 - 1
           </div>
@@ -1856,6 +2064,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -1867,6 +2076,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             13 - 0
           </div>
@@ -1874,6 +2084,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             13 - 2
           </div>
@@ -1881,6 +2092,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             13 - 3
           </div>
@@ -1888,6 +2100,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             13 - 4
           </div>
@@ -1895,6 +2108,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             13 - 5
           </div>
@@ -1902,6 +2116,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             13 - 6
           </div>
@@ -1909,6 +2124,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             13 - 7
           </div>
@@ -1916,6 +2132,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             13 - 8
           </div>
@@ -1923,6 +2140,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             13 - 9
           </div>
@@ -1930,6 +2148,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             13 - 10
           </div>
@@ -1937,6 +2156,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             13 - 11
           </div>
@@ -1944,6 +2164,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             13 - 12
           </div>
@@ -1951,6 +2172,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             13 - 13
           </div>
@@ -1958,6 +2180,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             13 - 14
           </div>
@@ -1965,6 +2188,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             13 - 1
           </div>
@@ -1978,6 +2202,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -1989,6 +2214,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             14 - 0
           </div>
@@ -1996,6 +2222,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             14 - 2
           </div>
@@ -2003,6 +2230,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             14 - 3
           </div>
@@ -2010,6 +2238,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             14 - 4
           </div>
@@ -2017,6 +2246,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             14 - 5
           </div>
@@ -2024,6 +2254,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             14 - 6
           </div>
@@ -2031,6 +2262,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             14 - 7
           </div>
@@ -2038,6 +2270,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             14 - 8
           </div>
@@ -2045,6 +2278,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             14 - 9
           </div>
@@ -2052,6 +2286,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             14 - 10
           </div>
@@ -2059,6 +2294,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             14 - 11
           </div>
@@ -2066,6 +2302,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             14 - 12
           </div>
@@ -2073,6 +2310,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             14 - 13
           </div>
@@ -2080,6 +2318,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             14 - 14
           </div>
@@ -2087,6 +2326,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             14 - 1
           </div>
@@ -2100,6 +2340,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -2111,6 +2352,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             15 - 0
           </div>
@@ -2118,6 +2360,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             15 - 2
           </div>
@@ -2125,6 +2368,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             15 - 3
           </div>
@@ -2132,6 +2376,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             15 - 4
           </div>
@@ -2139,6 +2384,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             15 - 5
           </div>
@@ -2146,6 +2392,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             15 - 6
           </div>
@@ -2153,6 +2400,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             15 - 7
           </div>
@@ -2160,6 +2408,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             15 - 8
           </div>
@@ -2167,6 +2416,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             15 - 9
           </div>
@@ -2174,6 +2424,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             15 - 10
           </div>
@@ -2181,6 +2432,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             15 - 11
           </div>
@@ -2188,6 +2440,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             15 - 12
           </div>
@@ -2195,6 +2448,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             15 - 13
           </div>
@@ -2202,6 +2456,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             15 - 14
           </div>
@@ -2209,6 +2464,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             15 - 1
           </div>
@@ -2222,6 +2478,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -2233,6 +2490,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             16 - 0
           </div>
@@ -2240,6 +2498,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             16 - 2
           </div>
@@ -2247,6 +2506,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             16 - 3
           </div>
@@ -2254,6 +2514,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             16 - 4
           </div>
@@ -2261,6 +2522,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             16 - 5
           </div>
@@ -2268,6 +2530,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             16 - 6
           </div>
@@ -2275,6 +2538,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             16 - 7
           </div>
@@ -2282,6 +2546,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             16 - 8
           </div>
@@ -2289,6 +2554,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             16 - 9
           </div>
@@ -2296,6 +2562,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             16 - 10
           </div>
@@ -2303,6 +2570,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             16 - 11
           </div>
@@ -2310,6 +2578,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             16 - 12
           </div>
@@ -2317,6 +2586,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             16 - 13
           </div>
@@ -2324,6 +2594,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             16 - 14
           </div>
@@ -2331,6 +2602,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             16 - 1
           </div>
@@ -2344,6 +2616,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -2355,6 +2628,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             17 - 0
           </div>
@@ -2362,6 +2636,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             17 - 2
           </div>
@@ -2369,6 +2644,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             17 - 3
           </div>
@@ -2376,6 +2652,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             17 - 4
           </div>
@@ -2383,6 +2660,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             17 - 5
           </div>
@@ -2390,6 +2668,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             17 - 6
           </div>
@@ -2397,6 +2676,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             17 - 7
           </div>
@@ -2404,6 +2684,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             17 - 8
           </div>
@@ -2411,6 +2692,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             17 - 9
           </div>
@@ -2418,6 +2700,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             17 - 10
           </div>
@@ -2425,6 +2708,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             17 - 11
           </div>
@@ -2432,6 +2716,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             17 - 12
           </div>
@@ -2439,6 +2724,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             17 - 13
           </div>
@@ -2446,6 +2732,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             17 - 14
           </div>
@@ -2453,6 +2740,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             17 - 1
           </div>
@@ -2466,6 +2754,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -2477,6 +2766,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             18 - 0
           </div>
@@ -2484,6 +2774,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             18 - 2
           </div>
@@ -2491,6 +2782,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             18 - 3
           </div>
@@ -2498,6 +2790,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             18 - 4
           </div>
@@ -2505,6 +2798,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             18 - 5
           </div>
@@ -2512,6 +2806,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             18 - 6
           </div>
@@ -2519,6 +2814,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             18 - 7
           </div>
@@ -2526,6 +2822,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             18 - 8
           </div>
@@ -2533,6 +2830,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             18 - 9
           </div>
@@ -2540,6 +2838,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             18 - 10
           </div>
@@ -2547,6 +2846,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             18 - 11
           </div>
@@ -2554,6 +2854,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             18 - 12
           </div>
@@ -2561,6 +2862,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             18 - 13
           </div>
@@ -2568,6 +2870,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             18 - 14
           </div>
@@ -2575,6 +2878,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             18 - 1
           </div>
@@ -2588,6 +2892,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -2599,6 +2904,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             19 - 0
           </div>
@@ -2606,6 +2912,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             19 - 2
           </div>
@@ -2613,6 +2920,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             19 - 3
           </div>
@@ -2620,6 +2928,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             19 - 4
           </div>
@@ -2627,6 +2936,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             19 - 5
           </div>
@@ -2634,6 +2944,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             19 - 6
           </div>
@@ -2641,6 +2952,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             19 - 7
           </div>
@@ -2648,6 +2960,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             19 - 8
           </div>
@@ -2655,6 +2968,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             19 - 9
           </div>
@@ -2662,6 +2976,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             19 - 10
           </div>
@@ -2669,6 +2984,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             19 - 11
           </div>
@@ -2676,6 +2992,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             19 - 12
           </div>
@@ -2683,6 +3000,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             19 - 13
           </div>
@@ -2690,6 +3008,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             19 - 14
           </div>
@@ -2697,6 +3016,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             19 - 1
           </div>
@@ -2710,6 +3030,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -2721,6 +3042,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             20 - 0
           </div>
@@ -2728,6 +3050,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             20 - 2
           </div>
@@ -2735,6 +3058,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             20 - 3
           </div>
@@ -2742,6 +3066,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             20 - 4
           </div>
@@ -2749,6 +3074,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             20 - 5
           </div>
@@ -2756,6 +3082,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             20 - 6
           </div>
@@ -2763,6 +3090,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             20 - 7
           </div>
@@ -2770,6 +3098,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             20 - 8
           </div>
@@ -2777,6 +3106,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             20 - 9
           </div>
@@ -2784,6 +3114,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             20 - 10
           </div>
@@ -2791,6 +3122,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             20 - 11
           </div>
@@ -2798,6 +3130,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             20 - 12
           </div>
@@ -2805,6 +3138,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             20 - 13
           </div>
@@ -2812,6 +3146,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             20 - 14
           </div>
@@ -2819,6 +3154,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             20 - 1
           </div>
@@ -2832,6 +3168,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -2843,6 +3180,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             21 - 0
           </div>
@@ -2850,6 +3188,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             21 - 2
           </div>
@@ -2857,6 +3196,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             21 - 3
           </div>
@@ -2864,6 +3204,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             21 - 4
           </div>
@@ -2871,6 +3212,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             21 - 5
           </div>
@@ -2878,6 +3220,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             21 - 6
           </div>
@@ -2885,6 +3228,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             21 - 7
           </div>
@@ -2892,6 +3236,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             21 - 8
           </div>
@@ -2899,6 +3244,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             21 - 9
           </div>
@@ -2906,6 +3252,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             21 - 10
           </div>
@@ -2913,6 +3260,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             21 - 11
           </div>
@@ -2920,6 +3268,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             21 - 12
           </div>
@@ -2927,6 +3276,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             21 - 13
           </div>
@@ -2934,6 +3284,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             21 - 14
           </div>
@@ -2941,6 +3292,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             21 - 1
           </div>
@@ -2954,6 +3306,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -2965,6 +3318,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             22 - 0
           </div>
@@ -2972,6 +3326,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             22 - 2
           </div>
@@ -2979,6 +3334,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             22 - 3
           </div>
@@ -2986,6 +3342,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             22 - 4
           </div>
@@ -2993,6 +3350,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             22 - 5
           </div>
@@ -3000,6 +3358,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             22 - 6
           </div>
@@ -3007,6 +3366,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             22 - 7
           </div>
@@ -3014,6 +3374,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             22 - 8
           </div>
@@ -3021,6 +3382,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             22 - 9
           </div>
@@ -3028,6 +3390,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             22 - 10
           </div>
@@ -3035,6 +3398,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             22 - 11
           </div>
@@ -3042,6 +3406,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             22 - 12
           </div>
@@ -3049,6 +3414,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             22 - 13
           </div>
@@ -3056,6 +3422,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             22 - 14
           </div>
@@ -3063,6 +3430,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             22 - 1
           </div>
@@ -3076,6 +3444,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -3087,6 +3456,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             23 - 0
           </div>
@@ -3094,6 +3464,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             23 - 2
           </div>
@@ -3101,6 +3472,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             23 - 3
           </div>
@@ -3108,6 +3480,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             23 - 4
           </div>
@@ -3115,6 +3488,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             23 - 5
           </div>
@@ -3122,6 +3496,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             23 - 6
           </div>
@@ -3129,6 +3504,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             23 - 7
           </div>
@@ -3136,6 +3512,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             23 - 8
           </div>
@@ -3143,6 +3520,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             23 - 9
           </div>
@@ -3150,6 +3528,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             23 - 10
           </div>
@@ -3157,6 +3536,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             23 - 11
           </div>
@@ -3164,6 +3544,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             23 - 12
           </div>
@@ -3171,6 +3552,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             23 - 13
           </div>
@@ -3178,6 +3560,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             23 - 14
           </div>
@@ -3185,6 +3568,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             23 - 1
           </div>
@@ -3198,6 +3582,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -3209,6 +3594,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             24 - 0
           </div>
@@ -3216,6 +3602,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             24 - 2
           </div>
@@ -3223,6 +3610,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             24 - 3
           </div>
@@ -3230,6 +3618,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             24 - 4
           </div>
@@ -3237,6 +3626,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             24 - 5
           </div>
@@ -3244,6 +3634,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             24 - 6
           </div>
@@ -3251,6 +3642,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             24 - 7
           </div>
@@ -3258,6 +3650,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             24 - 8
           </div>
@@ -3265,6 +3658,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             24 - 9
           </div>
@@ -3272,6 +3666,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             24 - 10
           </div>
@@ -3279,6 +3674,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             24 - 11
           </div>
@@ -3286,6 +3682,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             24 - 12
           </div>
@@ -3293,6 +3690,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             24 - 13
           </div>
@@ -3300,6 +3698,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             24 - 14
           </div>
@@ -3307,6 +3706,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             24 - 1
           </div>
@@ -3320,6 +3720,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -3331,6 +3732,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             25 - 0
           </div>
@@ -3338,6 +3740,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             25 - 2
           </div>
@@ -3345,6 +3748,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             25 - 3
           </div>
@@ -3352,6 +3756,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             25 - 4
           </div>
@@ -3359,6 +3764,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             25 - 5
           </div>
@@ -3366,6 +3772,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             25 - 6
           </div>
@@ -3373,6 +3780,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             25 - 7
           </div>
@@ -3380,6 +3788,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             25 - 8
           </div>
@@ -3387,6 +3796,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             25 - 9
           </div>
@@ -3394,6 +3804,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             25 - 10
           </div>
@@ -3401,6 +3812,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             25 - 11
           </div>
@@ -3408,6 +3820,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             25 - 12
           </div>
@@ -3415,6 +3828,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             25 - 13
           </div>
@@ -3422,6 +3836,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             25 - 14
           </div>
@@ -3429,6 +3844,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             25 - 1
           </div>
@@ -3442,6 +3858,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -3453,6 +3870,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             26 - 0
           </div>
@@ -3460,6 +3878,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             26 - 2
           </div>
@@ -3467,6 +3886,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             26 - 3
           </div>
@@ -3474,6 +3894,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             26 - 4
           </div>
@@ -3481,6 +3902,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             26 - 5
           </div>
@@ -3488,6 +3910,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             26 - 6
           </div>
@@ -3495,6 +3918,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             26 - 7
           </div>
@@ -3502,6 +3926,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             26 - 8
           </div>
@@ -3509,6 +3934,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             26 - 9
           </div>
@@ -3516,6 +3942,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             26 - 10
           </div>
@@ -3523,6 +3950,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             26 - 11
           </div>
@@ -3530,6 +3958,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             26 - 12
           </div>
@@ -3537,6 +3966,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             26 - 13
           </div>
@@ -3544,6 +3974,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             26 - 14
           </div>
@@ -3551,6 +3982,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             26 - 1
           </div>
@@ -3564,6 +3996,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -3575,6 +4008,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             27 - 0
           </div>
@@ -3582,6 +4016,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             27 - 2
           </div>
@@ -3589,6 +4024,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             27 - 3
           </div>
@@ -3596,6 +4032,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             27 - 4
           </div>
@@ -3603,6 +4040,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             27 - 5
           </div>
@@ -3610,6 +4048,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             27 - 6
           </div>
@@ -3617,6 +4056,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             27 - 7
           </div>
@@ -3624,6 +4064,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             27 - 8
           </div>
@@ -3631,6 +4072,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             27 - 9
           </div>
@@ -3638,6 +4080,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             27 - 10
           </div>
@@ -3645,6 +4088,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             27 - 11
           </div>
@@ -3652,6 +4096,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             27 - 12
           </div>
@@ -3659,6 +4104,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             27 - 13
           </div>
@@ -3666,6 +4112,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             27 - 14
           </div>
@@ -3673,6 +4120,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             27 - 1
           </div>
@@ -3686,6 +4134,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -3697,6 +4146,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             28 - 0
           </div>
@@ -3704,6 +4154,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             28 - 2
           </div>
@@ -3711,6 +4162,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             28 - 3
           </div>
@@ -3718,6 +4170,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             28 - 4
           </div>
@@ -3725,6 +4178,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             28 - 5
           </div>
@@ -3732,6 +4186,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             28 - 6
           </div>
@@ -3739,6 +4194,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             28 - 7
           </div>
@@ -3746,6 +4202,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             28 - 8
           </div>
@@ -3753,6 +4210,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             28 - 9
           </div>
@@ -3760,6 +4218,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             28 - 10
           </div>
@@ -3767,6 +4226,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             28 - 11
           </div>
@@ -3774,6 +4234,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             28 - 12
           </div>
@@ -3781,6 +4242,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             28 - 13
           </div>
@@ -3788,6 +4250,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             28 - 14
           </div>
@@ -3795,6 +4258,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             28 - 1
           </div>
@@ -3808,6 +4272,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -3819,6 +4284,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             29 - 0
           </div>
@@ -3826,6 +4292,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             29 - 2
           </div>
@@ -3833,6 +4300,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             29 - 3
           </div>
@@ -3840,6 +4308,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             29 - 4
           </div>
@@ -3847,6 +4316,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             29 - 5
           </div>
@@ -3854,6 +4324,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             29 - 6
           </div>
@@ -3861,6 +4332,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             29 - 7
           </div>
@@ -3868,6 +4340,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             29 - 8
           </div>
@@ -3875,6 +4348,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             29 - 9
           </div>
@@ -3882,6 +4356,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             29 - 10
           </div>
@@ -3889,6 +4364,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             29 - 11
           </div>
@@ -3896,6 +4372,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             29 - 12
           </div>
@@ -3903,6 +4380,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             29 - 13
           </div>
@@ -3910,6 +4388,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             29 - 14
           </div>
@@ -3917,6 +4396,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             29 - 1
           </div>
@@ -3930,6 +4410,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -3941,6 +4422,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             30 - 0
           </div>
@@ -3948,6 +4430,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             30 - 2
           </div>
@@ -3955,6 +4438,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             30 - 3
           </div>
@@ -3962,6 +4446,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             30 - 4
           </div>
@@ -3969,6 +4454,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             30 - 5
           </div>
@@ -3976,6 +4462,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             30 - 6
           </div>
@@ -3983,6 +4470,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             30 - 7
           </div>
@@ -3990,6 +4478,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             30 - 8
           </div>
@@ -3997,6 +4486,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             30 - 9
           </div>
@@ -4004,6 +4494,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             30 - 10
           </div>
@@ -4011,6 +4502,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             30 - 11
           </div>
@@ -4018,6 +4510,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             30 - 12
           </div>
@@ -4025,6 +4518,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             30 - 13
           </div>
@@ -4032,6 +4526,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             30 - 14
           </div>
@@ -4039,6 +4534,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             30 - 1
           </div>
@@ -4052,6 +4548,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -4063,6 +4560,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             31 - 0
           </div>
@@ -4070,6 +4568,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             31 - 2
           </div>
@@ -4077,6 +4576,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             31 - 3
           </div>
@@ -4084,6 +4584,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             31 - 4
           </div>
@@ -4091,6 +4592,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             31 - 5
           </div>
@@ -4098,6 +4600,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             31 - 6
           </div>
@@ -4105,6 +4608,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             31 - 7
           </div>
@@ -4112,6 +4616,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             31 - 8
           </div>
@@ -4119,6 +4624,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             31 - 9
           </div>
@@ -4126,6 +4632,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             31 - 10
           </div>
@@ -4133,6 +4640,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             31 - 11
           </div>
@@ -4140,6 +4648,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             31 - 12
           </div>
@@ -4147,6 +4656,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             31 - 13
           </div>
@@ -4154,6 +4664,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             31 - 14
           </div>
@@ -4161,6 +4672,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             31 - 1
           </div>
@@ -4174,6 +4686,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -4185,6 +4698,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             32 - 0
           </div>
@@ -4192,6 +4706,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             32 - 2
           </div>
@@ -4199,6 +4714,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             32 - 3
           </div>
@@ -4206,6 +4722,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             32 - 4
           </div>
@@ -4213,6 +4730,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             32 - 5
           </div>
@@ -4220,6 +4738,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             32 - 6
           </div>
@@ -4227,6 +4746,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             32 - 7
           </div>
@@ -4234,6 +4754,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             32 - 8
           </div>
@@ -4241,6 +4762,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             32 - 9
           </div>
@@ -4248,6 +4770,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             32 - 10
           </div>
@@ -4255,6 +4778,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             32 - 11
           </div>
@@ -4262,6 +4786,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             32 - 12
           </div>
@@ -4269,6 +4794,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             32 - 13
           </div>
@@ -4276,6 +4802,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             32 - 14
           </div>
@@ -4283,6 +4810,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             32 - 1
           </div>
@@ -4296,6 +4824,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -4307,6 +4836,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             33 - 0
           </div>
@@ -4314,6 +4844,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             33 - 2
           </div>
@@ -4321,6 +4852,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             33 - 3
           </div>
@@ -4328,6 +4860,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             33 - 4
           </div>
@@ -4335,6 +4868,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             33 - 5
           </div>
@@ -4342,6 +4876,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             33 - 6
           </div>
@@ -4349,6 +4884,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             33 - 7
           </div>
@@ -4356,6 +4892,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             33 - 8
           </div>
@@ -4363,6 +4900,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             33 - 9
           </div>
@@ -4370,6 +4908,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             33 - 10
           </div>
@@ -4377,6 +4916,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             33 - 11
           </div>
@@ -4384,6 +4924,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             33 - 12
           </div>
@@ -4391,6 +4932,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             33 - 13
           </div>
@@ -4398,6 +4940,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             33 - 14
           </div>
@@ -4405,6 +4948,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             33 - 1
           </div>
@@ -4418,6 +4962,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -4429,6 +4974,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             34 - 0
           </div>
@@ -4436,6 +4982,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             34 - 2
           </div>
@@ -4443,6 +4990,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             34 - 3
           </div>
@@ -4450,6 +4998,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             34 - 4
           </div>
@@ -4457,6 +5006,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             34 - 5
           </div>
@@ -4464,6 +5014,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             34 - 6
           </div>
@@ -4471,6 +5022,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             34 - 7
           </div>
@@ -4478,6 +5030,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             34 - 8
           </div>
@@ -4485,6 +5038,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             34 - 9
           </div>
@@ -4492,6 +5046,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             34 - 10
           </div>
@@ -4499,6 +5054,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             34 - 11
           </div>
@@ -4506,6 +5062,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             34 - 12
           </div>
@@ -4513,6 +5070,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             34 - 13
           </div>
@@ -4520,6 +5078,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             34 - 14
           </div>
@@ -4527,6 +5086,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             34 - 1
           </div>
@@ -4540,6 +5100,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -4551,6 +5112,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             35 - 0
           </div>
@@ -4558,6 +5120,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             35 - 2
           </div>
@@ -4565,6 +5128,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             35 - 3
           </div>
@@ -4572,6 +5136,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             35 - 4
           </div>
@@ -4579,6 +5144,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             35 - 5
           </div>
@@ -4586,6 +5152,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             35 - 6
           </div>
@@ -4593,6 +5160,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             35 - 7
           </div>
@@ -4600,6 +5168,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             35 - 8
           </div>
@@ -4607,6 +5176,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             35 - 9
           </div>
@@ -4614,6 +5184,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             35 - 10
           </div>
@@ -4621,6 +5192,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             35 - 11
           </div>
@@ -4628,6 +5200,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             35 - 12
           </div>
@@ -4635,6 +5208,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             35 - 13
           </div>
@@ -4642,6 +5216,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             35 - 14
           </div>
@@ -4649,6 +5224,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             35 - 1
           </div>
@@ -4662,6 +5238,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 0px; z-index: 2; width: 35px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             <input
               class="test-checkbox"
@@ -4673,6 +5250,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi gqOREI"
             role="gridcell"
             style="left: 35px; z-index: 2; width: 120px; height: 35px; line-height: 35px; position: sticky;"
+            tabindex="-2"
           >
             36 - 0
           </div>
@@ -4680,6 +5258,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 155px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             36 - 2
           </div>
@@ -4687,6 +5266,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 275px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             36 - 3
           </div>
@@ -4694,6 +5274,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 395px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             36 - 4
           </div>
@@ -4701,6 +5282,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 515px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             36 - 5
           </div>
@@ -4708,6 +5290,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 635px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             36 - 6
           </div>
@@ -4715,6 +5298,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 755px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             36 - 7
           </div>
@@ -4722,6 +5306,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 875px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             36 - 8
           </div>
@@ -4729,6 +5314,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 995px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             36 - 9
           </div>
@@ -4736,6 +5322,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1115px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             36 - 10
           </div>
@@ -4743,6 +5330,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1235px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             36 - 11
           </div>
@@ -4750,6 +5338,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1355px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             36 - 12
           </div>
@@ -4757,6 +5346,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1475px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             36 - 13
           </div>
@@ -4764,6 +5354,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi egpIxv"
             role="gridcell"
             style="left: 1595px; width: 120px; height: 35px; line-height: 35px;"
+            tabindex="-2"
           >
             36 - 14
           </div>
@@ -4771,6 +5362,7 @@ exports[`select-multiple test 1`] = `
             class="sc-dlnjwi hCEUlQ"
             role="gridcell"
             style="z-index: 2; width: 120px; height: 35px; line-height: 35px; float: right; right: 0px; position: sticky;"
+            tabindex="-2"
           >
             36 - 1
           </div>
