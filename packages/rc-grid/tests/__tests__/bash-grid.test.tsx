@@ -3,6 +3,7 @@ import { render, waitFor, screen, fireEvent } from "@testing-library/react"
 import produce from 'immer'
 
 import DataGrid, { Column, DataGridProps, Row, AutoSize, Cell, GridHandle, EditorProps } from '../../src/index'
+import { sleep } from '../utils'
 
 const Input = ({ style, value: tempValue, onEditCompleted }: EditorProps) => {
     const [value, setValue] = useState(tempValue)
@@ -502,3 +503,21 @@ test('grid columns resizable test', async () => {
     expect(container).toMatchSnapshot()
 })
 
+test('copy grid cell text', async () => {
+    const Grid = () => (
+        <BashGrid
+            width={1200}
+            height={500}
+            rows={rowsData}
+        />
+    )
+    const {container, getByText} = render(<Grid />)
+    await waitFor(() => getByText('my name 0'))
+    const element = getByText('my name 0')
+    fireEvent.keyDown(element, {
+        key: 'c',
+        ctrlKey: true
+    })
+    await sleep(300)
+    expect(container).toMatchSnapshot()
+})
