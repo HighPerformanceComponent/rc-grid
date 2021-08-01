@@ -45,3 +45,19 @@ export function isInvisibleScrollbar(): boolean {
     }
     return invisibleScrollbar
 }
+
+let clipboard: HTMLInputElement = null
+
+/**
+ * 写入剪贴板内容
+ */
+export const writeClipboardText = (text: string) => {
+    if (clipboard === null) {
+        clipboard = document.createElement("input");
+        clipboard.style.cssText = 'position: absolute; top: -9999px;';
+        document.body.appendChild(clipboard);
+    }
+    clipboard.value = text;
+    clipboard.select();
+    document.execCommand('copy');
+}

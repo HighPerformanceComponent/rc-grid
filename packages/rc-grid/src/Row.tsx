@@ -185,15 +185,15 @@ function Row<T>({
                     value={txt}
                     girdProps={gridProps}
                     onFocus={() => {
-                        if (column.isSelect?.(cell) !== false) {
-                            dispatch({
-                                type: 'setSelectPosition',
-                                payload: {
-                                    x: index,
-                                    y: `${rowIndexCode}-${rowIndex}`,
-                                },
-                            })
-                        }
+                        // if (column.isSelect?.(cell) !== false) {
+                        //     dispatch({
+                        //         type: 'setSelectPosition',
+                        //         payload: {
+                        //             x: index,
+                        //             y: `${rowIndexCode}-${rowIndex}`,
+                        //         },
+                        //     })
+                        // }
                     }}
                 />
             )

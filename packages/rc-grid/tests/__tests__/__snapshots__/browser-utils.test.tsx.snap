@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`isInvisibleScrollbar test 1`] = `true`;
+
+exports[`writeClipboardText test 1`] = `
+<body>
+  <input
+    style="position: absolute; top: -9999px;"
+  />
+</body>
+`;
