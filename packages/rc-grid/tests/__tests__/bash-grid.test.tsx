@@ -73,16 +73,16 @@ function BashGrid<T>(props: BashGridProps<T>) {
 
     const oldData = useRef<Row<any>[]>(produce(rows, () => { }))
     const [datas, setDatas] = useState<Row<any>[]>(produce(rows, () => { }))
-    const [col, setCol] = useState<Column<T>[]>(columns)
+    const [cols, setCols] = useState<Column<T>[]>(columns)
     
     return (
         <DataGrid<T>
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...restProps}
-            columns={col}
+            columns={cols}
             rows={datas}
             onHeaderResizable={(newCols) => {
-                setCol(newCols)
+                setCols(newCols)
             }}
             onSort={(sort) => {
                 if (sort.length === 0) {
@@ -358,7 +358,6 @@ test('scroll to', async () => {
     fireEvent.click(await screen.findByText('click scroll'))
     expect(autoSize).toMatchSnapshot()
 })
-
 
 test('cell select test', async () => {
     const Grid = () => {
