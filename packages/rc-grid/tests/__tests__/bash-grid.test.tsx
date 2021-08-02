@@ -3,7 +3,12 @@ import { render, waitFor, screen, fireEvent } from "@testing-library/react"
 import produce from 'immer'
 
 import DataGrid, { Column, DataGridProps, Row, AutoSize, Cell, GridHandle, EditorProps } from '../../src/index'
-import { sleep } from '../utils'
+
+const sleep = (time: number) => new Promise<void>((resolve) => {
+    setTimeout(() => {
+        resolve()
+    }, time)
+})
 
 const Input = ({ style, value: tempValue, onEditCompleted }: EditorProps) => {
     const [value, setValue] = useState(tempValue)
@@ -404,7 +409,6 @@ test('cell editor test', async () => {
                         <BashGrid
                             width={autoWidth}
                             height={autoHeight}
-                            
                             rows={rowsData}
                         />
                     )}
@@ -414,9 +418,10 @@ test('cell editor test', async () => {
     }
     const autoSize = render(<Grid />)
     await waitFor(() => screen.getByRole('grid'))
-    fireEvent.click(screen.getAllByRole('gridcell')[0])
-    fireEvent.click(screen.getAllByRole('gridcell')[0])
-    fireEvent.blur(screen.getAllByRole('gridcell')[0])
+    fireEvent.click(screen.getAllByRole('gridcell')[1])
+    fireEvent.click(screen.getAllByRole('gridcell')[1])
+    const input = screen.getAllByRole('gridcell')[1].children[0]
+    fireEvent.blur(input)
     expect(autoSize).toMatchSnapshot()
 })
 

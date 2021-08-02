@@ -180,11 +180,22 @@ test('grid header drag', async () => {
     const address = await findByText('Address')
     const userName = await findByText('User Name')
 
-    fireEvent.drag(address, {
+
+    fireEvent.dragStart(address, {
         dataTransfer: {
-            name: 'address'
+            setData: jest.fn(),
+            getData: () => 'userName'
         }
     })
+
+
+    fireEvent.dragEnter(userName, {
+        dataTransfer: {
+            getData: () => 'address'
+        }
+    })
+    fireEvent.dragLeave(userName)
+    fireEvent.dragOver(userName)
     fireEvent.drop(userName, {
         dataTransfer: {
             name: 'address',
