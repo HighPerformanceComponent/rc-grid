@@ -60,6 +60,7 @@ interface GridCellProps extends React.HTMLAttributes<HTMLDivElement> {
     isLastFeftFixed: boolean
     isLastRightFixed: boolean
     isSelect: boolean
+    readonly: boolean
     styled: CSSProperties
 }
 
@@ -72,7 +73,12 @@ const GridCell = styled.div.attrs<GridCellProps>((props) => ({
     border-bottom: 1px solid #ddd;
     box-sizing: border-box;
     outline: none;
-    background-color: inherit;
+    background-color: ${({ readonly }) => {
+        if (readonly) {
+            return 'hsl(0deg 0% 97%)'
+        }
+        return 'inherit'
+    }};
     user-select: none;
     box-shadow: ${({ isLastFeftFixed, isLastRightFixed, isSelect }) => {
         if (isSelect) {
@@ -93,6 +99,7 @@ const GridCell = styled.div.attrs<GridCellProps>((props) => ({
     text-overflow: ellipsis;
     overflow: hidden;
     height: 100%;
+
 `
 
 export interface CellProps<T> extends React.HTMLAttributes<HTMLDivElement> {
@@ -159,6 +166,7 @@ function Cell<T>({
                     display: 'inline-flex',
                     padding: 0,
                 }}
+                readonly={false}
                 role="gridcell"
                 isLastFeftFixed={isLastFeftFixed}
                 isLastRightFixed={isLastRightFixed}
@@ -224,6 +232,7 @@ function Cell<T>({
         <GridCell
             style={style}
             role="gridcell"
+            readonly={!(column.editor && readonly === false)}
             styled={tempStyled}
             isLastFeftFixed={isLastFeftFixed}
             isLastRightFixed={isLastRightFixed}

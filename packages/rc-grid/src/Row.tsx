@@ -15,12 +15,14 @@ const GridRow = styled.div.attrs<GridRowProps>((props) => ({
     position: absolute;
     background-color: ${(props) => {
         if (props.isSelect) {
-            return 'hsl(0deg 0% 96%)';
+            return 'hsl(0deg 0% 95%)';
         }
         return '#fff'
     }};
     :hover {
-        background-color: hsl(0deg 0% 96%);
+        > div {
+            background-color: hsl(0deg 0% 95%);
+        }
     }
 `
 
