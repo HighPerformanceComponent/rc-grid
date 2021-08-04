@@ -40,6 +40,7 @@ const ExpandableIcon = styled.i`
     cursor: pointer;
 `
 
+
 function useExpandableRender<T>(
     row: Row<T>,
     isExpandable: (data: Row<T>) => boolean
@@ -103,6 +104,7 @@ function DataGrid<R>(props: DataGridProps<R>) {
         onEmptyRowsRenderer,
         onHeaderRowRender = (node: JSX.Element) => node,
         onChildrenRows,
+        footRows,
         grid
     } = props
 
@@ -118,6 +120,8 @@ function DataGrid<R>(props: DataGridProps<R>) {
     const [isShowUniversal, setIsShowUniversal] = useState<boolean>(false)
 
     const gridRef = useRef<HTMLDivElement>(null)
+
+    const isHaveFoot = () => !!footRows
 
     /** 数据进行排序, 方便固定列进行排序 */
     const sortColumns = useMemo(() => {
@@ -205,8 +209,8 @@ function DataGrid<R>(props: DataGridProps<R>) {
     }, [columns, width, selectedRows])
 
     const filterRows = useMemo(
-        () =>
-            rows.filter((row) => {
+        () => {
+            const rowsData = rows.filter((row) => {
                 const { cells } = row
                 if (universalValue !== '') {
                     const result = cells.some((cell) => {
@@ -218,7 +222,13 @@ function DataGrid<R>(props: DataGridProps<R>) {
                     return result
                 }
                 return true
-            }),
+            })
+
+            if (isHaveFoot()) {
+                rowsData.push(footRows)
+            }
+            return rowsData
+        },
         [universalValue, rows]
     )
 
@@ -273,8 +283,7 @@ function DataGrid<R>(props: DataGridProps<R>) {
         domRows.push(onHeaderRowRender(headerRow))
 
         top += headerRowHeight
-        filterRows.some((row) => {
-            const index = rows.findIndex((ele) => ele.key === row.key)
+        filterRows.some((row, index) => {
             if (top < scrollTop - calcCacheRemove) {
                 top += row.height
                 return false
@@ -283,7 +292,7 @@ function DataGrid<R>(props: DataGridProps<R>) {
             domRows.push(
                 <DataGridRow<R>
                     key={row.key}
-                    rows={rows}
+                    rows={filterRows}
                     rowIndexCode="row"
                     rowIndex={index}
                     width={width}
@@ -391,6 +400,7 @@ function DataGrid<R>(props: DataGridProps<R>) {
             }
             return false
         })
+
         return domRows
     }, [
         scrollTop,
@@ -528,6 +538,37 @@ function DataGrid<R>(props: DataGridProps<R>) {
         return null
     }
 
+    const renderFoot = () => {
+        if (isHaveFoot()) {
+            return (
+                <DataGridRow<R>
+                    key="foot"
+                    rows={[footRows]}
+                    rowIndexCode="foot-row"
+                    rowIndex={0}
+                    width={width}
+                    level={0}
+                    scrollWidth={scrollWidth}
+                    scrollLeft={scrollLeft}
+                    styled={{
+                        height: 35,
+                        width: scrollWidth,
+                        lineHeight: '35px',
+                        position: 'sticky',
+                        borderTop: '1px solid #ddd',
+                        zIndex: 20,
+                        bottom: 0
+                    }}
+                    gridProps={{
+                        ...props,
+                        columns: sortColumns,
+                    }}
+                />
+            )
+        }
+        return null
+    }
+
     return (
         <Context.Provider
             value={{
@@ -568,6 +609,7 @@ function DataGrid<R>(props: DataGridProps<R>) {
                     >
                         {renderRow}
                     </div>
+                    {renderFoot()}
                     {rows.length === 0 && onEmptyRowsRenderer ? (
                         <div
                             style={{
@@ -593,8 +635,9 @@ DataGrid.defaultProps = {
     estimatedRowHeight: 50,
     estimatedColumnWidth: 120,
     headerRowHeight: 35,
+    footRowHeight: 35,
     cacheRemoveCount: 6,
-    selectedRows: [],
+    selectedRows: []
 }
 
 export default DataGrid

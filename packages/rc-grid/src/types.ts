@@ -73,8 +73,6 @@ export interface DataGridProps<R> extends SharedDivProps {
     }
     /** 默认选中的数据信息 */
     selectedRows?: Key[]
-    /** 改变选中的数据触发的事件 */
-    onChangeSelectedRows?: (keys: Key[]) => void
     /** 展开的配置信息 */
     expandable?: {
         /** 展示树形数据时，每层缩进的宽度，以 rem 为单位 */
@@ -86,6 +84,10 @@ export interface DataGridProps<R> extends SharedDivProps {
         /** 渲染的实际内容 */
         expandedRowRender?: (row: Row<R>, style: CSSProperties) => ReactNode
     }
+    /** 底部栏的信息 */
+    footRows?: Row<R>
+    /** 改变选中的数据触发的事件 */
+    onChangeSelectedRows?: (keys: Key[]) => void
     /** 用户编辑触发的数据 */
     onEditorChangeSave?: (change: EditorChange<R>) => void
     /** 渲染表格头部的单元格 */
