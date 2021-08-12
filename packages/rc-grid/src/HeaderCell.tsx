@@ -24,8 +24,8 @@ const GridHeaderCell = styled.div.attrs<GridHeaderCellProps>((props) => ({
 }))<GridHeaderCellProps>`
     display: inline-flex;
     position: absolute;
-    border-right: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
+    border-right: ${({ theme }) => theme['grid-header-cell-border-right']};
+    border-bottom: ${({ theme }) => theme['grid-header-cell-border-bottom']};
     border-left: ${({ isDragHover }) => {
         if (isDragHover) {
             return '2px solid #3740ff'
@@ -35,7 +35,7 @@ const GridHeaderCell = styled.div.attrs<GridHeaderCellProps>((props) => ({
     box-sizing: border-box;
     height: 100%;
     align-items: center;
-    background-color: hsl(0deg 0% 97.5%);
+    background-color: ${({ theme }) => theme['grid-header-cell-background-color']};
     box-shadow: ${({ isLastFeftFixed, isLastRightFixed }) => {
         if (isLastFeftFixed) {
             return '2px 0 5px -2px rgb(136 136 136 / 30%)'
@@ -56,6 +56,14 @@ const GridHeaderCell = styled.div.attrs<GridHeaderCellProps>((props) => ({
         }
     }
 `
+
+GridHeaderCell.defaultProps = {
+    theme: {
+        'grid-header-cell-border-right': '1px solid #ddd',
+        'grid-header-cell-border-bottom': '1px solid #ddd',
+        'grid-header-cell-background-color': 'hsl(0deg 0% 97.5%)'
+    }
+}
 
 /** 用来显示可以拖拽的鼠标指示 */
 const ResizableSpan = styled.span`

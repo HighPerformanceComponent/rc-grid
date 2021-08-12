@@ -69,20 +69,20 @@ const GridCell = styled.div.attrs<GridCellProps>((props) => ({
 }))<GridCellProps>`
     display: inline-block;
     position: absolute;
-    border-right: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
+    border-right: ${({ theme }) => theme['grid-row-cell-border-right']};
+    border-bottom: ${({ theme }) => theme['grid-row-cell-border-bottom']};
     box-sizing: border-box;
     outline: none;
-    background-color: ${({ readonly }) => {
+    background-color: ${({ readonly, theme }) => {
         if (readonly) {
-            return 'hsl(0deg 0% 97%)'
+            return theme['grid-row-cell-background-color-readonly']
         }
         return 'inherit'
     }};
     user-select: none;
-    box-shadow: ${({ isLastFeftFixed, isLastRightFixed, isSelect }) => {
+    box-shadow: ${({ isLastFeftFixed, isLastRightFixed, isSelect, theme }) => {
         if (isSelect) {
-            return 'inset 0 0 0 2px #66afe9'
+            return theme['grid-row-cell-select']
         }
         if (isLastFeftFixed) {
             return '2px 0 5px -2px rgb(136 136 136 / 30%)'
@@ -99,8 +99,16 @@ const GridCell = styled.div.attrs<GridCellProps>((props) => ({
     text-overflow: ellipsis;
     overflow: hidden;
     height: 100%;
-
 `
+
+GridCell.defaultProps = {
+    theme: {
+        'grid-row-cell-border-right': '1px solid #ddd',
+        'grid-row-cell-border-bottom': '1px solid #ddd',
+        'grid-row-cell-background-color-readonly': 'hsl(0deg 0% 97%)',
+        'grid-row-cell-select': 'inset 0 0 0 1px #66afe9'
+    }
+}
 
 export interface CellProps<T> extends React.HTMLAttributes<HTMLDivElement> {
     isLastFeftFixed: boolean

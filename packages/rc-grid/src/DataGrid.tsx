@@ -30,9 +30,17 @@ const Grid = styled.div`
     position: relative;
     overflow: auto;
     scroll-behavior: smooth;
-    border: 1px solid #ddd;
+    color: ${({ theme }) => theme['grid-text-color']};
+    border: ${({ theme }) => theme['grid-border']};
     outline: none;
 `
+
+Grid.defaultProps = {
+    theme: {
+        'grid-border': '1px solid #ddd',
+        'grid-text-color': '#000'
+    }
+}
 
 const ExpandableIcon = styled.i`
     width: 16px;

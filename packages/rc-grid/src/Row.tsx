@@ -13,18 +13,27 @@ const GridRow = styled.div.attrs<GridRowProps>((props) => ({
     style: props.styled,
 }))<GridRowProps>`
     position: absolute;
-    background-color: ${(props) => {
-        if (props.isSelect) {
-            return 'hsl(0deg 0% 95%)';
+    background-color: ${({ isSelect, theme}) => {
+        if (isSelect) {
+            return theme['grid-row-background-color-select'];
         }
-        return '#fff'
+        return theme['grid-row-background-color']
     }};
     :hover {
         > div {
-            background-color: hsl(0deg 0% 95%);
+            background-color: ${({ theme }) => theme['grid-row-background-color:hover']};
         }
     }
 `
+
+GridRow.defaultProps = {
+    theme: {
+        'grid-row-background-color': 'inherit',
+        'grid-row-background-color-select': 'hsl(0deg 0% 95%)',
+        'grid-row-background-color:hover': 'hsl(0deg 0% 95%)'
+    }
+}
+
 
 interface RowProps<R>
     extends Pick<React.HTMLAttributes<HTMLDivElement>, 'style'> {
