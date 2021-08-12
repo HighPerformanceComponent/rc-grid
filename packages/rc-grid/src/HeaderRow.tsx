@@ -16,6 +16,7 @@ const GridHeaderRow = styled.div.attrs<GridHeaderRowProps>((props) => ({
     user-select: none;
 `
 
+
 interface HeaderRowProps<T>
     extends Pick<React.HTMLAttributes<HTMLDivElement>, 'style'> {
     scrollWidth: number
