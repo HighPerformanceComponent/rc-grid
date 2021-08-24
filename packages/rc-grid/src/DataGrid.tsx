@@ -21,6 +21,8 @@ import Context, { reducer } from './Context'
 import UniversalToolbar from './plugins/UniversalToolbar'
 import { useChevronRightIcon, useChevronDownIcon } from './Icon'
 import { getScrollbarWidth } from './utils/browser'
+import debounce from './utils/debounce'
+
 
 const GridContainer = styled.div`
     position: relative;
@@ -493,20 +495,11 @@ function DataGrid<R>(props: DataGridProps<R>) {
         }
     }, [])
 
-    const onScroll = ({
-        currentTarget,
+
+    const onScrollDebounce = debounce(({
+        target,
     }: React.UIEvent<HTMLDivElement, UIEvent>) => {
-        if (timeout.current) {
-            clearTimeout(timeout.current)
-        } else if (isScroll === false) {
-            setIsScroll(true)
-        }
-
-        timeout.current = setTimeout(() => {
-            setIsScroll(false)
-            timeout.current = undefined
-        }, 100)
-
+        const currentTarget = target as HTMLElement
         const { scrollTop: currentScrollTop, scrollLeft: currentScrollLeft } =
             currentTarget
         if (currentTarget) {
@@ -528,6 +521,24 @@ function DataGrid<R>(props: DataGridProps<R>) {
                 lastScrollLeft.current = currentScrollLeft
             }
         }
+    }, 80, {
+        maxTime: 80
+    })
+
+    const onScroll = (event: React.UIEvent<HTMLDivElement, UIEvent>) => {
+        
+        if (timeout.current) {
+            clearTimeout(timeout.current)
+        } else if (isScroll === false) {
+            setIsScroll(true)
+        }
+
+        timeout.current = setTimeout(() => {
+            setIsScroll(false)
+            timeout.current = undefined
+        }, 100)
+
+        onScrollDebounce(event)
     }
 
     const renderUniversal = () => {
@@ -644,7 +655,7 @@ DataGrid.defaultProps = {
     estimatedColumnWidth: 120,
     headerRowHeight: 35,
     footRowHeight: 35,
-    cacheRemoveCount: 6,
+    cacheRemoveCount: 2,
     selectedRows: []
 }
 
