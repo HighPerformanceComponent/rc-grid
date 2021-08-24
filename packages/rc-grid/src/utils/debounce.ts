@@ -18,11 +18,9 @@ const debounce = (fn: Function, time: number, option?: Option) => {
     let timeout: any;
 
     const invokeFunc = () => {
-        if (lastArgs) {
-            lastCallTime = Date.now()
-            const result = fn.apply(invokeSelf, lastArgs)
-            invokeResult = result
-        }
+        lastCallTime = Date.now()
+        const result = fn.apply(invokeSelf, lastArgs)
+        invokeResult = result
     }
 
     const shouldInvoke = (currentTime: number) => {
